@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::vec::OwnedVector - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>vec</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='bytes/index.html' title='Operations on `[u8]`.'>bytes</a><br/><a class='mod ' href='raw/index.html' title='Unsafe operations'>raw</a><br/></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Chunks.html' title='An iterator over a vector in (non-overlapping) chunks (`size` elements at a time).'>Chunks</a><br/><a class='struct ' href='struct.ElementSwaps.html' title='An Iterator that yields the element swaps needed to produce a sequence of all possible permutations for an indexed sequence of elements. Each permutation is only a single swap apart.'>ElementSwaps</a><br/><a class='struct ' href='struct.Items.html' title='Immutable slice iterator'>Items</a><br/><a class='struct ' href='struct.MoveItems.html' title='An iterator that moves out of a vector.'>MoveItems</a><br/><a class='struct ' href='struct.MutChunks.html' title='An iterator over a vector in (non-overlapping) mutable chunks (`size`  elements at a time). When the vector len is not evenly divided by the chunk size, the last slice of the iteration will be the remainder.'>MutChunks</a><br/><a class='struct ' href='struct.MutItems.html' title='Mutable slice iterator'>MutItems</a><br/><a class='struct ' href='struct.MutSplits.html' title='An iterator over the subslices of the vector which are separated by elements that match `pred`.'>MutSplits</a><br/><a class='struct ' href='struct.Permutations.html' title='An Iterator that uses `ElementSwaps` to iterate through all possible permutations of a vector.'>Permutations</a><br/><a class='struct ' href='struct.RevSplits.html' title='An iterator over the slices of a vector separated by elements that match a predicate function, from back to front.'>RevSplits</a><br/><a class='struct ' href='struct.Splits.html' title='An iterator over the slices of a vector separated by elements that match a predicate function.'>Splits</a><br/><a class='struct ' href='struct.Windows.html' title='An iterator over the (overlapping) slices of length `size` within a vector.'>Windows</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.CloneableVector.html' title='Extension methods for vector slices with cloneable elements'>CloneableVector</a><br/><a class='trait ' href='trait.ImmutableCloneableVector.html' title='Extension methods for vectors containing `Clone` elements.'>ImmutableCloneableVector</a><br/><a class='trait ' href='trait.ImmutableEqVector.html' title='Extension methods for vectors contain `Eq` elements.'>ImmutableEqVector</a><br/><a class='trait ' href='trait.ImmutableTotalOrdVector.html' title='Extension methods for vectors containing `TotalOrd` elements.'>ImmutableTotalOrdVector</a><br/><a class='trait ' href='trait.ImmutableVector.html' title='Extension methods for vectors'>ImmutableVector</a><br/><a class='trait ' href='trait.MutableCloneableVector.html' title='Trait for &[T] where T is Cloneable'>MutableCloneableVector</a><br/><a class='trait ' href='trait.MutableTotalOrdVector.html' title='Methods for mutable vectors with orderable elements, such as in-place sorting.'>MutableTotalOrdVector</a><br/><a class='trait ' href='trait.MutableVector.html' title='Extension methods for vectors such that their elements are mutable.'>MutableVector</a><br/><a class='trait ' href='trait.OwnedCloneableVector.html' title='Extension methods for owned vectors containing `Clone` elements.'>OwnedCloneableVector</a><br/><a class='trait ' href='trait.OwnedEqVector.html' title='Extension methods for owned vectors containing `Eq` elements.'>OwnedEqVector</a><br/><a class='trait current' href='trait.OwnedVector.html' title='Extension methods for owned vectors.'>OwnedVector</a><br/><a class='trait ' href='trait.Vector.html' title='Any vector that can be represented as a slice.'>Vector</a><br/><a class='trait ' href='trait.VectorVector.html' title=''>VectorVector</a><br/></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.append.html' title='Iterates over the `rhs` vector, copying each element and appending it to the `lhs`. Afterwards, the `lhs` is then returned for use again.'>append</a><br/><a class='fn ' href='fn.append_one.html' title='Appends one element to the vector provided. The vector itself is then returned for use again.'>append_one</a><br/><a class='fn ' href='fn.build.html' title='Builds a vector by calling a provided function with an argument function that pushes an element to the back of a vector. The initial capacity for the vector may optionally be specified.'>build</a><br/><a class='fn ' href='fn.flat_map.html' title='Apply a function to each element of a vector and return a concatenation of each result vector'>flat_map</a><br/><a class='fn ' href='fn.from_buf.html' title='Constructs a vector from an unsafe pointer to a buffer'>from_buf</a><br/><a class='fn ' href='fn.from_elem.html' title='Creates and initializes an owned vector.'>from_elem</a><br/><a class='fn ' href='fn.from_fn.html' title='Creates and initializes an owned vector.'>from_fn</a><br/><a class='fn ' href='fn.mut_ref_slice.html' title='Converts a pointer to A into a slice of length 1 (without copying).'>mut_ref_slice</a><br/><a class='fn ' href='fn.ref_slice.html' title='Converts a pointer to A into a slice of length 1 (without copying).'>ref_slice</a><br/><a class='fn ' href='fn.unzip.html' title='Convert an iterator of pairs into a pair of vectors.'>unzip</a><br/><a class='fn ' href='fn.with_capacity.html' title='Creates a new vector with a capacity of `capacity`'>with_capacity</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/vec.rs.html#1262-1424'>[src]</a><h1 class='fqn'>Trait <a href='../index.html'>std</a>::<a href='index.html'>vec</a>::<a class='trait' href=''>OwnedVector</a></h1><pre class='rust trait'>pub trait OwnedVector&lt;T&gt; {
+    fn <a href='#tymethod.move_iter' class='fnname'>move_iter</a>(self) -&gt; <a class='struct' href='../../std/vec/struct.MoveItems.html' title='std::vec::MoveItems'>MoveItems</a>&lt;T&gt;;
+    fn <a href='#tymethod.move_rev_iter' class='fnname'>move_rev_iter</a>(self) -&gt; <a class='typedef' href='../../std/vec/typedef.RevMoveItems.html' title='std::vec::RevMoveItems'>RevMoveItems</a>&lt;T&gt;;
+    fn <a href='#tymethod.reserve_exact' class='fnname'>reserve_exact</a>(&amp;mut self, n: uint);
+    fn <a href='#tymethod.reserve' class='fnname'>reserve</a>(&amp;mut self, n: uint);
+    fn <a href='#tymethod.reserve_additional' class='fnname'>reserve_additional</a>(&amp;mut self, n: uint);
+    fn <a href='#tymethod.capacity' class='fnname'>capacity</a>(&amp;self) -&gt; uint;
+    fn <a href='#tymethod.shrink_to_fit' class='fnname'>shrink_to_fit</a>(&amp;mut self);
+    fn <a href='#tymethod.push' class='fnname'>push</a>(&amp;mut self, t: T);
+    fn <a href='#tymethod.push_all_move' class='fnname'>push_all_move</a>(&amp;mut self, rhs: ~[T]);
+    fn <a href='#tymethod.pop' class='fnname'>pop</a>(&amp;mut self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;;
+    fn <a href='#tymethod.shift' class='fnname'>shift</a>(&amp;mut self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;;
+    fn <a href='#tymethod.unshift' class='fnname'>unshift</a>(&amp;mut self, x: T);
+    fn <a href='#tymethod.insert' class='fnname'>insert</a>(&amp;mut self, i: uint, x: T);
+    fn <a href='#tymethod.remove' class='fnname'>remove</a>(&amp;mut self, i: uint) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;;
+    fn <a href='#tymethod.swap_remove' class='fnname'>swap_remove</a>(&amp;mut self, index: uint) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;;
+    fn <a href='#tymethod.truncate' class='fnname'>truncate</a>(&amp;mut self, newlen: uint);
+    fn <a href='#tymethod.retain' class='fnname'>retain</a>(&amp;mut self, f: |t: &amp;T| -&gt; bool);
+    fn <a href='#tymethod.partition' class='fnname'>partition</a>(self, f: |&amp;T| -&gt; bool) -&gt; (~[T], ~[T]);
+    fn <a href='#tymethod.grow_fn' class='fnname'>grow_fn</a>(&amp;mut self, n: uint, op: |uint| -&gt; T);
+    unsafe fn <a href='#tymethod.set_len' class='fnname'>set_len</a>(&amp;mut self, new_len: uint);
+}</pre><div class='docblock'><p>Extension methods for owned vectors.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.move_iter' class='method'><code>fn <a href='#tymethod.move_iter' class='fnname'>move_iter</a>(self) -&gt; <a class='struct' href='../../std/vec/struct.MoveItems.html' title='std::vec::MoveItems'>MoveItems</a>&lt;T&gt;</code></h3><div class='docblock'><p>Creates a consuming iterator, that is, one that moves each
+value out of the vector (from start to end). The vector cannot
+be used after calling this.</p>
+
+<h1 id="examples" class='section-link'><a
+                           href="#examples">Examples</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>v</span> <span class='op'>=</span> <span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='string'>&quot;a&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;b&quot;</span>];
+<span class='kw'>for</span> <span class='ident'>s</span> <span class='kw'>in</span> <span class='ident'>v</span>.<span class='ident'>move_iter</span>() {<span class='comment'>
+  // s has type ~str, not &amp;~str
+  </span><span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{}&quot;</span>, <span class='ident'>s</span>);
+}
+</pre>
+</div><h3 id='tymethod.move_rev_iter' class='method'><code>fn <a href='#tymethod.move_rev_iter' class='fnname'>move_rev_iter</a>(self) -&gt; <a class='typedef' href='../../std/vec/typedef.RevMoveItems.html' title='std::vec::RevMoveItems'>RevMoveItems</a>&lt;T&gt;</code></h3><div class='docblock'><p>Creates a consuming iterator that moves out of the vector in
+reverse order.</p>
+</div><h3 id='tymethod.reserve_exact' class='method'><code>fn <a href='#tymethod.reserve_exact' class='fnname'>reserve_exact</a>(&amp;mut self, n: uint)</code></h3><div class='docblock'><p>Reserves capacity for exactly <code>n</code> elements in the given vector.</p>
+
+<p>If the capacity for <code>self</code> is already equal to or greater than the requested
+capacity, then no action is taken.</p>
+
+<h1 id="arguments" class='section-link'><a
+                           href="#arguments">Arguments</a></h1>
+<ul>
+<li>n - The number of elements to reserve space for</li>
+</ul>
+
+<h1 id="failure" class='section-link'><a
+                           href="#failure">Failure</a></h1>
+<p>This method always succeeds in reserving space for <code>n</code> elements, or it does
+not return.</p>
+</div><h3 id='tymethod.reserve' class='method'><code>fn <a href='#tymethod.reserve' class='fnname'>reserve</a>(&amp;mut self, n: uint)</code></h3><div class='docblock'><p>Reserves capacity for at least <code>n</code> elements in the given vector.</p>
+
+<p>This function will over-allocate in order to amortize the allocation costs
+in scenarios where the caller may need to repeatedly reserve additional
+space.</p>
+
+<p>If the capacity for <code>self</code> is already equal to or greater than the requested
+capacity, then no action is taken.</p>
+
+<h1 id="arguments-1" class='section-link'><a
+                           href="#arguments-1">Arguments</a></h1>
+<ul>
+<li>n - The number of elements to reserve space for</li>
+</ul>
+</div><h3 id='tymethod.reserve_additional' class='method'><code>fn <a href='#tymethod.reserve_additional' class='fnname'>reserve_additional</a>(&amp;mut self, n: uint)</code></h3><div class='docblock'><p>Reserves capacity for at least <code>n</code> additional elements in the given vector.</p>
+
+<h1 id="failure-1" class='section-link'><a
+                           href="#failure-1">Failure</a></h1>
+<p>Fails if the new required capacity overflows uint.</p>
+
+<p>May also fail if <code>reserve</code> fails.</p>
+</div><h3 id='tymethod.capacity' class='method'><code>fn <a href='#tymethod.capacity' class='fnname'>capacity</a>(&amp;self) -&gt; uint</code></h3><div class='docblock'><p>Returns the number of elements the vector can hold without reallocating.</p>
+</div><h3 id='tymethod.shrink_to_fit' class='method'><code>fn <a href='#tymethod.shrink_to_fit' class='fnname'>shrink_to_fit</a>(&amp;mut self)</code></h3><div class='docblock'><p>Shrink the capacity of the vector to match the length</p>
+</div><h3 id='tymethod.push' class='method'><code>fn <a href='#tymethod.push' class='fnname'>push</a>(&amp;mut self, t: T)</code></h3><div class='docblock'><p>Append an element to a vector</p>
+</div><h3 id='tymethod.push_all_move' class='method'><code>fn <a href='#tymethod.push_all_move' class='fnname'>push_all_move</a>(&amp;mut self, rhs: ~[T])</code></h3><div class='docblock'><p>Takes ownership of the vector <code>rhs</code>, moving all elements into
+the current vector. This does not copy any elements, and it is
+illegal to use the <code>rhs</code> vector after calling this method
+(because it is moved here).</p>
+
+<h1 id="example" class='section-link'><a
+                           href="#example">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>a</span> <span class='op'>=</span> <span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='number'>1</span>];
+<span class='ident'>a</span>.<span class='ident'>push_all_move</span>(<span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='number'>2</span>, <span class='kw-2'>~</span><span class='number'>3</span>, <span class='kw-2'>~</span><span class='number'>4</span>]);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span> <span class='op'>==</span> <span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='number'>1</span>, <span class='kw-2'>~</span><span class='number'>2</span>, <span class='kw-2'>~</span><span class='number'>3</span>, <span class='kw-2'>~</span><span class='number'>4</span>]);
+</pre>
+</div><h3 id='tymethod.pop' class='method'><code>fn <a href='#tymethod.pop' class='fnname'>pop</a>(&amp;mut self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;</code></h3><div class='docblock'><p>Remove the last element from a vector and return it, or <code>None</code> if it is empty</p>
+</div><h3 id='tymethod.shift' class='method'><code>fn <a href='#tymethod.shift' class='fnname'>shift</a>(&amp;mut self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;</code></h3><div class='docblock'><p>Removes the first element from a vector and return it, or <code>None</code> if it is empty</p>
+</div><h3 id='tymethod.unshift' class='method'><code>fn <a href='#tymethod.unshift' class='fnname'>unshift</a>(&amp;mut self, x: T)</code></h3><div class='docblock'><p>Prepend an element to the vector</p>
+</div><h3 id='tymethod.insert' class='method'><code>fn <a href='#tymethod.insert' class='fnname'>insert</a>(&amp;mut self, i: uint, x: T)</code></h3><div class='docblock'><p>Insert an element at position i within v, shifting all
+elements after position i one position to the right.</p>
+</div><h3 id='tymethod.remove' class='method'><code>fn <a href='#tymethod.remove' class='fnname'>remove</a>(&amp;mut self, i: uint) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;</code></h3><div class='docblock'><p>Remove and return the element at position <code>i</code> within <code>v</code>,
+shifting all elements after position <code>i</code> one position to the
+left. Returns <code>None</code> if <code>i</code> is out of bounds.</p>
+
+<h1 id="example-1" class='section-link'><a
+                           href="#example-1">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>v</span> <span class='op'>=</span> <span class='kw-2'>~</span>[<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>];
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>.<span class='ident'>remove</span>(<span class='number'>1</span>), <span class='prelude-val'>Some</span>(<span class='number'>2</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>, <span class='kw-2'>~</span>[<span class='number'>1</span>, <span class='number'>3</span>]);
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>.<span class='ident'>remove</span>(<span class='number'>4</span>), <span class='prelude-val'>None</span>);<span class='comment'>
+// v is unchanged:
+</span><span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>, <span class='kw-2'>~</span>[<span class='number'>1</span>, <span class='number'>3</span>]);
+</pre>
+</div><h3 id='tymethod.swap_remove' class='method'><code>fn <a href='#tymethod.swap_remove' class='fnname'>swap_remove</a>(&amp;mut self, index: uint) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;T&gt;</code></h3><div class='docblock'><p>Remove an element from anywhere in the vector and return it, replacing it
+with the last element. This does not preserve ordering, but is O(1).</p>
+
+<p>Returns <code>None</code> if <code>index</code> is out of bounds.</p>
+
+<h1 id="example-2" class='section-link'><a
+                           href="#example-2">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>v</span> <span class='op'>=</span> <span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='string'>&quot;foo&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;bar&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;baz&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;qux&quot;</span>];
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>.<span class='ident'>swap_remove</span>(<span class='number'>1</span>), <span class='prelude-val'>Some</span>(<span class='kw-2'>~</span><span class='string'>&quot;bar&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>, <span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='string'>&quot;foo&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;qux&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;baz&quot;</span>]);
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>.<span class='ident'>swap_remove</span>(<span class='number'>0</span>), <span class='prelude-val'>Some</span>(<span class='kw-2'>~</span><span class='string'>&quot;foo&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>, <span class='kw-2'>~</span>[<span class='kw-2'>~</span><span class='string'>&quot;baz&quot;</span>, <span class='kw-2'>~</span><span class='string'>&quot;qux&quot;</span>]);
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>v</span>.<span class='ident'>swap_remove</span>(<span class='number'>2</span>), <span class='prelude-val'>None</span>);
+</pre>
+</div><h3 id='tymethod.truncate' class='method'><code>fn <a href='#tymethod.truncate' class='fnname'>truncate</a>(&amp;mut self, newlen: uint)</code></h3><div class='docblock'><p>Shorten a vector, dropping excess elements.</p>
+</div><h3 id='tymethod.retain' class='method'><code>fn <a href='#tymethod.retain' class='fnname'>retain</a>(&amp;mut self, f: |t: &amp;T| -&gt; bool)</code></h3><div class='docblock'><p>Like <code>filter()</code>, but in place.  Preserves order of <code>v</code>.  Linear time.</p>
+</div><h3 id='tymethod.partition' class='method'><code>fn <a href='#tymethod.partition' class='fnname'>partition</a>(self, f: |&amp;T| -&gt; bool) -&gt; (~[T], ~[T])</code></h3><div class='docblock'><p>Partitions the vector into two vectors <code>(A,B)</code>, where all
+elements of <code>A</code> satisfy <code>f</code> and all elements of <code>B</code> do not.</p>
+</div><h3 id='tymethod.grow_fn' class='method'><code>fn <a href='#tymethod.grow_fn' class='fnname'>grow_fn</a>(&amp;mut self, n: uint, op: |uint| -&gt; T)</code></h3><div class='docblock'><p>Expands a vector in place, initializing the new elements to the result of
+a function.</p>
+
+<p>Function <code>init_op</code> is called <code>n</code> times with the values [0..<code>n</code>)</p>
+
+<h1 id="arguments-2" class='section-link'><a
+                           href="#arguments-2">Arguments</a></h1>
+<ul>
+<li>n - The number of elements to add</li>
+<li>init_op - A function to call to retrieve each appended element&#39;s
+        value</li>
+</ul>
+</div><h3 id='tymethod.set_len' class='method'><code>unsafe fn <a href='#tymethod.set_len' class='fnname'>set_len</a>(&amp;mut self, new_len: uint)</code></h3><div class='docblock'><p>Sets the length of a vector</p>
+
+<p>This will explicitly set the size of the vector, without actually
+modifying its buffers, so it is up to the caller to ensure that
+the vector is actually the specified size.</p>
+</div></div>
+                    <h2 id='implementors'>Implementors</h2>
+                    <ul class='item-list'>
+                <li><code>impl&lt;T&gt; <a class='trait' href='../../std/vec/trait.OwnedVector.html' title='std::vec::OwnedVector'>OwnedVector</a>&lt;T&gt; for ~[T]</code></li></ul></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

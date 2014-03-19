@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='any/index.html' title='Traits for dynamic typing of any type (through runtime reflection)'>any</a><br/><a class='mod ' href='ascii/index.html' title='Operations on ASCII strings and characters'>ascii</a><br/><a class='mod ' href='bool/index.html' title='Operations on boolean values (`bool` type)'>bool</a><br/><a class='mod ' href='c_str/index.html' title='C-string manipulation and management'>c_str</a><br/><a class='mod ' href='c_vec/index.html' title='Library to interface with chunks of memory allocated in C.'>c_vec</a><br/><a class='mod ' href='cast/index.html' title='Unsafe casting functions'>cast</a><br/><a class='mod ' href='cell/index.html' title='Types dealing with dynamic mutability'>cell</a><br/><a class='mod ' href='char/index.html' title='Character manipulation (`char` type, Unicode Scalar Value)'>char</a><br/><a class='mod ' href='clone/index.html' title='The `Clone` trait for types that cannot be 'implicitly copied''>clone</a><br/><a class='mod ' href='cmath/index.html' title='Bindings for the C math library (for basic mathematic functions)'>cmath</a><br/><a class='mod ' href='cmp/index.html' title='The `Ord` and `Eq` comparison traits'>cmp</a><br/><a class='mod ' href='comm/index.html' title='Communication primitives for concurrent tasks'>comm</a><br/><a class='mod ' href='container/index.html' title='Traits for generic containers (including `Map` and `Set`)'>container</a><br/><a class='mod ' href='default/index.html' title='The `Default` trait for types which may have meaningful default values'>default</a><br/><a class='mod ' href='f32/index.html' title='Operations and constants for 32-bits floats (`f32` type)'>f32</a><br/><a class='mod ' href='f64/index.html' title='Operations and constants for 64-bits floats (`f64` type)'>f64</a><br/><a class='mod ' href='fmt/index.html' title='Utilities for formatting and printing strings'>fmt</a><br/><a class='mod ' href='from_str/index.html' title='The `FromStr` trait for types that can be created from strings'>from_str</a><br/><a class='mod ' href='gc/index.html' title='Task-local garbage-collected boxes'>gc</a><br/><a class='mod ' href='hash/index.html' title='Generic hashing support.'>hash</a><br/><a class='mod ' href='i16/index.html' title='Operations and constants for signed 16-bits integers (`i16` type)'>i16</a><br/><a class='mod ' href='i32/index.html' title='Operations and constants for signed 32-bits integers (`i32` type)'>i32</a><br/><a class='mod ' href='i64/index.html' title='Operations and constants for signed 64-bits integers (`i64` type)'>i64</a><br/><a class='mod ' href='i8/index.html' title='Operations and constants for signed 8-bits integers (`i8` type)'>i8</a><br/><a class='mod ' href='int/index.html' title='Operations and constants for architecture-sized signed integers (`int` type)'>int</a><br/><a class='mod ' href='intrinsics/index.html' title='rustc compiler intrinsics.'>intrinsics</a><br/><a class='mod ' href='io/index.html' title='I/O, including files, networking, timers, and processes'>io</a><br/><a class='mod ' href='iter/index.html' title='Composable external iterators'>iter</a><br/><a class='mod ' href='kinds/index.html' title='Primitive traits representing basic 'kinds' of types'>kinds</a><br/><a class='mod ' href='libc/index.html' title='Bindings for the C standard library and other platform libraries'>libc</a><br/><a class='mod ' href='local_data/index.html' title='Task local data management'>local_data</a><br/><a class='mod ' href='macros/index.html' title='Standard library macros'>macros</a><br/><a class='mod ' href='managed/index.html' title='Operations on managed box types'>managed</a><br/><a class='mod ' href='mem/index.html' title='Basic functions for dealing with memory'>mem</a><br/><a class='mod ' href='num/index.html' title='Numeric traits and functions for generic mathematics'>num</a><br/><a class='mod ' href='ops/index.html' title=' Traits representing built-in operators, useful for overloading'>ops</a><br/><a class='mod ' href='option/index.html' title='Optionally nullable values (`Option` type)'>option</a><br/><a class='mod ' href='os/index.html' title='Higher-level interfaces to libc::* functions and operating system services.'>os</a><br/><a class='mod ' href='owned/index.html' title='Operations on unique pointer types'>owned</a><br/><a class='mod ' href='path/index.html' title='Cross-platform path support'>path</a><br/><a class='mod ' href='prelude/index.html' title='The standard module imported by default into all Rust modules'>prelude</a><br/><a class='mod ' href='ptr/index.html' title='Unsafe pointer utility functions'>ptr</a><br/><a class='mod ' href='raw/index.html' title='Contains struct definitions for the layout of compiler built-in types.'>raw</a><br/><a class='mod ' href='rc/index.html' title='Task-local reference-counted boxes (`Rc` type)'>rc</a><br/><a class='mod ' href='reference/index.html' title='Utilities for references'>reference</a><br/><a class='mod ' href='reflect/index.html' title='Runtime type reflection'>reflect</a><br/><a class='mod ' href='repr/index.html' title='More runtime type reflection'>repr</a><br/><a class='mod ' href='result/index.html' title='Signaling success or failure states (`Result` type)'>result</a><br/><a class='mod ' href='rt/index.html' title='Runtime services, including the task scheduler and I/O dispatcher'>rt</a><br/><a class='mod ' href='rtdeps/index.html' title='This module contains the linkage attributes to all runtime dependencies of the standard library This varies per-platform, but these libraries are necessary for running libstd.'>rtdeps</a><br/><a class='mod ' href='str/index.html' title='Unicode string manipulation (`str` type)'>str</a><br/><a class='mod ' href='sync/index.html' title='Useful synchronization primitives'>sync</a><br/><a class='mod ' href='task/index.html' title='Utilities for managing and scheduling tasks'>task</a><br/><a class='mod ' href='to_str/index.html' title='The `ToStr` trait for converting to strings'>to_str</a><br/><a class='mod ' href='tuple/index.html' title='Operations on tuples'>tuple</a><br/><a class='mod ' href='u16/index.html' title='Operations and constants for unsigned 16-bits integers (`u16` type)'>u16</a><br/><a class='mod ' href='u32/index.html' title='Operations and constants for unsigned 32-bits integers (`u32` type)'>u32</a><br/><a class='mod ' href='u64/index.html' title='Operations and constants for unsigned 64-bits integer (`u64` type)'>u64</a><br/><a class='mod ' href='u8/index.html' title='Operations and constants for unsigned 8-bits integers (`u8` type)'>u8</a><br/><a class='mod ' href='uint/index.html' title='Operations and constants for architecture-sized unsigned integers (`uint` type)'>uint</a><br/><a class='mod ' href='unit/index.html' title='Functions for the unit type.'>unit</a><br/><a class='mod ' href='vec/index.html' title='Utilities for vector manipulation'>vec</a><br/><a class='mod ' href='vec_ng/index.html' title=''>vec_ng</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod"><a class='source'
+                              href='../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/lib.rs.html#11-230'>[src]</a><h1 class='fqn'>Crate <a class='mod' href=''>std</a></h1><div class='docblock'>
+<h1 id="the-rust-standard-library" class='section-link'><a
+                           href="#the-rust-standard-library">The Rust standard library</a></h1>
+<p>The Rust standard library is a group of interrelated modules defining
+the core language traits, operations on built-in data types,
+platform abstractions, the task scheduler, runtime support for language
+features and other common functionality.</p>
+
+<p><code>std</code> includes modules corresponding to each of the integer types,
+each of the floating point types, the <code>bool</code> type, tuples, characters,
+strings (<code>str</code>), vectors (<code>vec</code>), managed boxes (<code>managed</code>), owned
+boxes (<code>owned</code>), and unsafe pointers and references (<code>ptr</code>, <code>borrowed</code>).
+Additionally, <code>std</code> provides pervasive types (<code>option</code> and <code>result</code>),
+task creation and communication primitives (<code>task</code>, <code>comm</code>), platform
+abstractions (<code>os</code> and <code>path</code>), basic I/O abstractions (<code>io</code>), common
+traits (<code>kinds</code>, <code>ops</code>, <code>cmp</code>, <code>num</code>, <code>to_str</code>), and complete bindings
+to the C standard library (<code>libc</code>).</p>
+
+<h1 id="standard-library-injection-and-the-rust-prelude" class='section-link'><a
+                           href="#standard-library-injection-and-the-rust-prelude">Standard library injection and the Rust prelude</a></h1>
+<p><code>std</code> is imported at the topmost level of every crate by default, as
+if the first line of each crate was</p>
+<pre class='rust '>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>std</span>;
+</pre>
+
+<p>This means that the contents of std can be accessed from any context
+with the <code>std::</code> path prefix, as in <code>use std::vec</code>, <code>use std::task::spawn</code>,
+etc.</p>
+
+<p>Additionally, <code>std</code> contains a <code>prelude</code> module that reexports many of the
+most common types, traits and functions. The contents of the prelude are
+imported into every <em>module</em> by default.  Implicitly, all modules behave as if
+they contained the following prologue:</p>
+<pre class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>prelude</span>::<span class='op'>*</span>;
+</pre>
+</div><h2 id='modules' class='section-link'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr>
+                        <td><a class='mod' href='any/index.html'
+                               title='std::any'>any</a></td>
+                        <td class='docblock short'><p>Traits for dynamic typing of any type (through runtime reflection)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='ascii/index.html'
+                               title='std::ascii'>ascii</a></td>
+                        <td class='docblock short'><p>Operations on ASCII strings and characters</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='bool/index.html'
+                               title='std::bool'>bool</a></td>
+                        <td class='docblock short'><p>Operations on boolean values (<code>bool</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='c_str/index.html'
+                               title='std::c_str'>c_str</a></td>
+                        <td class='docblock short'><p>C-string manipulation and management</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='c_vec/index.html'
+                               title='std::c_vec'>c_vec</a></td>
+                        <td class='docblock short'><p>Library to interface with chunks of memory allocated in C.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='cast/index.html'
+                               title='std::cast'>cast</a></td>
+                        <td class='docblock short'><p>Unsafe casting functions</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='cell/index.html'
+                               title='std::cell'>cell</a></td>
+                        <td class='docblock short'><p>Types dealing with dynamic mutability</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='char/index.html'
+                               title='std::char'>char</a></td>
+                        <td class='docblock short'><p>Character manipulation (<code>char</code> type, Unicode Scalar Value)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='clone/index.html'
+                               title='std::clone'>clone</a></td>
+                        <td class='docblock short'><p>The <code>Clone</code> trait for types that cannot be &#39;implicitly copied&#39;</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='cmp/index.html'
+                               title='std::cmp'>cmp</a></td>
+                        <td class='docblock short'><p>The <code>Ord</code> and <code>Eq</code> comparison traits</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='comm/index.html'
+                               title='std::comm'>comm</a></td>
+                        <td class='docblock short'><p>Communication primitives for concurrent tasks</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='container/index.html'
+                               title='std::container'>container</a></td>
+                        <td class='docblock short'><p>Traits for generic containers (including <code>Map</code> and <code>Set</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='default/index.html'
+                               title='std::default'>default</a></td>
+                        <td class='docblock short'><p>The <code>Default</code> trait for types which may have meaningful default values</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='f32/index.html'
+                               title='std::f32'>f32</a></td>
+                        <td class='docblock short'><p>Operations and constants for 32-bits floats (<code>f32</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='f64/index.html'
+                               title='std::f64'>f64</a></td>
+                        <td class='docblock short'><p>Operations and constants for 64-bits floats (<code>f64</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='fmt/index.html'
+                               title='std::fmt'>fmt</a></td>
+                        <td class='docblock short'><p>Utilities for formatting and printing strings</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='from_str/index.html'
+                               title='std::from_str'>from_str</a></td>
+                        <td class='docblock short'><p>The <code>FromStr</code> trait for types that can be created from strings</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='gc/index.html'
+                               title='std::gc'>gc</a></td>
+                        <td class='docblock short'><p>Task-local garbage-collected boxes</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='hash/index.html'
+                               title='std::hash'>hash</a></td>
+                        <td class='docblock short'><p>Generic hashing support.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='i16/index.html'
+                               title='std::i16'>i16</a></td>
+                        <td class='docblock short'><p>Operations and constants for signed 16-bits integers (<code>i16</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='i32/index.html'
+                               title='std::i32'>i32</a></td>
+                        <td class='docblock short'><p>Operations and constants for signed 32-bits integers (<code>i32</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='i64/index.html'
+                               title='std::i64'>i64</a></td>
+                        <td class='docblock short'><p>Operations and constants for signed 64-bits integers (<code>i64</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='i8/index.html'
+                               title='std::i8'>i8</a></td>
+                        <td class='docblock short'><p>Operations and constants for signed 8-bits integers (<code>i8</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='int/index.html'
+                               title='std::int'>int</a></td>
+                        <td class='docblock short'><p>Operations and constants for architecture-sized signed integers (<code>int</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='intrinsics/index.html'
+                               title='std::intrinsics'>intrinsics</a></td>
+                        <td class='docblock short'><p>rustc compiler intrinsics.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='io/index.html'
+                               title='std::io'>io</a></td>
+                        <td class='docblock short'><p>I/O, including files, networking, timers, and processes</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='iter/index.html'
+                               title='std::iter'>iter</a></td>
+                        <td class='docblock short'><p>Composable external iterators</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='kinds/index.html'
+                               title='std::kinds'>kinds</a></td>
+                        <td class='docblock short'><p>Primitive traits representing basic &#39;kinds&#39; of types</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='libc/index.html'
+                               title='std::libc'>libc</a></td>
+                        <td class='docblock short'><p>Bindings for the C standard library and other platform libraries</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='local_data/index.html'
+                               title='std::local_data'>local_data</a></td>
+                        <td class='docblock short'><p>Task local data management</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='macros/index.html'
+                               title='std::macros'>macros</a></td>
+                        <td class='docblock short'><p>Standard library macros</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='managed/index.html'
+                               title='std::managed'>managed</a></td>
+                        <td class='docblock short'><p>Operations on managed box types</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='mem/index.html'
+                               title='std::mem'>mem</a></td>
+                        <td class='docblock short'><p>Basic functions for dealing with memory</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='num/index.html'
+                               title='std::num'>num</a></td>
+                        <td class='docblock short'><p>Numeric traits and functions for generic mathematics</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='ops/index.html'
+                               title='std::ops'>ops</a></td>
+                        <td class='docblock short'><p>Traits representing built-in operators, useful for overloading</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='option/index.html'
+                               title='std::option'>option</a></td>
+                        <td class='docblock short'><p>Optionally nullable values (<code>Option</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='os/index.html'
+                               title='std::os'>os</a></td>
+                        <td class='docblock short'><p>Higher-level interfaces to libc::* functions and operating system services.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='owned/index.html'
+                               title='std::owned'>owned</a></td>
+                        <td class='docblock short'><p>Operations on unique pointer types</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='path/index.html'
+                               title='std::path'>path</a></td>
+                        <td class='docblock short'><p>Cross-platform path support</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='prelude/index.html'
+                               title='std::prelude'>prelude</a></td>
+                        <td class='docblock short'><p>The standard module imported by default into all Rust modules</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='ptr/index.html'
+                               title='std::ptr'>ptr</a></td>
+                        <td class='docblock short'><p>Unsafe pointer utility functions</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='raw/index.html'
+                               title='std::raw'>raw</a></td>
+                        <td class='docblock short'><p>Contains struct definitions for the layout of compiler built-in types.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='rc/index.html'
+                               title='std::rc'>rc</a></td>
+                        <td class='docblock short'><p>Task-local reference-counted boxes (<code>Rc</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='reflect/index.html'
+                               title='std::reflect'>reflect</a></td>
+                        <td class='docblock short'><p>Runtime type reflection</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='repr/index.html'
+                               title='std::repr'>repr</a></td>
+                        <td class='docblock short'><p>More runtime type reflection</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='result/index.html'
+                               title='std::result'>result</a></td>
+                        <td class='docblock short'><p>Signaling success or failure states (<code>Result</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='rt/index.html'
+                               title='std::rt'>rt</a></td>
+                        <td class='docblock short'><p>Runtime services, including the task scheduler and I/O dispatcher</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='str/index.html'
+                               title='std::str'>str</a></td>
+                        <td class='docblock short'><p>Unicode string manipulation (<code>str</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='sync/index.html'
+                               title='std::sync'>sync</a></td>
+                        <td class='docblock short'><p>Useful synchronization primitives</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='task/index.html'
+                               title='std::task'>task</a></td>
+                        <td class='docblock short'><p>Utilities for managing and scheduling tasks</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='to_str/index.html'
+                               title='std::to_str'>to_str</a></td>
+                        <td class='docblock short'><p>The <code>ToStr</code> trait for converting to strings</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='tuple/index.html'
+                               title='std::tuple'>tuple</a></td>
+                        <td class='docblock short'><p>Operations on tuples</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='u16/index.html'
+                               title='std::u16'>u16</a></td>
+                        <td class='docblock short'><p>Operations and constants for unsigned 16-bits integers (<code>u16</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='u32/index.html'
+                               title='std::u32'>u32</a></td>
+                        <td class='docblock short'><p>Operations and constants for unsigned 32-bits integers (<code>u32</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='u64/index.html'
+                               title='std::u64'>u64</a></td>
+                        <td class='docblock short'><p>Operations and constants for unsigned 64-bits integer (<code>u64</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='u8/index.html'
+                               title='std::u8'>u8</a></td>
+                        <td class='docblock short'><p>Operations and constants for unsigned 8-bits integers (<code>u8</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='uint/index.html'
+                               title='std::uint'>uint</a></td>
+                        <td class='docblock short'><p>Operations and constants for architecture-sized unsigned integers (<code>uint</code> type)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='unit/index.html'
+                               title='std::unit'>unit</a></td>
+                        <td class='docblock short'><p>Functions for the unit type.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='vec/index.html'
+                               title='std::vec'>vec</a></td>
+                        <td class='docblock short'><p>Utilities for vector manipulation</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='vec_ng/index.html'
+                               title='std::vec_ng'>vec_ng</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../";
+        var currentCrate = "std";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script async src="../search-index.js"></script>
+</body>
+</html>

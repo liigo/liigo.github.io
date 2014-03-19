@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::logging - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../std/main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='../any/index.html'>any</a><br/><a class='mod ' href='../ascii/index.html'>ascii</a><br/><a class='mod ' href='../bool/index.html'>bool</a><br/><a class='mod ' href='../c_str/index.html'>c_str</a><br/><a class='mod ' href='../cast/index.html'>cast</a><br/><a class='mod ' href='../cell/index.html'>cell</a><br/><a class='mod ' href='../char/index.html'>char</a><br/><a class='mod ' href='../clone/index.html'>clone</a><br/><a class='mod ' href='../cmp/index.html'>cmp</a><br/><a class='mod ' href='../comm/index.html'>comm</a><br/><a class='mod ' href='../container/index.html'>container</a><br/><a class='mod ' href='../default/index.html'>default</a><br/><a class='mod ' href='../f32/index.html'>f32</a><br/><a class='mod ' href='../f64/index.html'>f64</a><br/><a class='mod ' href='../fmt/index.html'>fmt</a><br/><a class='mod ' href='../from_str/index.html'>from_str</a><br/><a class='mod ' href='../gc/index.html'>gc</a><br/><a class='mod ' href='../hash/index.html'>hash</a><br/><a class='mod ' href='../i16/index.html'>i16</a><br/><a class='mod ' href='../i32/index.html'>i32</a><br/><a class='mod ' href='../i64/index.html'>i64</a><br/><a class='mod ' href='../i8/index.html'>i8</a><br/><a class='mod ' href='../int/index.html'>int</a><br/><a class='mod ' href='../intrinsics/index.html'>intrinsics</a><br/><a class='mod ' href='../io/index.html'>io</a><br/><a class='mod ' href='../iter/index.html'>iter</a><br/><a class='mod ' href='../kinds/index.html'>kinds</a><br/><a class='mod ' href='../libc/index.html'>libc</a><br/><a class='mod ' href='../local_data/index.html'>local_data</a><br/><a class='mod current' href='../logging/index.html'>logging</a><br/><a class='mod ' href='../macros/index.html'>macros</a><br/><a class='mod ' href='../managed/index.html'>managed</a><br/><a class='mod ' href='../mem/index.html'>mem</a><br/><a class='mod ' href='../num/index.html'>num</a><br/><a class='mod ' href='../ops/index.html'>ops</a><br/><a class='mod ' href='../option/index.html'>option</a><br/><a class='mod ' href='../os/index.html'>os</a><br/><a class='mod ' href='../owned/index.html'>owned</a><br/><a class='mod ' href='../path/index.html'>path</a><br/><a class='mod ' href='../prelude/index.html'>prelude</a><br/><a class='mod ' href='../ptr/index.html'>ptr</a><br/><a class='mod ' href='../raw/index.html'>raw</a><br/><a class='mod ' href='../rc/index.html'>rc</a><br/><a class='mod ' href='../reflect/index.html'>reflect</a><br/><a class='mod ' href='../repr/index.html'>repr</a><br/><a class='mod ' href='../result/index.html'>result</a><br/><a class='mod ' href='../rt/index.html'>rt</a><br/><a class='mod ' href='../str/index.html'>str</a><br/><a class='mod ' href='../sync/index.html'>sync</a><br/><a class='mod ' href='../task/index.html'>task</a><br/><a class='mod ' href='../to_str/index.html'>to_str</a><br/><a class='mod ' href='../tuple/index.html'>tuple</a><br/><a class='mod ' href='../u16/index.html'>u16</a><br/><a class='mod ' href='../u32/index.html'>u32</a><br/><a class='mod ' href='../u64/index.html'>u64</a><br/><a class='mod ' href='../u8/index.html'>u8</a><br/><a class='mod ' href='../uint/index.html'>uint</a><br/><a class='mod ' href='../unit/index.html'>unit</a><br/><a class='mod ' href='../vec/index.html'>vec</a><br/><a class='mod ' href='../vec_ng/index.html'>vec_ng</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/lib.rs.html#181'>[src]</a><h1 class='fqn'>Module <a href='../index.html'>std</a>::<a class='mod' href=''>logging</a></h1><div class='docblock'><p>Utilities for program-wide and customizable logging</p>
+
+<p>This module is used by the compiler when emitting output for the logging family
+of macros. The methods of this module shouldn&#39;t necessarily be used directly,
+but rather through the logging macros defined.</p>
+
+<p>There are five macros that the logging subsystem uses:</p>
+
+<ul>
+<li><code>log!(level, ...)</code> - the generic logging macro, takes a level as a u32 and any
+                   related <code>format!</code> arguments</li>
+<li><code>debug!(...)</code> - a macro hard-wired to the log level of <code>DEBUG</code></li>
+<li><code>info!(...)</code> - a macro hard-wired to the log level of <code>INFO</code></li>
+<li><code>warn!(...)</code> - a macro hard-wired to the log level of <code>WARN</code></li>
+<li><code>error!(...)</code> - a macro hard-wired to the log level of <code>ERROR</code></li>
+</ul>
+
+<p>All of these macros use the same style of syntax as the <code>format!</code> syntax
+extension. Details about the syntax can be found in the documentation of
+<code>std::fmt</code> along with the Rust tutorial/manual.</p>
+
+<p>If you want to check at runtime if a given logging level is enabled (e.g. if the
+information you would want to log is expensive to produce), you can use the
+following macro:</p>
+
+<ul>
+<li><code>log_enabled!(level)</code> - returns true if logging of the given level is enabled</li>
+</ul>
+
+<h2 id="enabling-logging" class='section-link'><a
+                           href="#enabling-logging">Enabling logging</a></h2>
+<p>Log levels are controlled on a per-module basis, and by default all logging is
+disabled except for <code>error!</code> (a log level of 1). Logging is controlled via the
+<code>RUST_LOG</code> environment variable. The value of this environment variable is a
+comma-separated list of logging directives. A logging directive is of the form:</p>
+<pre class='rust '>
+<span class='ident'>path</span>::<span class='ident'>to</span>::<span class='ident'>module</span><span class='op'>=</span><span class='ident'>log_level</span>
+</pre>
+
+<p>The path to the module is rooted in the name of the crate it was compiled for,
+so if your program is contained in a file <code>hello.rs</code>, for example, to turn on
+logging for this file you would use a value of <code>RUST_LOG=hello</code>. Furthermore,
+this path is a prefix-search, so all modules nested in the specified module will
+also have logging enabled.</p>
+
+<p>The actual <code>log_level</code> is optional to specify. If omitted, all logging will be
+enabled. If specified, the it must be either a numeric in the range of 1-255, or
+it must be one of the strings <code>debug</code>, <code>error</code>, <code>info</code>, or <code>warn</code>. If a numeric
+is specified, then all logging less than or equal to that numeral is enabled.
+For example, if logging level 3 is active, error, warn, and info logs will be
+printed, but debug will be omitted.</p>
+
+<p>As the log level for a module is optional, the module to enable logging for is
+also optional. If only a <code>log_level</code> is provided, then the global log level for
+all modules is set to this value.</p>
+
+<p>Some examples of valid values of <code>RUST_LOG</code> are:</p>
+<pre class='rust '>
+<span class='ident'>hello</span><span class='comment'>                // turns on all logging for the &#39;hello&#39; module
+</span><span class='ident'>info</span><span class='comment'>                 // turns on all info logging
+</span><span class='ident'>hello</span><span class='op'>=</span><span class='ident'>debug</span><span class='comment'>          // turns on debug logging for &#39;hello&#39;
+</span><span class='ident'>hello</span><span class='op'>=</span><span class='number'>3</span><span class='comment'>              // turns on info logging for &#39;hello&#39;
+</span><span class='ident'>hello</span>,<span class='ident'>std</span>::<span class='ident'>option</span><span class='comment'>    // turns on hello, and std&#39;s option logging
+</span><span class='ident'>error</span>,<span class='ident'>hello</span><span class='op'>=</span><span class='ident'>warn</span><span class='comment'>     // turn on global error logging and also warn for hello
+</span></pre>
+
+<h2 id="performance-and-side-effects" class='section-link'><a
+                           href="#performance-and-side-effects">Performance and Side Effects</a></h2>
+<p>Each of these macros will expand to code similar to:</p>
+<pre class='rust '>
+<span class='kw'>if</span> <span class='ident'>log_level</span> <span class='op'>&lt;=</span> <span class='ident'>my_module_log_level</span>() {
+    ::<span class='ident'>std</span>::<span class='ident'>logging</span>::<span class='ident'>log</span>(<span class='ident'>log_level</span>, <span class='macro'>format</span><span class='macro'>!</span>(...));
+}
+</pre>
+
+<p>What this means is that each of these macros are very cheap at runtime if
+they&#39;re turned off (just a load and an integer comparison). This also means that
+if logging is disabled, none of the components of the log will be executed.</p>
+
+<h2 id="useful-values" class='section-link'><a
+                           href="#useful-values">Useful Values</a></h2>
+<p>For convenience, if a value of <code>::help</code> is set for <code>RUST_LOG</code>, a program will
+start, print out all modules registered for logging, and then exit.</p>
+</div><h2 id='statics' class='section-link'><a href="#statics">Statics</a></h2>
+<table>
+                    <tr>
+                        <td><code>pub static DEBUG: u32</code><code> = </code><code>4</code></td>
+                        <td class='docblock'><p>Debug log level</p>
+&nbsp;</td>
+                    </tr>
+                
+                    <tr>
+                        <td><code>pub static ERROR: u32</code><code> = </code><code>1</code></td>
+                        <td class='docblock'><p>Error log level</p>
+&nbsp;</td>
+                    </tr>
+                
+                    <tr>
+                        <td><code>pub static INFO: u32</code><code> = </code><code>3</code></td>
+                        <td class='docblock'><p>Info log level</p>
+&nbsp;</td>
+                    </tr>
+                
+                    <tr>
+                        <td><code>pub static WARN: u32</code><code> = </code><code>2</code></td>
+                        <td class='docblock'><p>Warn log level</p>
+&nbsp;</td>
+                    </tr>
+                </table><h2 id='traits' class='section-link'><a href="#traits">Traits</a></h2>
+<table>
+                    <tr>
+                        <td><a class='trait' href='trait.Logger.html'
+                               title='std::logging::Logger'>Logger</a></td>
+                        <td class='docblock short'><p>A trait used to represent an interface to a task-local logger. Each task
+can have its own custom logger which can respond to logging messages
+however it likes.</p>
+</td>
+                    </tr>
+                </table><h2 id='functions' class='section-link'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr>
+                        <td><a class='fn' href='fn.log.html'
+                               title='std::logging::log'>log</a></td>
+                        <td class='docblock short'><p>This function is called directly by the compiler when using the logging
+macros. This function does not take into account whether the log level
+specified is active or not, it will always log something if this method is
+called.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.set_logger.html'
+                               title='std::logging::set_logger'>set_logger</a></td>
+                        <td class='docblock short'><p>Replaces the task-local logger with the specified logger, returning the old
+logger.</p>
+</td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <script>
+        var rootPath = "../../";
+    </script>
+    <script src="../../std/jquery.js"></script>
+    <script src="../../std/search-index.js"></script>
+    <script src="../../std/main.js"></script>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+</body>
+</html>

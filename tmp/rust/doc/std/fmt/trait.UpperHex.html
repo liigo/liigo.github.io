@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::fmt::UpperHex - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>fmt</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='parse/index.html' title='Parsing of format strings'>parse</a><br/></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Argument.html' title='This struct represents the generic "argument" which is taken by the Xprintf family of functions. It contains a function to format the given value. At compile time it is ensured that the function and the value have the correct types, and then this struct is used to canonicalize arguments to one type.'>Argument</a><br/><a class='struct ' href='struct.Arguments.html' title='This structure represents a safely precompiled version of a format string and its arguments. This cannot be generated at runtime because it cannot safely be done so, so no constructors are given and the fields are private to prevent modification.'>Arguments</a><br/><a class='struct ' href='struct.Formatter.html' title='A struct to represent both where to emit formatting strings to and how they should be formatted. A mutable version of this is passed to all formatting traits.'>Formatter</a><br/><a class='struct ' href='struct.Radix.html' title='A radix with in the range of `2..36`.'>Radix</a><br/><a class='struct ' href='struct.RadixFmt.html' title='A helper type for formatting radixes.'>RadixFmt</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Binary.html' title='Format trait for the `t` character'>Binary</a><br/><a class='trait ' href='trait.Bool.html' title='Format trait for the `b` character'>Bool</a><br/><a class='trait ' href='trait.Char.html' title='Format trait for the `c` character'>Char</a><br/><a class='trait ' href='trait.Float.html' title='Format trait for the `f` character'>Float</a><br/><a class='trait ' href='trait.LowerExp.html' title='Format trait for the `e` character'>LowerExp</a><br/><a class='trait ' href='trait.LowerHex.html' title='Format trait for the `x` character'>LowerHex</a><br/><a class='trait ' href='trait.Octal.html' title='Format trait for the `o` character'>Octal</a><br/><a class='trait ' href='trait.Pointer.html' title='Format trait for the `p` character'>Pointer</a><br/><a class='trait ' href='trait.Poly.html' title='Format trait for the `?` character'>Poly</a><br/><a class='trait ' href='trait.Show.html' title='When a format is not otherwise specified, types are formatted by ascribing to this trait. There is not an explicit way of selecting this trait to be used for formatting, it is only if no other format is specified.'>Show</a><br/><a class='trait ' href='trait.Signed.html' title='Format trait for the `i` and `d` characters'>Signed</a><br/><a class='trait ' href='trait.String.html' title='Format trait for the `s` character'>String</a><br/><a class='trait ' href='trait.Unsigned.html' title='Format trait for the `u` character'>Unsigned</a><br/><a class='trait ' href='trait.UpperExp.html' title='Format trait for the `E` character'>UpperExp</a><br/><a class='trait current' href='trait.UpperHex.html' title='Format trait for the `X` character'>UpperHex</a><br/></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.format.html' title='The format function takes a precompiled format string and a list of arguments, to return the resulting formatted string.'>format</a><br/><a class='fn ' href='fn.format_unsafe.html' title='The unsafe version of the formatting function.'>format_unsafe</a><br/><a class='fn ' href='fn.radix.html' title='Constructs a radix formatter in the range of `2..36`.'>radix</a><br/><a class='fn ' href='fn.write.html' title='The `write` function takes an output stream, a precompiled format string, and a list of arguments. The arguments will be formatted according to the specified format string into the output stream provided.'>write</a><br/><a class='fn ' href='fn.write_unsafe.html' title='The `write_unsafe` function takes an output stream, a precompiled format string, and a list of arguments. The arguments will be formatted according to the specified format string into the output stream provided.'>write_unsafe</a><br/><a class='fn ' href='fn.writeln.html' title='The `writeln` function takes the same arguments as `write`, except that it will also write a newline (`\n`) character at the end of the format string.'>writeln</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/fmt/mod.rs.html#591'>[src]</a><h1 class='fqn'>Trait <a href='../index.html'>std</a>::<a href='index.html'>fmt</a>::<a class='trait' href=''>UpperHex</a></h1><pre class='rust trait'>pub trait UpperHex {
+    fn <a href='#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, &amp;mut <a class='struct' href='../../std/fmt/struct.Formatter.html' title='std::fmt::Formatter'>Formatter</a>) -&gt; <a class='typedef' href='../../std/fmt/typedef.Result.html' title='std::fmt::Result'>Result</a>;
+}</pre><div class='docblock'><p>Format trait for the <code>X</code> character</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.fmt' class='method'><code>fn <a href='#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, &amp;mut <a class='struct' href='../../std/fmt/struct.Formatter.html' title='std::fmt::Formatter'>Formatter</a>) -&gt; <a class='typedef' href='../../std/fmt/typedef.Result.html' title='std::fmt::Result'>Result</a></code></h3></div>
+                    <h2 id='implementors'>Implementors</h2>
+                    <ul class='item-list'>
+                <li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for int</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for uint</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for i8</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for u8</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for i16</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for u16</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for i32</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for u32</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for i64</code></li><li><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for u64</code></li></ul></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::io::Lines - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>io</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='extensions/index.html' title='Utility mixins that apply to all Readers and Writers'>extensions</a><br/><a class='mod ' href='fs/index.html' title='Synchronous File I/O'>fs</a><br/><a class='mod ' href='net/index.html' title='Networking I/O'>net</a><br/><a class='mod ' href='pipe/index.html' title='Synchronous, in-memory pipes.'>pipe</a><br/><a class='mod ' href='process/index.html' title='Bindings for executing child processes'>process</a><br/><a class='mod ' href='signal/index.html' title='Signal handling'>signal</a><br/><a class='mod ' href='stdio/index.html' title='Non-blocking access to stdin, stdout, and stderr.'>stdio</a><br/><a class='mod ' href='test/index.html' title='Various utility functions useful for writing I/O tests'>test</a><br/><a class='mod ' href='timer/index.html' title='Synchronous Timers'>timer</a><br/><a class='mod ' href='util/index.html' title='Utility implementations of Reader and Writer'>util</a><br/></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.BufReader.html' title='Reads from a fixed-size byte slice'>BufReader</a><br/><a class='struct ' href='struct.BufWriter.html' title='Writes to a fixed-size byte slice'>BufWriter</a><br/><a class='struct ' href='struct.BufferedReader.html' title='Wraps a Reader and buffers input from it'>BufferedReader</a><br/><a class='struct ' href='struct.BufferedStream.html' title='Wraps a Stream and buffers input and output to and from it.'>BufferedStream</a><br/><a class='struct ' href='struct.BufferedWriter.html' title='Wraps a Writer and buffers output to it'>BufferedWriter</a><br/><a class='struct ' href='struct.ChanReader.html' title='Allows reading from a rx.'>ChanReader</a><br/><a class='struct ' href='struct.ChanWriter.html' title='Allows writing to a tx.'>ChanWriter</a><br/><a class='struct ' href='struct.Chars.html' title='An iterator that reads a utf8-encoded character on each iteration, until `.read_char()` encounters `EndOfFile`.'>Chars</a><br/><a class='struct ' href='struct.FileStat.html' title='A structure used to describe metadata information about a file. This structure is created through the `stat` method on a `Path`.'>FileStat</a><br/><a class='struct ' href='struct.IncomingConnections.html' title='An infinite iterator over incoming connection attempts. Calling `next` will block the task until a connection is attempted.'>IncomingConnections</a><br/><a class='struct ' href='struct.IoError.html' title='The type passed to I/O condition handlers to indicate error'>IoError</a><br/><a class='struct ' href='struct.LineBufferedWriter.html' title='Wraps a Writer and buffers output to it, flushing whenever a newline (`0x0a`, `'\n'`) is detected.'>LineBufferedWriter</a><br/><a class='struct current' href='struct.Lines.html' title='An iterator that reads a line on each iteration, until `.read_line()` encounters `EndOfFile`.'>Lines</a><br/><a class='struct ' href='struct.MemReader.html' title='Reads from an owned byte vector'>MemReader</a><br/><a class='struct ' href='struct.MemWriter.html' title='Writes to an owned, growable byte vector'>MemWriter</a><br/><a class='struct ' href='struct.RefReader.html' title='A `RefReader` is a struct implementing `Reader` which contains a reference to another reader. This is often useful when composing streams.'>RefReader</a><br/><a class='struct ' href='struct.RefWriter.html' title='A `RefWriter` is a struct implementing `Writer` which contains a reference to another writer. This is often useful when composing streams.'>RefWriter</a><br/><a class='struct ' href='struct.TempDir.html' title='A wrapper for a path to temporary directory implementing automatic scope-based deletion.'>TempDir</a><br/><a class='struct ' href='struct.UnstableFileStat.html' title='This structure represents all of the possible information which can be returned from a `stat` syscall which is not contained in the `FileStat` structure. This information is not necessarily platform independent, and may have different meanings or no meaning at all on some platforms.'>UnstableFileStat</a><br/></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.FileAccess.html' title='Access permissions with which the file should be opened. `File`s opened with `Read` will return an error if written to.'>FileAccess</a><br/><a class='enum ' href='enum.FileMode.html' title='A mode specifies how a file should be opened or created. These modes are passed to `File::open_mode` and are used to control where the file is positioned when it is initially opened.'>FileMode</a><br/><a class='enum ' href='enum.FileType.html' title='Different kinds of files which can be identified by a call to stat'>FileType</a><br/><a class='enum ' href='enum.IoErrorKind.html' title=''>IoErrorKind</a><br/><a class='enum ' href='enum.SeekStyle.html' title='When seeking, the resulting cursor is offset from a base by the offset given to the `seek` function. The base used is specified by this enumeration.'>SeekStyle</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Acceptor.html' title='An acceptor is a value that presents incoming connections'>Acceptor</a><br/><a class='trait ' href='trait.Buffer.html' title='A Buffer is a type of reader which has some form of internal buffering to allow certain kinds of reading operations to be more optimized than others. This type extends the `Reader` trait with a few methods that are not possible to reasonably implement with purely a read interface.'>Buffer</a><br/><a class='trait ' href='trait.Listener.html' title='A listener is a value that can consume itself to start listening for connections.'>Listener</a><br/><a class='trait ' href='trait.Reader.html' title='A trait for objects which are byte-oriented streams. Readers are defined by one method, `read`. This function will block until data is available, filling in the provided buffer with any data read.'>Reader</a><br/><a class='trait ' href='trait.Seek.html' title='An object implementing `Seek` internally has some form of cursor which can be moved within a stream of bytes. The stream typically has a fixed size, allowing seeking relative to either end.'>Seek</a><br/><a class='trait ' href='trait.Stream.html' title='A Stream is a readable and a writable object. Data written is typically received by the object which reads receive data from.'>Stream</a><br/><a class='trait ' href='trait.Writer.html' title='A trait for objects which are byte-oriented streams. Writers are defined by one method, `write`. This function will block until the provided buffer of bytes has been entirely written, and it will return any failurs which occur.'>Writer</a><br/></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.standard_error.html' title='Creates a standard error for a commonly used flavor of error. The `detail` field of the returned error will always be `None`.'>standard_error</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/io/mod.rs.html#988-990'>[src]</a><h1 class='fqn'>Struct <a href='../index.html'>std</a>::<a href='index.html'>io</a>::<a class='struct' href=''>Lines</a></h1><pre class='rust struct'>pub struct Lines&lt;'r, T&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>An iterator that reads a line on each iteration,
+until <code>.read_line()</code> encounters <code>EndOfFile</code>.</p>
+
+<h1 id="notes-about-the-iteration-protocol" class='section-link'><a
+                           href="#notes-about-the-iteration-protocol">Notes about the Iteration Protocol</a></h1>
+<p>The <code>Lines</code> may yield <code>None</code> and thus terminate
+an iteration, but continue to yield elements if iteration
+is attempted again.</p>
+
+<h1 id="error" class='section-link'><a
+                           href="#error">Error</a></h1>
+<p>Any error other than <code>EndOfFile</code> that is produced by the underlying Reader
+is returned by the iterator and should be handled by the caller.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'r, T: <a class='trait' href='../../std/io/trait.Buffer.html' title='std::io::Buffer'>Buffer</a>&gt; <a class='trait' href='../../std/iter/trait.Iterator.html' title='std::iter::Iterator'>Iterator</a>&lt;<a class='typedef' href='../../std/io/typedef.IoResult.html' title='std::io::IoResult'>IoResult</a>&lt;~str&gt;&gt; for <a class='struct' href='../../std/io/struct.Lines.html' title='std::io::Lines'>Lines</a>&lt;'r, T&gt;</code></h3><div class='methods'><h4 id='method.next' class='method'><code>fn <a href='#method.next' class='fnname'>next</a>(&amp;mut self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;<a class='typedef' href='../../std/io/typedef.IoResult.html' title='std::io::IoResult'>IoResult</a>&lt;~str&gt;&gt;</code></h4>
+<div class='docblock'><p>Advance the iterator and return the next value. Return <code>None</code> when the end is reached.</p>
+</div><h4 id='method.size_hint' class='method'><code>fn <a href='#method.size_hint' class='fnname'>size_hint</a>(&amp;self) -&gt; (uint, <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;uint&gt;)</code></h4>
+<div class='docblock'><p>Return a lower bound and upper bound on the remaining length of the iterator.</p>
+
+<p>The common use case for the estimate is pre-allocating space to store the results.</p>
+</div><h4 id='method.chain' class='method'><code>fn <a href='#method.chain' class='fnname'>chain</a>&lt;U: <a class='trait' href='../../std/iter/trait.Iterator.html' title='std::iter::Iterator'>Iterator</a>&lt;A&gt;&gt;(self, other: U) -&gt; <a class='struct' href='../../std/iter/struct.Chain.html' title='std::iter::Chain'>Chain</a>&lt;Self, U&gt;</code></h4>
+<div class='docblock'><p>Chain this iterator with another, returning a new iterator which will
+finish iterating over the current iterator, and then it will iterate
+over the other specified iterator.</p>
+
+<h1 id="example" class='section-link'><a
+                           href="#example">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>0</span>];
+<span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> [<span class='number'>1</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>chain</span>(<span class='ident'>b</span>.<span class='ident'>iter</span>());
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>0</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>1</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.zip' class='method'><code>fn <a href='#method.zip' class='fnname'>zip</a>&lt;B, U: <a class='trait' href='../../std/iter/trait.Iterator.html' title='std::iter::Iterator'>Iterator</a>&lt;B&gt;&gt;(self, other: U) -&gt; <a class='struct' href='../../std/iter/struct.Zip.html' title='std::iter::Zip'>Zip</a>&lt;Self, U&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which iterates over both this and the specified
+iterators simultaneously, yielding the two elements as pairs. When
+either iterator returns None, all further invocations of next() will
+return None.</p>
+
+<h1 id="example-1" class='section-link'><a
+                           href="#example-1">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>0</span>];
+<span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> [<span class='number'>1</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>zip</span>(<span class='ident'>b</span>.<span class='ident'>iter</span>());
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), (<span class='kw-2'>&amp;</span><span class='number'>0</span>, <span class='kw-2'>&amp;</span><span class='number'>1</span>));
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.map' class='method'><code>fn <a href='#method.map' class='fnname'>map</a>&lt;'r, B&gt;(self, f: 'r |A| -&gt; B) -&gt; <a class='struct' href='../../std/iter/struct.Map.html' title='std::iter::Map'>Map</a>&lt;'r, A, B, Self&gt;</code></h4>
+<div class='docblock'><p>Creates a new iterator which will apply the specified function to each
+element returned by the first, yielding the mapped element instead.</p>
+
+<h1 id="example-2" class='section-link'><a
+                           href="#example-2">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='number'>2</span> <span class='op'>*</span> <span class='ident'>x</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>4</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.filter' class='method'><code>fn <a href='#method.filter' class='fnname'>filter</a>&lt;'r&gt;(self, predicate: 'r |&amp;A| -&gt; bool) -&gt; <a class='struct' href='../../std/iter/struct.Filter.html' title='std::iter::Filter'>Filter</a>&lt;'r, A, Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which applies the predicate to each element returned
+by this iterator. Only elements which have the predicate evaluate to
+<code>true</code> will be yielded.</p>
+
+<h1 id="example-3" class='section-link'><a
+                           href="#example-3">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>filter</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>x</span> <span class='op'>&gt;</span> <span class='number'>1</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>2</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.filter_map' class='method'><code>fn <a href='#method.filter_map' class='fnname'>filter_map</a>&lt;'r, B&gt;(self, f: 'r |A| -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;B&gt;) -&gt; <a class='struct' href='../../std/iter/struct.FilterMap.html' title='std::iter::FilterMap'>FilterMap</a>&lt;'r, A, B, Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which both filters and maps elements.
+If the specified function returns None, the element is skipped.
+Otherwise the option is unwrapped and the new value is yielded.</p>
+
+<h1 id="example-4" class='section-link'><a
+                           href="#example-4">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>filter_map</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='kw'>if</span> <span class='ident'>x</span> <span class='op'>&gt;</span> <span class='number'>1</span> {<span class='prelude-val'>Some</span>(<span class='number'>2</span> <span class='op'>*</span> <span class='ident'>x</span>)} <span class='kw'>else</span> {<span class='prelude-val'>None</span>});
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>4</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.enumerate' class='method'><code>fn <a href='#method.enumerate' class='fnname'>enumerate</a>(self) -&gt; <a class='struct' href='../../std/iter/struct.Enumerate.html' title='std::iter::Enumerate'>Enumerate</a>&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which yields a pair of the value returned by this
+iterator plus the current index of iteration.</p>
+
+<h1 id="example-5" class='section-link'><a
+                           href="#example-5">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>100</span>, <span class='number'>200</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>enumerate</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), (<span class='number'>0</span>, <span class='kw-2'>&amp;</span><span class='number'>100</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), (<span class='number'>1</span>, <span class='kw-2'>&amp;</span><span class='number'>200</span>));
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.peekable' class='method'><code>fn <a href='#method.peekable' class='fnname'>peekable</a>(self) -&gt; <a class='struct' href='../../std/iter/struct.Peekable.html' title='std::iter::Peekable'>Peekable</a>&lt;A, Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator that has a <code>.peek()</code> method
+that returns an optional reference to the next element.</p>
+
+<h1 id="example-6" class='section-link'><a
+                           href="#example-6">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>xs</span> <span class='op'>=</span> [<span class='number'>100</span>, <span class='number'>200</span>, <span class='number'>300</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>xs</span>.<span class='ident'>iter</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>x</span>).<span class='ident'>peekable</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>peek</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>100</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>100</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>200</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>peek</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>300</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>peek</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>300</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>300</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>peek</span>().<span class='ident'>is_none</span>());
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.skip_while' class='method'><code>fn <a href='#method.skip_while' class='fnname'>skip_while</a>&lt;'r&gt;(self, predicate: 'r |&amp;A| -&gt; bool) -&gt; <a class='struct' href='../../std/iter/struct.SkipWhile.html' title='std::iter::SkipWhile'>SkipWhile</a>&lt;'r, A, Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which invokes the predicate on elements until it
+returns false. Once the predicate returns false, all further elements are
+yielded.</p>
+
+<h1 id="example-7" class='section-link'><a
+                           href="#example-7">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>2</span>, <span class='number'>1</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>skip_while</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>a</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>a</span> <span class='op'>&lt;</span> <span class='number'>3</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>3</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>1</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.take_while' class='method'><code>fn <a href='#method.take_while' class='fnname'>take_while</a>&lt;'r&gt;(self, predicate: 'r |&amp;A| -&gt; bool) -&gt; <a class='struct' href='../../std/iter/struct.TakeWhile.html' title='std::iter::TakeWhile'>TakeWhile</a>&lt;'r, A, Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which yields elements so long as the predicate
+returns true. After the predicate returns false for the first time, no
+further elements will be yielded.</p>
+
+<h1 id="example-8" class='section-link'><a
+                           href="#example-8">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>2</span>, <span class='number'>1</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>take_while</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>a</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>a</span> <span class='op'>&lt;</span> <span class='number'>3</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>1</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>2</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.skip' class='method'><code>fn <a href='#method.skip' class='fnname'>skip</a>(self, n: uint) -&gt; <a class='struct' href='../../std/iter/struct.Skip.html' title='std::iter::Skip'>Skip</a>&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which skips the first <code>n</code> elements of this iterator,
+and then it yields all further items.</p>
+
+<h1 id="example-9" class='section-link'><a
+                           href="#example-9">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>skip</span>(<span class='number'>3</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>4</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>5</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.take' class='method'><code>fn <a href='#method.take' class='fnname'>take</a>(self, n: uint) -&gt; <a class='struct' href='../../std/iter/struct.Take.html' title='std::iter::Take'>Take</a>&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator which yields the first <code>n</code> elements of this
+iterator, and then it will always return None.</p>
+
+<h1 id="example-10" class='section-link'><a
+                           href="#example-10">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>take</span>(<span class='number'>3</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>1</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='kw-2'>&amp;</span><span class='number'>3</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.scan' class='method'><code>fn <a href='#method.scan' class='fnname'>scan</a>&lt;'r, St, B&gt;(self, initial_state: St, f: 'r |&amp;mut St, A| -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;B&gt;) -&gt; <a class='struct' href='../../std/iter/struct.Scan.html' title='std::iter::Scan'>Scan</a>&lt;'r, A, B, Self, St&gt;</code></h4>
+<div class='docblock'><p>Creates a new iterator which behaves in a similar fashion to foldl.
+There is a state which is passed between each iteration and can be
+mutated as necessary. The yielded values from the closure are yielded
+from the Scan instance when not None.</p>
+
+<h1 id="example-11" class='section-link'><a
+                           href="#example-11">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>scan</span>(<span class='number'>1</span>, <span class='op'>|</span><span class='ident'>fac</span>, <span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> {
+  <span class='op'>*</span><span class='ident'>fac</span> <span class='op'>=</span> <span class='op'>*</span><span class='ident'>fac</span> <span class='op'>*</span> <span class='ident'>x</span>;
+  <span class='prelude-val'>Some</span>(<span class='op'>*</span><span class='ident'>fac</span>)
+});
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>1</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>6</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>24</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>unwrap</span>(), <span class='number'>120</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>());
+</pre>
+</div><h4 id='method.flat_map' class='method'><code>fn <a href='#method.flat_map' class='fnname'>flat_map</a>&lt;'r, B, U: <a class='trait' href='../../std/iter/trait.Iterator.html' title='std::iter::Iterator'>Iterator</a>&lt;B&gt;&gt;(self, f: 'r |A| -&gt; U) -&gt; <a class='struct' href='../../std/iter/struct.FlatMap.html' title='std::iter::FlatMap'>FlatMap</a>&lt;'r, A, Self, U&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator that maps each element to an iterator,
+and yields the elements of the produced iterators</p>
+
+<h1 id="example-12" class='section-link'><a
+                           href="#example-12">Example</a></h1><pre class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>iter</span>::<span class='ident'>count</span>;
+
+<span class='kw'>let</span> <span class='ident'>xs</span> <span class='op'>=</span> [<span class='number'>2u</span>, <span class='number'>3</span>];
+<span class='kw'>let</span> <span class='ident'>ys</span> <span class='op'>=</span> [<span class='number'>0u</span>, <span class='number'>1</span>, <span class='number'>0</span>, <span class='number'>1</span>, <span class='number'>2</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>xs</span>.<span class='ident'>iter</span>().<span class='ident'>flat_map</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>count</span>(<span class='number'>0u</span>, <span class='number'>1</span>).<span class='ident'>take</span>(<span class='ident'>x</span>));<span class='comment'>
+// Check that `it` has the same elements as `ys`
+</span><span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>i</span> <span class='op'>=</span> <span class='number'>0</span>;
+<span class='kw'>for</span> <span class='ident'>x</span> <span class='kw'>in</span> <span class='ident'>it</span> {
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>x</span>, <span class='ident'>ys</span>[<span class='ident'>i</span>]);
+    <span class='ident'>i</span> <span class='op'>+=</span> <span class='number'>1</span>;
+}
+</pre>
+</div><h4 id='method.fuse' class='method'><code>fn <a href='#method.fuse' class='fnname'>fuse</a>(self) -&gt; <a class='struct' href='../../std/iter/struct.Fuse.html' title='std::iter::Fuse'>Fuse</a>&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator that yields <code>None</code> forever after the underlying
+iterator yields <code>None</code>. Random-access iterator behavior is not
+affected, only single and double-ended iterator behavior.</p>
+
+<h1 id="example-13" class='section-link'><a
+                           href="#example-13">Example</a></h1><pre class='rust '>
+<span class='kw'>fn</span> <span class='ident'>process</span><span class='op'>&lt;</span><span class='ident'>U</span>: <span class='ident'>Iterator</span><span class='op'>&lt;</span><span class='ident'>int</span><span class='op'>&gt;&gt;</span>(<span class='ident'>it</span>: <span class='ident'>U</span>) <span class='op'>-&gt;</span> <span class='ident'>int</span> {
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>it</span>.<span class='ident'>fuse</span>();
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>sum</span> <span class='op'>=</span> <span class='number'>0</span>;
+    <span class='kw'>for</span> <span class='ident'>x</span> <span class='kw'>in</span> <span class='ident'>it</span> {
+        <span class='kw'>if</span> <span class='ident'>x</span> <span class='op'>&gt;</span> <span class='number'>5</span> {
+            <span class='kw'>continue</span>;
+        }
+        <span class='ident'>sum</span> <span class='op'>+=</span> <span class='ident'>x</span>;
+    }<span class='comment'>
+    // did we exhaust the iterator?
+    </span><span class='kw'>if</span> <span class='ident'>it</span>.<span class='ident'>next</span>().<span class='ident'>is_none</span>() {
+        <span class='ident'>sum</span> <span class='op'>+=</span> <span class='number'>1000</span>;
+    }
+    <span class='ident'>sum</span>
+}
+<span class='kw'>let</span> <span class='ident'>x</span> <span class='op'>=</span> <span class='kw-2'>~</span>[<span class='number'>1</span>,<span class='number'>2</span>,<span class='number'>3</span>,<span class='number'>7</span>,<span class='number'>8</span>,<span class='number'>9</span>];
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>process</span>(<span class='ident'>x</span>.<span class='ident'>move_iter</span>()), <span class='number'>1006</span>);
+</pre>
+</div><h4 id='method.inspect' class='method'><code>fn <a href='#method.inspect' class='fnname'>inspect</a>&lt;'r&gt;(self, f: 'r |&amp;A|) -&gt; <a class='struct' href='../../std/iter/struct.Inspect.html' title='std::iter::Inspect'>Inspect</a>&lt;'r, A, Self&gt;</code></h4>
+<div class='docblock'><p>Creates an iterator that calls a function with a reference to each
+element before yielding it. This is often useful for debugging an
+iterator pipeline.</p>
+
+<h1 id="example-14" class='section-link'><a
+                           href="#example-14">Example</a></h1><pre class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>iter</span>::<span class='ident'>AdditiveIterator</span>;
+
+<span class='kw'>let</span> <span class='ident'>xs</span> <span class='op'>=</span> [<span class='number'>1u</span>, <span class='number'>4</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>8</span>, <span class='number'>9</span>, <span class='number'>6</span>];
+<span class='kw'>let</span> <span class='ident'>sum</span> <span class='op'>=</span> <span class='ident'>xs</span>.<span class='ident'>iter</span>()
+            .<span class='ident'>map</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>)
+            .<span class='ident'>inspect</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;filtering {}&quot;</span>, <span class='ident'>x</span>))
+            .<span class='ident'>filter</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span> <span class='op'>%</span> <span class='number'>2</span> <span class='op'>==</span> <span class='number'>0</span>)
+            .<span class='ident'>inspect</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{} made it through&quot;</span>, <span class='ident'>x</span>))
+            .<span class='ident'>sum</span>();
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{}&quot;</span>, <span class='ident'>sum</span>);
+</pre>
+</div><h4 id='method.by_ref' class='method'><code>fn <a href='#method.by_ref' class='fnname'>by_ref</a>&lt;'r&gt;(&amp;'r mut self) -&gt; <a class='struct' href='../../std/iter/struct.ByRef.html' title='std::iter::ByRef'>ByRef</a>&lt;'r, Self&gt;</code></h4>
+<div class='docblock'><p>Creates a wrapper around a mutable reference to the iterator.</p>
+
+<p>This is useful to allow applying iterator adaptors while still
+retaining ownership of the original iterator value.</p>
+
+<h1 id="example-15" class='section-link'><a
+                           href="#example-15">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>xs</span> <span class='op'>=</span> <span class='ident'>range</span>(<span class='number'>0</span>, <span class='number'>10</span>);<span class='comment'>
+// sum the first five values
+</span><span class='kw'>let</span> <span class='ident'>partial_sum</span> <span class='op'>=</span> <span class='ident'>xs</span>.<span class='ident'>by_ref</span>().<span class='ident'>take</span>(<span class='number'>5</span>).<span class='ident'>fold</span>(<span class='number'>0</span>, <span class='op'>|</span><span class='ident'>a</span>, <span class='ident'>b</span><span class='op'>|</span> <span class='ident'>a</span> <span class='op'>+</span> <span class='ident'>b</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>partial_sum</span> <span class='op'>==</span> <span class='number'>10</span>);<span class='comment'>
+// xs.next() is now `5`
+</span><span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>xs</span>.<span class='ident'>next</span>() <span class='op'>==</span> <span class='prelude-val'>Some</span>(<span class='number'>5</span>));
+</pre>
+</div><h4 id='method.advance' class='method'><code>fn <a href='#method.advance' class='fnname'>advance</a>(&amp;mut self, f: |A| -&gt; bool) -&gt; bool</code></h4>
+<div class='docblock'><p>Apply a function to each element, or stop iterating if the
+function returns <code>false</code>.</p>
+
+<h1 id="example-16" class='section-link'><a
+                           href="#example-16">Example</a></h1><pre class='rust '>
+<span class='ident'>range</span>(<span class='number'>0</span>, <span class='number'>5</span>).<span class='ident'>advance</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> {<span class='macro'>print</span><span class='macro'>!</span>(<span class='string'>&quot;{} &quot;</span>, <span class='ident'>x</span>); <span class='boolval'>true</span>});
+</pre>
+</div><h4 id='method.collect' class='method'><code>fn <a href='#method.collect' class='fnname'>collect</a>&lt;B: <a class='trait' href='../../std/iter/trait.FromIterator.html' title='std::iter::FromIterator'>FromIterator</a>&lt;A&gt;&gt;(&amp;mut self) -&gt; B</code></h4>
+<div class='docblock'><p>Loops through the entire iterator, collecting all of the elements into
+a container implementing <code>FromIterator</code>.</p>
+
+<h1 id="example-17" class='section-link'><a
+                           href="#example-17">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='ident'>b</span>: <span class='kw-2'>~</span>[<span class='ident'>int</span>] <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>).<span class='ident'>collect</span>();
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span> <span class='op'>==</span> <span class='ident'>b</span>);
+</pre>
+</div><h4 id='method.to_owned_vec' class='method'><code>fn <a href='#method.to_owned_vec' class='fnname'>to_owned_vec</a>(&amp;mut self) -&gt; ~[A]</code></h4>
+<div class='docblock'><p>Loops through the entire iterator, collecting all of the elements into
+a unique vector. This is simply collect() specialized for vectors.</p>
+
+<h1 id="example-18" class='section-link'><a
+                           href="#example-18">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='ident'>b</span>: <span class='kw-2'>~</span>[<span class='ident'>int</span>] <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>).<span class='ident'>to_owned_vec</span>();
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span> <span class='op'>==</span> <span class='ident'>b</span>);
+</pre>
+</div><h4 id='method.nth' class='method'><code>fn <a href='#method.nth' class='fnname'>nth</a>(&amp;mut self, n: uint) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;A&gt;</code></h4>
+<div class='docblock'><p>Loops through <code>n</code> iterations, returning the <code>n</code>th element of the
+iterator.</p>
+
+<h1 id="example-19" class='section-link'><a
+                           href="#example-19">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>();
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>nth</span>(<span class='number'>2</span>).<span class='ident'>unwrap</span>() <span class='op'>==</span> <span class='kw-2'>&amp;</span><span class='number'>3</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>nth</span>(<span class='number'>2</span>) <span class='op'>==</span> <span class='prelude-val'>None</span>);
+</pre>
+</div><h4 id='method.last' class='method'><code>fn <a href='#method.last' class='fnname'>last</a>(&amp;mut self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;A&gt;</code></h4>
+<div class='docblock'><p>Loops through the entire iterator, returning the last element of the
+iterator.</p>
+
+<h1 id="example-20" class='section-link'><a
+                           href="#example-20">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>last</span>().<span class='ident'>unwrap</span>() <span class='op'>==</span> <span class='kw-2'>&amp;</span><span class='number'>5</span>);
+</pre>
+</div><h4 id='method.fold' class='method'><code>fn <a href='#method.fold' class='fnname'>fold</a>&lt;B&gt;(&amp;mut self, init: B, f: |B, A| -&gt; B) -&gt; B</code></h4>
+<div class='docblock'><p>Performs a fold operation over the entire iterator, returning the
+eventual state at the end of the iteration.</p>
+
+<h1 id="example-21" class='section-link'><a
+                           href="#example-21">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>fold</span>(<span class='number'>0</span>, <span class='op'>|</span><span class='ident'>a</span>, <span class='kw-2'>&amp;</span><span class='ident'>b</span><span class='op'>|</span> <span class='ident'>a</span> <span class='op'>+</span> <span class='ident'>b</span>) <span class='op'>==</span> <span class='number'>15</span>);
+</pre>
+</div><h4 id='method.len' class='method'><code>fn <a href='#method.len' class='fnname'>len</a>(&amp;mut self) -&gt; uint</code></h4>
+<div class='docblock'><p>Counts the number of elements in this iterator.</p>
+
+<h1 id="example-22" class='section-link'><a
+                           href="#example-22">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>();
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>len</span>() <span class='op'>==</span> <span class='number'>5</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>len</span>() <span class='op'>==</span> <span class='number'>0</span>);
+</pre>
+</div><h4 id='method.all' class='method'><code>fn <a href='#method.all' class='fnname'>all</a>(&amp;mut self, f: |A| -&gt; bool) -&gt; bool</code></h4>
+<div class='docblock'><p>Tests whether the predicate holds true for all elements in the iterator.</p>
+
+<h1 id="example-23" class='section-link'><a
+                           href="#example-23">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>all</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>x</span> <span class='op'>&gt;</span> <span class='number'>0</span>));
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='op'>!</span><span class='ident'>a</span>.<span class='ident'>iter</span>().<span class='ident'>all</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>x</span> <span class='op'>&gt;</span> <span class='number'>2</span>));
+</pre>
+</div><h4 id='method.any' class='method'><code>fn <a href='#method.any' class='fnname'>any</a>(&amp;mut self, f: |A| -&gt; bool) -&gt; bool</code></h4>
+<div class='docblock'><p>Tests whether any element of an iterator satisfies the specified
+predicate.</p>
+
+<h1 id="example-24" class='section-link'><a
+                           href="#example-24">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> [<span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>4</span>, <span class='number'>5</span>];
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>it</span> <span class='op'>=</span> <span class='ident'>a</span>.<span class='ident'>iter</span>();
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>it</span>.<span class='ident'>any</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>x</span> <span class='op'>==</span> <span class='number'>3</span>));
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='op'>!</span><span class='ident'>it</span>.<span class='ident'>any</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='op'>*</span><span class='ident'>x</span> <span class='op'>==</span> <span class='number'>3</span>));
+</pre>
+</div><h4 id='method.find' class='method'><code>fn <a href='#method.find' class='fnname'>find</a>(&amp;mut self, predicate: |&amp;A| -&gt; bool) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;A&gt;</code></h4>
+<div class='docblock'><p>Return the first element satisfying the specified predicate</p>
+</div><h4 id='method.position' class='method'><code>fn <a href='#method.position' class='fnname'>position</a>(&amp;mut self, predicate: |A| -&gt; bool) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;uint&gt;</code></h4>
+<div class='docblock'><p>Return the index of the first element satisfying the specified predicate</p>
+</div><h4 id='method.count' class='method'><code>fn <a href='#method.count' class='fnname'>count</a>(&amp;mut self, predicate: |A| -&gt; bool) -&gt; uint</code></h4>
+<div class='docblock'><p>Count the number of elements satisfying the specified predicate</p>
+</div><h4 id='method.max_by' class='method'><code>fn <a href='#method.max_by' class='fnname'>max_by</a>&lt;B: <a class='trait' href='../../std/cmp/trait.TotalOrd.html' title='std::cmp::TotalOrd'>TotalOrd</a>&gt;(&amp;mut self, f: |&amp;A| -&gt; B) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;A&gt;</code></h4>
+<div class='docblock'><p>Return the element that gives the maximum value from the
+specified function.</p>
+
+<h1 id="example-25" class='section-link'><a
+                           href="#example-25">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>xs</span> <span class='op'>=</span> [<span class='op'>-</span><span class='number'>3i</span>, <span class='number'>0</span>, <span class='number'>1</span>, <span class='number'>5</span>, <span class='op'>-</span><span class='number'>10</span>];
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>xs</span>.<span class='ident'>iter</span>().<span class='ident'>max_by</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>abs</span>()).<span class='ident'>unwrap</span>(), <span class='op'>-</span><span class='number'>10</span>);
+</pre>
+</div><h4 id='method.min_by' class='method'><code>fn <a href='#method.min_by' class='fnname'>min_by</a>&lt;B: <a class='trait' href='../../std/cmp/trait.TotalOrd.html' title='std::cmp::TotalOrd'>TotalOrd</a>&gt;(&amp;mut self, f: |&amp;A| -&gt; B) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;A&gt;</code></h4>
+<div class='docblock'><p>Return the element that gives the minimum value from the
+specified function.</p>
+
+<h1 id="example-26" class='section-link'><a
+                           href="#example-26">Example</a></h1><pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>xs</span> <span class='op'>=</span> [<span class='op'>-</span><span class='number'>3i</span>, <span class='number'>0</span>, <span class='number'>1</span>, <span class='number'>5</span>, <span class='op'>-</span><span class='number'>10</span>];
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>xs</span>.<span class='ident'>iter</span>().<span class='ident'>min_by</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>abs</span>()).<span class='ident'>unwrap</span>(), <span class='number'>0</span>);
+</pre>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::rt::rtio::RtioTimer - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../../index.html'>std</a>&#8203;::<a href='../index.html'>rt</a>&#8203;::<a href='index.html'>rtio</a></p><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.FileOpenConfig.html' title='Data needed to make a successful open(2) call Using unix flag conventions for now, which happens to also be what's supported libuv (it does translation to windows under the hood).'>FileOpenConfig</a><br/><a class='struct ' href='struct.LocalIo.html' title=''>LocalIo</a><br/></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.CloseBehavior.html' title='Description of what to do when a file handle is closed'>CloseBehavior</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Callback.html' title=''>Callback</a><br/><a class='trait ' href='trait.EventLoop.html' title=''>EventLoop</a><br/><a class='trait ' href='trait.IoFactory.html' title=''>IoFactory</a><br/><a class='trait ' href='trait.PausableIdleCallback.html' title=''>PausableIdleCallback</a><br/><a class='trait ' href='trait.RemoteCallback.html' title=''>RemoteCallback</a><br/><a class='trait ' href='trait.RtioFileStream.html' title=''>RtioFileStream</a><br/><a class='trait ' href='trait.RtioPipe.html' title=''>RtioPipe</a><br/><a class='trait ' href='trait.RtioProcess.html' title=''>RtioProcess</a><br/><a class='trait ' href='trait.RtioSignal.html' title=''>RtioSignal</a><br/><a class='trait ' href='trait.RtioSocket.html' title=''>RtioSocket</a><br/><a class='trait ' href='trait.RtioTTY.html' title=''>RtioTTY</a><br/><a class='trait ' href='trait.RtioTcpAcceptor.html' title=''>RtioTcpAcceptor</a><br/><a class='trait ' href='trait.RtioTcpListener.html' title=''>RtioTcpListener</a><br/><a class='trait ' href='trait.RtioTcpStream.html' title=''>RtioTcpStream</a><br/><a class='trait current' href='trait.RtioTimer.html' title=''>RtioTimer</a><br/><a class='trait ' href='trait.RtioUdpSocket.html' title=''>RtioUdpSocket</a><br/><a class='trait ' href='trait.RtioUnixAcceptor.html' title=''>RtioUnixAcceptor</a><br/><a class='trait ' href='trait.RtioUnixListener.html' title=''>RtioUnixListener</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait"><a class='source'
+                              href='../../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/rt/rtio.rs.html#235-239'>[src]</a><h1 class='fqn'>Trait <a href='../../index.html'>std</a>::<a href='../index.html'>rt</a>::<a href='index.html'>rtio</a>::<a class='trait' href=''>RtioTimer</a></h1><pre class='rust trait'>pub trait RtioTimer {
+    fn <a href='#tymethod.sleep' class='fnname'>sleep</a>(&amp;mut self, msecs: u64);
+    fn <a href='#tymethod.oneshot' class='fnname'>oneshot</a>(&amp;mut self, msecs: u64) -&gt; <a class='struct' href='../../../std/comm/struct.Receiver.html' title='std::comm::Receiver'>Receiver</a>&lt;()&gt;;
+    fn <a href='#tymethod.period' class='fnname'>period</a>(&amp;mut self, msecs: u64) -&gt; <a class='struct' href='../../../std/comm/struct.Receiver.html' title='std::comm::Receiver'>Receiver</a>&lt;()&gt;;
+}</pre>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.sleep' class='method'><code>fn <a href='#tymethod.sleep' class='fnname'>sleep</a>(&amp;mut self, msecs: u64)</code></h3><h3 id='tymethod.oneshot' class='method'><code>fn <a href='#tymethod.oneshot' class='fnname'>oneshot</a>(&amp;mut self, msecs: u64) -&gt; <a class='struct' href='../../../std/comm/struct.Receiver.html' title='std::comm::Receiver'>Receiver</a>&lt;()&gt;</code></h3><h3 id='tymethod.period' class='method'><code>fn <a href='#tymethod.period' class='fnname'>period</a>(&amp;mut self, msecs: u64) -&gt; <a class='struct' href='../../../std/comm/struct.Receiver.html' title='std::comm::Receiver'>Receiver</a>&lt;()&gt;</code></h3></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

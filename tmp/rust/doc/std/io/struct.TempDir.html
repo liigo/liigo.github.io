@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::io::TempDir - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>io</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='extensions/index.html' title='Utility mixins that apply to all Readers and Writers'>extensions</a><br/><a class='mod ' href='fs/index.html' title='Synchronous File I/O'>fs</a><br/><a class='mod ' href='net/index.html' title='Networking I/O'>net</a><br/><a class='mod ' href='pipe/index.html' title='Synchronous, in-memory pipes.'>pipe</a><br/><a class='mod ' href='process/index.html' title='Bindings for executing child processes'>process</a><br/><a class='mod ' href='signal/index.html' title='Signal handling'>signal</a><br/><a class='mod ' href='stdio/index.html' title='Non-blocking access to stdin, stdout, and stderr.'>stdio</a><br/><a class='mod ' href='test/index.html' title='Various utility functions useful for writing I/O tests'>test</a><br/><a class='mod ' href='timer/index.html' title='Synchronous Timers'>timer</a><br/><a class='mod ' href='util/index.html' title='Utility implementations of Reader and Writer'>util</a><br/></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.BufReader.html' title='Reads from a fixed-size byte slice'>BufReader</a><br/><a class='struct ' href='struct.BufWriter.html' title='Writes to a fixed-size byte slice'>BufWriter</a><br/><a class='struct ' href='struct.BufferedReader.html' title='Wraps a Reader and buffers input from it'>BufferedReader</a><br/><a class='struct ' href='struct.BufferedStream.html' title='Wraps a Stream and buffers input and output to and from it.'>BufferedStream</a><br/><a class='struct ' href='struct.BufferedWriter.html' title='Wraps a Writer and buffers output to it'>BufferedWriter</a><br/><a class='struct ' href='struct.ChanReader.html' title='Allows reading from a rx.'>ChanReader</a><br/><a class='struct ' href='struct.ChanWriter.html' title='Allows writing to a tx.'>ChanWriter</a><br/><a class='struct ' href='struct.Chars.html' title='An iterator that reads a utf8-encoded character on each iteration, until `.read_char()` encounters `EndOfFile`.'>Chars</a><br/><a class='struct ' href='struct.FileStat.html' title='A structure used to describe metadata information about a file. This structure is created through the `stat` method on a `Path`.'>FileStat</a><br/><a class='struct ' href='struct.IncomingConnections.html' title='An infinite iterator over incoming connection attempts. Calling `next` will block the task until a connection is attempted.'>IncomingConnections</a><br/><a class='struct ' href='struct.IoError.html' title='The type passed to I/O condition handlers to indicate error'>IoError</a><br/><a class='struct ' href='struct.LineBufferedWriter.html' title='Wraps a Writer and buffers output to it, flushing whenever a newline (`0x0a`, `'\n'`) is detected.'>LineBufferedWriter</a><br/><a class='struct ' href='struct.Lines.html' title='An iterator that reads a line on each iteration, until `.read_line()` encounters `EndOfFile`.'>Lines</a><br/><a class='struct ' href='struct.MemReader.html' title='Reads from an owned byte vector'>MemReader</a><br/><a class='struct ' href='struct.MemWriter.html' title='Writes to an owned, growable byte vector'>MemWriter</a><br/><a class='struct ' href='struct.RefReader.html' title='A `RefReader` is a struct implementing `Reader` which contains a reference to another reader. This is often useful when composing streams.'>RefReader</a><br/><a class='struct ' href='struct.RefWriter.html' title='A `RefWriter` is a struct implementing `Writer` which contains a reference to another writer. This is often useful when composing streams.'>RefWriter</a><br/><a class='struct current' href='struct.TempDir.html' title='A wrapper for a path to temporary directory implementing automatic scope-based deletion.'>TempDir</a><br/><a class='struct ' href='struct.UnstableFileStat.html' title='This structure represents all of the possible information which can be returned from a `stat` syscall which is not contained in the `FileStat` structure. This information is not necessarily platform independent, and may have different meanings or no meaning at all on some platforms.'>UnstableFileStat</a><br/></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.FileAccess.html' title='Access permissions with which the file should be opened. `File`s opened with `Read` will return an error if written to.'>FileAccess</a><br/><a class='enum ' href='enum.FileMode.html' title='A mode specifies how a file should be opened or created. These modes are passed to `File::open_mode` and are used to control where the file is positioned when it is initially opened.'>FileMode</a><br/><a class='enum ' href='enum.FileType.html' title='Different kinds of files which can be identified by a call to stat'>FileType</a><br/><a class='enum ' href='enum.IoErrorKind.html' title=''>IoErrorKind</a><br/><a class='enum ' href='enum.SeekStyle.html' title='When seeking, the resulting cursor is offset from a base by the offset given to the `seek` function. The base used is specified by this enumeration.'>SeekStyle</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Acceptor.html' title='An acceptor is a value that presents incoming connections'>Acceptor</a><br/><a class='trait ' href='trait.Buffer.html' title='A Buffer is a type of reader which has some form of internal buffering to allow certain kinds of reading operations to be more optimized than others. This type extends the `Reader` trait with a few methods that are not possible to reasonably implement with purely a read interface.'>Buffer</a><br/><a class='trait ' href='trait.Listener.html' title='A listener is a value that can consume itself to start listening for connections.'>Listener</a><br/><a class='trait ' href='trait.Reader.html' title='A trait for objects which are byte-oriented streams. Readers are defined by one method, `read`. This function will block until data is available, filling in the provided buffer with any data read.'>Reader</a><br/><a class='trait ' href='trait.Seek.html' title='An object implementing `Seek` internally has some form of cursor which can be moved within a stream of bytes. The stream typically has a fixed size, allowing seeking relative to either end.'>Seek</a><br/><a class='trait ' href='trait.Stream.html' title='A Stream is a readable and a writable object. Data written is typically received by the object which reads receive data from.'>Stream</a><br/><a class='trait ' href='trait.Writer.html' title='A trait for objects which are byte-oriented streams. Writers are defined by one method, `write`. This function will block until the provided buffer of bytes has been entirely written, and it will return any failurs which occur.'>Writer</a><br/></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.standard_error.html' title='Creates a standard error for a commonly used flavor of error. The `detail` field of the returned error will always be `None`.'>standard_error</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/io/tempfile.rs.html#26-28'>[src]</a><h1 class='fqn'>Struct <a href='../index.html'>std</a>::<a href='index.html'>io</a>::<a class='struct' href=''>TempDir</a></h1><pre class='rust struct'>pub struct TempDir {
+    // some fields omitted
+}</pre><div class='docblock'><p>A wrapper for a path to temporary directory implementing automatic
+scope-based deletion.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../std/io/struct.TempDir.html' title='std::io::TempDir'>TempDir</a></code></h3><div class='methods'><h4 id='method.new_in' class='method'><code>fn <a href='#method.new_in' class='fnname'>new_in</a>(tmpdir: &amp;<a class='struct' href='../../std/path/windows/struct.Path.html' title='std::path::windows::Path'>Path</a>, suffix: &amp;str) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;<a class='struct' href='../../std/io/struct.TempDir.html' title='std::io::TempDir'>TempDir</a>&gt;</code></h4>
+<div class='docblock'><p>Attempts to make a temporary directory inside of <code>tmpdir</code> whose name
+will have the suffix <code>suffix</code>. The directory will be automatically
+deleted once the returned wrapper is destroyed.</p>
+
+<p>If no directory can be created, None is returned.</p>
+</div><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(suffix: &amp;str) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;<a class='struct' href='../../std/io/struct.TempDir.html' title='std::io::TempDir'>TempDir</a>&gt;</code></h4>
+<div class='docblock'><p>Attempts to make a temporary directory inside of <code>os::tmpdir()</code> whose
+name will have the suffix <code>suffix</code>. The directory will be automatically
+deleted once the returned wrapper is destroyed.</p>
+
+<p>If no directory can be created, None is returned.</p>
+</div><h4 id='method.unwrap' class='method'><code>fn <a href='#method.unwrap' class='fnname'>unwrap</a>(self) -&gt; <a class='struct' href='../../std/path/windows/struct.Path.html' title='std::path::windows::Path'>Path</a></code></h4>
+<div class='docblock'><p>Unwrap the wrapped <code>std::path::Path</code> from the <code>TempDir</code> wrapper.
+This discards the wrapper so that the automatic deletion of the
+temporary directory is prevented.</p>
+</div><h4 id='method.path' class='method'><code>fn <a href='#method.path' class='fnname'>path</a>&lt;'a&gt;(&amp;'a self) -&gt; &amp;'a <a class='struct' href='../../std/path/windows/struct.Path.html' title='std::path::windows::Path'>Path</a></code></h4>
+<div class='docblock'><p>Access the wrapped <code>std::path::Path</code> to the temporary directory.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../std/ops/trait.Drop.html' title='std::ops::Drop'>Drop</a> for <a class='struct' href='../../std/io/struct.TempDir.html' title='std::io::TempDir'>TempDir</a></code></h3><div class='methods'><h4 id='method.drop' class='method'><code>fn <a href='#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>The <code>drop</code> method, called when the value goes out of scope.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

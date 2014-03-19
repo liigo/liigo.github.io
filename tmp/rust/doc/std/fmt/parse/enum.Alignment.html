@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::fmt::parse::Alignment - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../../index.html'>std</a>&#8203;::<a href='../index.html'>fmt</a>&#8203;::<a href='index.html'>parse</a></p><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Argument.html' title='Representation of an argument specification.'>Argument</a><br/><a class='struct ' href='struct.FormatSpec.html' title='Specification for the formatting of an argument in the format string.'>FormatSpec</a><br/><a class='struct ' href='struct.Parser.html' title='The parser structure for interpreting the input format string. This is modelled as an iterator over `Piece` structures to form a stream of tokens being output.'>Parser</a><br/><a class='struct ' href='struct.PluralArm.html' title='Structure representing one "arm" of the `plural` function.'>PluralArm</a><br/><a class='struct ' href='struct.SelectArm.html' title='Structure representing one "arm" of the `select` function.'>SelectArm</a><br/></div><div class='block enum'><h2>Enums</h2><a class='enum current' href='enum.Alignment.html' title='Enum of alignments which are supported.'>Alignment</a><br/><a class='enum ' href='enum.Count.html' title='A count is used for the precision and width parameters of an integer, and can reference either an argument or a literal integer.'>Count</a><br/><a class='enum ' href='enum.Flag.html' title='Various flags which can be applied to format strings, the meaning of these flags is defined by the formatters themselves.'>Flag</a><br/><a class='enum ' href='enum.Method.html' title='Enum describing all of the possible methods which the formatting language currently supports.'>Method</a><br/><a class='enum ' href='enum.Piece.html' title='A piece is a portion of the format string which represents the next part to emit. These are emitted as a stream by the `Parser` class.'>Piece</a><br/><a class='enum ' href='enum.PluralKeyword.html' title='Enum of the 5 CLDR plural keywords. There is one more, "other", but that is specially placed in the `Plural` variant of `Method`'>PluralKeyword</a><br/><a class='enum ' href='enum.PluralSelector.html' title='A selector for what pluralization a plural method should take'>PluralSelector</a><br/><a class='enum ' href='enum.Position.html' title='Enum describing where an argument for a format can be located.'>Position</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum"><a class='source'
+                              href='../../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/fmt/parse.rs.html#76'>[src]</a><h1 class='fqn'>Enum <a href='../../index.html'>std</a>::<a href='../index.html'>fmt</a>::<a href='index.html'>parse</a>::<a class='enum' href=''>Alignment</a></h1><pre class='rust enum'>pub enum Alignment {
+    AlignLeft,
+    AlignRight,
+    AlignUnknown,
+}</pre><div class='docblock'><p>Enum of alignments which are supported.</p>
+</div><h2 class='variants'>Variants</h2>
+<table><tr><td id='variant.AlignLeft'><code>AlignLeft</code></td><td></td></tr><tr><td id='variant.AlignRight'><code>AlignRight</code></td><td></td></tr><tr><td id='variant.AlignUnknown'><code>AlignUnknown</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../../std/cmp/trait.Eq.html' title='std::cmp::Eq'>Eq</a> for <a class='enum' href='../../../std/fmt/parse/enum.Alignment.html' title='std::fmt::parse::Alignment'>Alignment</a></code></h3><div class='methods'><h4 id='method.eq' class='method'><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../std/fmt/parse/enum.Alignment.html' title='std::fmt::parse::Alignment'>Alignment</a>) -&gt; bool</code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../std/fmt/parse/enum.Alignment.html' title='std::fmt::parse::Alignment'>Alignment</a>) -&gt; bool</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

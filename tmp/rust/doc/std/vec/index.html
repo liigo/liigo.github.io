@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::vec - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='../any/index.html' title='Traits for dynamic typing of any type (through runtime reflection)'>any</a><br/><a class='mod ' href='../ascii/index.html' title='Operations on ASCII strings and characters'>ascii</a><br/><a class='mod ' href='../bool/index.html' title='Operations on boolean values (`bool` type)'>bool</a><br/><a class='mod ' href='../c_str/index.html' title='C-string manipulation and management'>c_str</a><br/><a class='mod ' href='../c_vec/index.html' title='Library to interface with chunks of memory allocated in C.'>c_vec</a><br/><a class='mod ' href='../cast/index.html' title='Unsafe casting functions'>cast</a><br/><a class='mod ' href='../cell/index.html' title='Types dealing with dynamic mutability'>cell</a><br/><a class='mod ' href='../char/index.html' title='Character manipulation (`char` type, Unicode Scalar Value)'>char</a><br/><a class='mod ' href='../clone/index.html' title='The `Clone` trait for types that cannot be 'implicitly copied''>clone</a><br/><a class='mod ' href='../cmp/index.html' title='The `Ord` and `Eq` comparison traits'>cmp</a><br/><a class='mod ' href='../comm/index.html' title='Communication primitives for concurrent tasks'>comm</a><br/><a class='mod ' href='../container/index.html' title='Traits for generic containers (including `Map` and `Set`)'>container</a><br/><a class='mod ' href='../default/index.html' title='The `Default` trait for types which may have meaningful default values'>default</a><br/><a class='mod ' href='../f32/index.html' title='Operations and constants for 32-bits floats (`f32` type)'>f32</a><br/><a class='mod ' href='../f64/index.html' title='Operations and constants for 64-bits floats (`f64` type)'>f64</a><br/><a class='mod ' href='../fmt/index.html' title='Utilities for formatting and printing strings'>fmt</a><br/><a class='mod ' href='../from_str/index.html' title='The `FromStr` trait for types that can be created from strings'>from_str</a><br/><a class='mod ' href='../gc/index.html' title='Task-local garbage-collected boxes'>gc</a><br/><a class='mod ' href='../hash/index.html' title='Generic hashing support.'>hash</a><br/><a class='mod ' href='../i16/index.html' title='Operations and constants for signed 16-bits integers (`i16` type)'>i16</a><br/><a class='mod ' href='../i32/index.html' title='Operations and constants for signed 32-bits integers (`i32` type)'>i32</a><br/><a class='mod ' href='../i64/index.html' title='Operations and constants for signed 64-bits integers (`i64` type)'>i64</a><br/><a class='mod ' href='../i8/index.html' title='Operations and constants for signed 8-bits integers (`i8` type)'>i8</a><br/><a class='mod ' href='../int/index.html' title='Operations and constants for architecture-sized signed integers (`int` type)'>int</a><br/><a class='mod ' href='../intrinsics/index.html' title='rustc compiler intrinsics.'>intrinsics</a><br/><a class='mod ' href='../io/index.html' title='I/O, including files, networking, timers, and processes'>io</a><br/><a class='mod ' href='../iter/index.html' title='Composable external iterators'>iter</a><br/><a class='mod ' href='../kinds/index.html' title='Primitive traits representing basic 'kinds' of types'>kinds</a><br/><a class='mod ' href='../libc/index.html' title='Bindings for the C standard library and other platform libraries'>libc</a><br/><a class='mod ' href='../local_data/index.html' title='Task local data management'>local_data</a><br/><a class='mod ' href='../macros/index.html' title='Standard library macros'>macros</a><br/><a class='mod ' href='../managed/index.html' title='Operations on managed box types'>managed</a><br/><a class='mod ' href='../mem/index.html' title='Basic functions for dealing with memory'>mem</a><br/><a class='mod ' href='../num/index.html' title='Numeric traits and functions for generic mathematics'>num</a><br/><a class='mod ' href='../ops/index.html' title=' Traits representing built-in operators, useful for overloading'>ops</a><br/><a class='mod ' href='../option/index.html' title='Optionally nullable values (`Option` type)'>option</a><br/><a class='mod ' href='../os/index.html' title='Higher-level interfaces to libc::* functions and operating system services.'>os</a><br/><a class='mod ' href='../owned/index.html' title='Operations on unique pointer types'>owned</a><br/><a class='mod ' href='../path/index.html' title='Cross-platform path support'>path</a><br/><a class='mod ' href='../prelude/index.html' title='The standard module imported by default into all Rust modules'>prelude</a><br/><a class='mod ' href='../ptr/index.html' title='Unsafe pointer utility functions'>ptr</a><br/><a class='mod ' href='../raw/index.html' title='Contains struct definitions for the layout of compiler built-in types.'>raw</a><br/><a class='mod ' href='../rc/index.html' title='Task-local reference-counted boxes (`Rc` type)'>rc</a><br/><a class='mod ' href='../reflect/index.html' title='Runtime type reflection'>reflect</a><br/><a class='mod ' href='../repr/index.html' title='More runtime type reflection'>repr</a><br/><a class='mod ' href='../result/index.html' title='Signaling success or failure states (`Result` type)'>result</a><br/><a class='mod ' href='../rt/index.html' title='Runtime services, including the task scheduler and I/O dispatcher'>rt</a><br/><a class='mod ' href='../str/index.html' title='Unicode string manipulation (`str` type)'>str</a><br/><a class='mod ' href='../sync/index.html' title='Useful synchronization primitives'>sync</a><br/><a class='mod ' href='../task/index.html' title='Utilities for managing and scheduling tasks'>task</a><br/><a class='mod ' href='../to_str/index.html' title='The `ToStr` trait for converting to strings'>to_str</a><br/><a class='mod ' href='../tuple/index.html' title='Operations on tuples'>tuple</a><br/><a class='mod ' href='../u16/index.html' title='Operations and constants for unsigned 16-bits integers (`u16` type)'>u16</a><br/><a class='mod ' href='../u32/index.html' title='Operations and constants for unsigned 32-bits integers (`u32` type)'>u32</a><br/><a class='mod ' href='../u64/index.html' title='Operations and constants for unsigned 64-bits integer (`u64` type)'>u64</a><br/><a class='mod ' href='../u8/index.html' title='Operations and constants for unsigned 8-bits integers (`u8` type)'>u8</a><br/><a class='mod ' href='../uint/index.html' title='Operations and constants for architecture-sized unsigned integers (`uint` type)'>uint</a><br/><a class='mod ' href='../unit/index.html' title='Functions for the unit type.'>unit</a><br/><a class='mod current' href='../vec/index.html' title='Utilities for vector manipulation'>vec</a><br/><a class='mod ' href='../vec_ng/index.html' title=''>vec_ng</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/lib.rs.html#122'>[src]</a><h1 class='fqn'>Module <a href='../index.html'>std</a>::<a class='mod' href=''>vec</a></h1><div class='docblock'><p>Utilities for vector manipulation</p>
+
+<p>The <code>vec</code> module contains useful code to help work with vector values.
+Vectors are Rust&#39;s list type. Vectors contain zero or more values of
+homogeneous types:</p>
+<pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>int_vector</span> <span class='op'>=</span> [<span class='number'>1</span>,<span class='number'>2</span>,<span class='number'>3</span>];
+<span class='kw'>let</span> <span class='ident'>str_vector</span> <span class='op'>=</span> [<span class='string'>&quot;one&quot;</span>, <span class='string'>&quot;two&quot;</span>, <span class='string'>&quot;three&quot;</span>];
+</pre>
+
+<p>This is a big module, but for a high-level overview:</p>
+
+<h2 id="structs" class='section-link'><a
+                           href="#structs">Structs</a></h2>
+<p>Several structs that are useful for vectors, such as <code>Items</code>, which
+represents iteration over a vector.</p>
+
+<h2 id="traits" class='section-link'><a
+                           href="#traits">Traits</a></h2>
+<p>A number of traits add methods that allow you to accomplish tasks with vectors.</p>
+
+<p>Traits defined for the <code>&amp;[T]</code> type (a vector slice), have methods that can be
+called on either owned vectors, denoted <code>~[T]</code>, or on vector slices themselves.
+These traits include <code>ImmutableVector</code>, and <code>MutableVector</code> for the <code>&amp;mut [T]</code>
+case.</p>
+
+<p>An example is the method <code>.slice(a, b)</code> that returns an immutable &quot;view&quot; into
+a vector or a vector slice from the index interval <code>[a, b)</code>:</p>
+<pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>numbers</span> <span class='op'>=</span> [<span class='number'>0</span>, <span class='number'>1</span>, <span class='number'>2</span>];
+<span class='kw'>let</span> <span class='ident'>last_numbers</span> <span class='op'>=</span> <span class='ident'>numbers</span>.<span class='ident'>slice</span>(<span class='number'>1</span>, <span class='number'>3</span>);<span class='comment'>
+// last_numbers is now &amp;[1, 2]
+</span></pre>
+
+<p>Traits defined for the <code>~[T]</code> type, like <code>OwnedVector</code>, can only be called
+on such vectors. These methods deal with adding elements or otherwise changing
+the allocation of the vector.</p>
+
+<p>An example is the method <code>.push(element)</code> that will add an element at the end
+of the vector:</p>
+<pre class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>numbers</span> <span class='op'>=</span> <span class='kw-2'>~</span>[<span class='number'>0</span>, <span class='number'>1</span>, <span class='number'>2</span>];
+<span class='ident'>numbers</span>.<span class='ident'>push</span>(<span class='number'>7</span>);<span class='comment'>
+// numbers is now ~[0, 1, 2, 7];
+</span></pre>
+
+<h2 id="implementations-of-other-traits" class='section-link'><a
+                           href="#implementations-of-other-traits">Implementations of other traits</a></h2>
+<p>Vectors are a very useful type, and so there&#39;s several implementations of
+traits from other modules. Some notable examples:</p>
+
+<ul>
+<li><code>Clone</code></li>
+<li><code>Eq</code>, <code>Ord</code>, <code>TotalEq</code>, <code>TotalOrd</code> -- vectors can be compared,
+if the element type defines the corresponding trait.</li>
+</ul>
+
+<h2 id="iteration" class='section-link'><a
+                           href="#iteration">Iteration</a></h2>
+<p>The method <code>iter()</code> returns an iteration value for a vector or a vector slice.
+The iterator yields references to the vector&#39;s elements, so if the element
+type of the vector is <code>int</code>, the element type of the iterator is <code>&amp;int</code>.</p>
+<pre class='rust '>
+<span class='kw'>let</span> <span class='ident'>numbers</span> <span class='op'>=</span> [<span class='number'>0</span>, <span class='number'>1</span>, <span class='number'>2</span>];
+<span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='ident'>x</span> <span class='kw'>in</span> <span class='ident'>numbers</span>.<span class='ident'>iter</span>() {
+    <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{} is a number!&quot;</span>, <span class='ident'>x</span>);
+}
+</pre>
+
+<ul>
+<li><code>.rev_iter()</code> returns an iterator with the same values as <code>.iter()</code>,
+but going in the reverse order, starting with the back element.</li>
+<li><code>.mut_iter()</code> returns an iterator that allows modifying each value.</li>
+<li><code>.move_iter()</code> converts an owned vector into an iterator that
+moves out a value from the vector each iteration.</li>
+<li>Further iterators exist that split, chunk or permute the vector.</li>
+</ul>
+
+<h2 id="function-definitions" class='section-link'><a
+                           href="#function-definitions">Function definitions</a></h2>
+<p>There are a number of free functions that create or take vectors, for example:</p>
+
+<ul>
+<li>Creating a vector, like <code>from_elem</code> and <code>from_fn</code></li>
+<li>Creating a vector with a given size: <code>with_capacity</code></li>
+<li>Modifying a vector and returning it, like <code>append</code></li>
+<li>Operations on paired elements, like <code>unzip</code>.</li>
+</ul>
+</div><h2 id='modules' class='section-link'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr>
+                        <td><a class='mod' href='bytes/index.html'
+                               title='std::vec::bytes'>bytes</a></td>
+                        <td class='docblock short'><p>Operations on <code>[u8]</code>.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='mod' href='raw/index.html'
+                               title='std::vec::raw'>raw</a></td>
+                        <td class='docblock short'><p>Unsafe operations</p>
+</td>
+                    </tr>
+                </table><h2 id='structs' class='section-link'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr>
+                        <td><a class='struct' href='struct.Chunks.html'
+                               title='std::vec::Chunks'>Chunks</a></td>
+                        <td class='docblock short'><p>An iterator over a vector in (non-overlapping) chunks (<code>size</code>
+elements at a time).</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.ElementSwaps.html'
+                               title='std::vec::ElementSwaps'>ElementSwaps</a></td>
+                        <td class='docblock short'><p>An Iterator that yields the element swaps needed to produce
+a sequence of all possible permutations for an indexed sequence of
+elements. Each permutation is only a single swap apart.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.Items.html'
+                               title='std::vec::Items'>Items</a></td>
+                        <td class='docblock short'><p>Immutable slice iterator</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.MoveItems.html'
+                               title='std::vec::MoveItems'>MoveItems</a></td>
+                        <td class='docblock short'><p>An iterator that moves out of a vector.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.MutChunks.html'
+                               title='std::vec::MutChunks'>MutChunks</a></td>
+                        <td class='docblock short'><p>An iterator over a vector in (non-overlapping) mutable chunks (<code>size</code>  elements at a time). When
+the vector len is not evenly divided by the chunk size, the last slice of the iteration will be
+the remainder.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.MutItems.html'
+                               title='std::vec::MutItems'>MutItems</a></td>
+                        <td class='docblock short'><p>Mutable slice iterator</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.MutSplits.html'
+                               title='std::vec::MutSplits'>MutSplits</a></td>
+                        <td class='docblock short'><p>An iterator over the subslices of the vector which are separated
+by elements that match <code>pred</code>.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.Permutations.html'
+                               title='std::vec::Permutations'>Permutations</a></td>
+                        <td class='docblock short'><p>An Iterator that uses <code>ElementSwaps</code> to iterate through
+all possible permutations of a vector.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.RevSplits.html'
+                               title='std::vec::RevSplits'>RevSplits</a></td>
+                        <td class='docblock short'><p>An iterator over the slices of a vector separated by elements that
+match a predicate function, from back to front.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.Splits.html'
+                               title='std::vec::Splits'>Splits</a></td>
+                        <td class='docblock short'><p>An iterator over the slices of a vector separated by elements that
+match a predicate function.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.Windows.html'
+                               title='std::vec::Windows'>Windows</a></td>
+                        <td class='docblock short'><p>An iterator over the (overlapping) slices of length <code>size</code> within
+a vector.</p>
+</td>
+                    </tr>
+                </table><h2 id='traits' class='section-link'><a href="#traits">Traits</a></h2>
+<table>
+                    <tr>
+                        <td><a class='trait' href='trait.CloneableVector.html'
+                               title='std::vec::CloneableVector'>CloneableVector</a></td>
+                        <td class='docblock short'><p>Extension methods for vector slices with cloneable elements</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.ImmutableCloneableVector.html'
+                               title='std::vec::ImmutableCloneableVector'>ImmutableCloneableVector</a></td>
+                        <td class='docblock short'><p>Extension methods for vectors containing <code>Clone</code> elements.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.ImmutableEqVector.html'
+                               title='std::vec::ImmutableEqVector'>ImmutableEqVector</a></td>
+                        <td class='docblock short'><p>Extension methods for vectors contain <code>Eq</code> elements.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.ImmutableTotalOrdVector.html'
+                               title='std::vec::ImmutableTotalOrdVector'>ImmutableTotalOrdVector</a></td>
+                        <td class='docblock short'><p>Extension methods for vectors containing <code>TotalOrd</code> elements.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.ImmutableVector.html'
+                               title='std::vec::ImmutableVector'>ImmutableVector</a></td>
+                        <td class='docblock short'><p>Extension methods for vectors</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.MutableCloneableVector.html'
+                               title='std::vec::MutableCloneableVector'>MutableCloneableVector</a></td>
+                        <td class='docblock short'><p>Trait for &amp;[T] where T is Cloneable</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.MutableTotalOrdVector.html'
+                               title='std::vec::MutableTotalOrdVector'>MutableTotalOrdVector</a></td>
+                        <td class='docblock short'><p>Methods for mutable vectors with orderable elements, such as
+in-place sorting.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.MutableVector.html'
+                               title='std::vec::MutableVector'>MutableVector</a></td>
+                        <td class='docblock short'><p>Extension methods for vectors such that their elements are
+mutable.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.OwnedCloneableVector.html'
+                               title='std::vec::OwnedCloneableVector'>OwnedCloneableVector</a></td>
+                        <td class='docblock short'><p>Extension methods for owned vectors containing <code>Clone</code> elements.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.OwnedEqVector.html'
+                               title='std::vec::OwnedEqVector'>OwnedEqVector</a></td>
+                        <td class='docblock short'><p>Extension methods for owned vectors containing <code>Eq</code> elements.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.OwnedVector.html'
+                               title='std::vec::OwnedVector'>OwnedVector</a></td>
+                        <td class='docblock short'><p>Extension methods for owned vectors.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.Vector.html'
+                               title='std::vec::Vector'>Vector</a></td>
+                        <td class='docblock short'><p>Any vector that can be represented as a slice.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='trait' href='trait.VectorVector.html'
+                               title='std::vec::VectorVector'>VectorVector</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                </table><h2 id='functions' class='section-link'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr>
+                        <td><a class='fn' href='fn.append.html'
+                               title='std::vec::append'>append</a></td>
+                        <td class='docblock short'><p>Iterates over the <code>rhs</code> vector, copying each element and appending it to the
+<code>lhs</code>. Afterwards, the <code>lhs</code> is then returned for use again.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.append_one.html'
+                               title='std::vec::append_one'>append_one</a></td>
+                        <td class='docblock short'><p>Appends one element to the vector provided. The vector itself is then
+returned for use again.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.build.html'
+                               title='std::vec::build'>build</a></td>
+                        <td class='docblock short'><p>Builds a vector by calling a provided function with an argument
+function that pushes an element to the back of a vector.
+The initial capacity for the vector may optionally be specified.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.flat_map.html'
+                               title='std::vec::flat_map'>flat_map</a></td>
+                        <td class='docblock short'><p>Apply a function to each element of a vector and return a concatenation
+of each result vector</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.from_buf.html'
+                               title='std::vec::from_buf'>from_buf</a></td>
+                        <td class='docblock short'><p>Constructs a vector from an unsafe pointer to a buffer</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.from_elem.html'
+                               title='std::vec::from_elem'>from_elem</a></td>
+                        <td class='docblock short'><p>Creates and initializes an owned vector.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.from_fn.html'
+                               title='std::vec::from_fn'>from_fn</a></td>
+                        <td class='docblock short'><p>Creates and initializes an owned vector.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.mut_ref_slice.html'
+                               title='std::vec::mut_ref_slice'>mut_ref_slice</a></td>
+                        <td class='docblock short'><p>Converts a pointer to A into a slice of length 1 (without copying).</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.ref_slice.html'
+                               title='std::vec::ref_slice'>ref_slice</a></td>
+                        <td class='docblock short'><p>Converts a pointer to A into a slice of length 1 (without copying).</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.unzip.html'
+                               title='std::vec::unzip'>unzip</a></td>
+                        <td class='docblock short'><p>Convert an iterator of pairs into a pair of vectors.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='fn' href='fn.with_capacity.html'
+                               title='std::vec::with_capacity'>with_capacity</a></td>
+                        <td class='docblock short'><p>Creates a new vector with a capacity of <code>capacity</code></p>
+</td>
+                    </tr>
+                </table><h2 id='types' class='section-link'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr>
+                        <td><a class='typedef' href='typedef.RevItems.html'
+                               title='std::vec::RevItems'>RevItems</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='typedef' href='typedef.RevMoveItems.html'
+                               title='std::vec::RevMoveItems'>RevMoveItems</a></td>
+                        <td class='docblock short'><p>An iterator that moves out of a vector in reverse order.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='typedef' href='typedef.RevMutItems.html'
+                               title='std::vec::RevMutItems'>RevMutItems</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

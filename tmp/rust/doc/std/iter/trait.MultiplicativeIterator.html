@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::iter::MultiplicativeIterator - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>iter</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='order/index.html' title='Functions for lexicographical ordering of sequences.'>order</a><br/></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.ByRef.html' title='A mutable reference to an iterator'>ByRef</a><br/><a class='struct ' href='struct.Chain.html' title='An iterator which strings two iterators together'>Chain</a><br/><a class='struct ' href='struct.Counter.html' title='An infinite iterator starting at `start` and advancing by `step` with each iteration'>Counter</a><br/><a class='struct ' href='struct.Cycle.html' title='An iterator that repeats endlessly'>Cycle</a><br/><a class='struct ' href='struct.Enumerate.html' title='An iterator which yields the current count and the element during iteration'>Enumerate</a><br/><a class='struct ' href='struct.Filter.html' title='An iterator which filters the elements of `iter` with `predicate`'>Filter</a><br/><a class='struct ' href='struct.FilterMap.html' title='An iterator which uses `f` to both filter and map elements from `iter`'>FilterMap</a><br/><a class='struct ' href='struct.FlatMap.html' title='An iterator that maps each element to an iterator, and yields the elements of the produced iterators '>FlatMap</a><br/><a class='struct ' href='struct.Fuse.html' title='An iterator that yields `None` forever after the underlying iterator yields `None` once.'>Fuse</a><br/><a class='struct ' href='struct.Inspect.html' title='An iterator that calls a function with a reference to each element before yielding it.'>Inspect</a><br/><a class='struct ' href='struct.Map.html' title='An iterator which maps the values of `iter` with `f`'>Map</a><br/><a class='struct ' href='struct.Peekable.html' title='An iterator with a `peek()` that returns an optional reference to the next element.'>Peekable</a><br/><a class='struct ' href='struct.Range.html' title='An iterator over the range [start, stop)'>Range</a><br/><a class='struct ' href='struct.RangeInclusive.html' title='An iterator over the range [start, stop]'>RangeInclusive</a><br/><a class='struct ' href='struct.RangeStep.html' title='An iterator over the range [start, stop) by `step`. It handles overflow by stopping.'>RangeStep</a><br/><a class='struct ' href='struct.RangeStepInclusive.html' title='An iterator over the range [start, stop] by `step`. It handles overflow by stopping.'>RangeStepInclusive</a><br/><a class='struct ' href='struct.Repeat.html' title='An iterator that repeats an element endlessly'>Repeat</a><br/><a class='struct ' href='struct.Rev.html' title='An double-ended iterator with the direction inverted'>Rev</a><br/><a class='struct ' href='struct.Scan.html' title='An iterator to maintain state while iterating another iterator'>Scan</a><br/><a class='struct ' href='struct.Skip.html' title='An iterator which skips over `n` elements of `iter`.'>Skip</a><br/><a class='struct ' href='struct.SkipWhile.html' title='An iterator which rejects elements while `predicate` is true'>SkipWhile</a><br/><a class='struct ' href='struct.Take.html' title='An iterator which only iterates over the first `n` iterations of `iter`.'>Take</a><br/><a class='struct ' href='struct.TakeWhile.html' title='An iterator which only accepts elements while `predicate` is true'>TakeWhile</a><br/><a class='struct ' href='struct.Unfold.html' title='An iterator which just modifies the contained state throughout iteration.'>Unfold</a><br/><a class='struct ' href='struct.Zip.html' title='An iterator which iterates two other iterators simultaneously'>Zip</a><br/></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.MinMaxResult.html' title='`MinMaxResult` is an enum returned by `min_max`. See `OrdIterator::min_max` for more detail.'>MinMaxResult</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.AdditiveIterator.html' title='A trait for iterators over elements which can be added together'>AdditiveIterator</a><br/><a class='trait ' href='trait.CloneableIterator.html' title='A trait for iterators that are cloneable.'>CloneableIterator</a><br/><a class='trait ' href='trait.DoubleEndedIterator.html' title='A range iterator able to yield elements from both ends'>DoubleEndedIterator</a><br/><a class='trait ' href='trait.ExactSize.html' title='An iterator that knows its exact length'>ExactSize</a><br/><a class='trait ' href='trait.Extendable.html' title='A type growable from an `Iterator` implementation'>Extendable</a><br/><a class='trait ' href='trait.FromIterator.html' title='Conversion from an `Iterator`'>FromIterator</a><br/><a class='trait ' href='trait.Iterator.html' title='An interface for dealing with "external iterators". These types of iterators can be resumed at any time as all state is stored internally as opposed to being located on the call stack.'>Iterator</a><br/><a class='trait current' href='trait.MultiplicativeIterator.html' title='A trait for iterators over elements whose elements can be multiplied together.'>MultiplicativeIterator</a><br/><a class='trait ' href='trait.MutableDoubleEndedIterator.html' title='A double-ended iterator yielding mutable references'>MutableDoubleEndedIterator</a><br/><a class='trait ' href='trait.OrdIterator.html' title='A trait for iterators over elements which can be compared to one another. The type of each element must ascribe to the `Ord` trait.'>OrdIterator</a><br/><a class='trait ' href='trait.RandomAccessIterator.html' title='An object implementing random access indexing by `uint`'>RandomAccessIterator</a><br/></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.count.html' title='Creates a new counter with the specified start/step'>count</a><br/><a class='fn ' href='fn.range.html' title='Return an iterator over the range [start, stop)'>range</a><br/><a class='fn ' href='fn.range_inclusive.html' title='Return an iterator over the range [start, stop]'>range_inclusive</a><br/><a class='fn ' href='fn.range_step.html' title='Return an iterator over the range [start, stop) by `step`. It handles overflow by stopping.'>range_step</a><br/><a class='fn ' href='fn.range_step_inclusive.html' title='Return an iterator over the range [start, stop] by `step`. It handles overflow by stopping.'>range_step_inclusive</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/iter.rs.html#837-853'>[src]</a><h1 class='fqn'>Trait <a href='../index.html'>std</a>::<a href='index.html'>iter</a>::<a class='trait' href=''>MultiplicativeIterator</a></h1><pre class='rust trait'>pub trait MultiplicativeIterator&lt;A&gt; {
+    fn <a href='#tymethod.product' class='fnname'>product</a>(&amp;mut self) -&gt; A;
+}</pre><div class='docblock'><p>A trait for iterators over elements whose elements can be multiplied
+together.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.product' class='method'><code>fn <a href='#tymethod.product' class='fnname'>product</a>(&amp;mut self) -&gt; A</code></h3><div class='docblock'><p>Iterates over the entire iterator, multiplying all the elements</p>
+
+<h1 id="example" class='section-link'><a
+                           href="#example">Example</a></h1><pre class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>iter</span>::{<span class='ident'>count</span>, <span class='ident'>MultiplicativeIterator</span>};
+
+<span class='kw'>fn</span> <span class='ident'>factorial</span>(<span class='ident'>n</span>: <span class='ident'>uint</span>) <span class='op'>-&gt;</span> <span class='ident'>uint</span> {
+    <span class='ident'>count</span>(<span class='number'>1u</span>, <span class='number'>1</span>).<span class='ident'>take_while</span>(<span class='op'>|</span><span class='kw-2'>&amp;</span><span class='ident'>i</span><span class='op'>|</span> <span class='ident'>i</span> <span class='op'>&lt;=</span> <span class='ident'>n</span>).<span class='ident'>product</span>()
+}
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>factorial</span>(<span class='number'>0</span>) <span class='op'>==</span> <span class='number'>1</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>factorial</span>(<span class='number'>1</span>) <span class='op'>==</span> <span class='number'>1</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>factorial</span>(<span class='number'>5</span>) <span class='op'>==</span> <span class='number'>120</span>);
+</pre>
+</div></div>
+                    <h2 id='implementors'>Implementors</h2>
+                    <ul class='item-list'>
+                <li><code>impl&lt;A: <a class='trait' href='../../std/ops/trait.Mul.html' title='std::ops::Mul'>Mul</a>&lt;A, A&gt; + <a class='trait' href='../../std/num/trait.One.html' title='std::num::One'>One</a>, T: <a class='trait' href='../../std/iter/trait.Iterator.html' title='std::iter::Iterator'>Iterator</a>&lt;A&gt;&gt; <a class='trait' href='../../std/iter/trait.MultiplicativeIterator.html' title='std::iter::MultiplicativeIterator'>MultiplicativeIterator</a>&lt;A&gt; for T</code></li></ul></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

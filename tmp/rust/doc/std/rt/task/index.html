@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::rt::task - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../../index.html'>std</a>&#8203;::<a href='../index.html'>rt</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='../args/index.html' title='Global storage for command line arguments'>args</a><br/><a class='mod ' href='../backtrace/index.html' title='Simple backtrace functionality (to print on failure) Simple backtrace functionality (to print on failure)'>backtrace</a><br/><a class='mod ' href='../crate_map/index.html' title='Crate map Crate map'>crate_map</a><br/><a class='mod ' href='../env/index.html' title='The runtime configuration, read from environment variables. The runtime configuration, read from environment variables. Runtime environment settings'>env</a><br/><a class='mod ' href='../global_heap/index.html' title='The global (exchange) heap. The global (exchange) heap.'>global_heap</a><br/><a class='mod ' href='../local/index.html' title='The Local trait for types that are accessible via thread-local or task-local storage. The Local trait for types that are accessible via thread-local or task-local storage.'>local</a><br/><a class='mod ' href='../local_heap/index.html' title='The local, managed heap The local, managed heap The local, garbage collected heap'>local_heap</a><br/><a class='mod ' href='../rtio/index.html' title='The EventLoop and internal synchronous I/O interface. The EventLoop and internal synchronous I/O interface.'>rtio</a><br/><a class='mod ' href='../stack/index.html' title='Rust stack-limit management'>stack</a><br/><a class='mod current' href='../task/index.html' title='Implementations of language-critical runtime features like @. Implementations of language-critical runtime features like @. Language-level runtime services that should reasonably expected to be available 'everywhere'. Local heaps, GC, unwinding, local storage, and logging. Even a 'freestanding' Rust would likely want to implement this.'>task</a><br/><a class='mod ' href='../thread/index.html' title='Bindings to system threading libraries. Bindings to system threading libraries. Native os-thread management'>thread</a><br/><a class='mod ' href='../unwind/index.html' title='Stack unwinding Stack unwinding'>unwind</a><br/></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='../trait.Runtime.html' title='The interface to the current runtime.'>Runtime</a><br/></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='../fn.at_exit.html' title='Enqueues a procedure to run when the runtime is cleaned up'>at_exit</a><br/><a class='fn ' href='../fn.cleanup.html' title='One-time runtime cleanup.'>cleanup</a><br/><a class='fn ' href='../fn.default_sched_threads.html' title='Get's the number of scheduler threads requested by the environment either `RUST_THREADS` or `num_cpus`.'>default_sched_threads</a><br/><a class='fn ' href='../fn.init.html' title='One-time runtime initialization.'>init</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod"><a class='source'
+                              href='../../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/rt/mod.rs.html#89'>[src]</a><h1 class='fqn'>Module <a href='../../index.html'>std</a>::<a href='../index.html'>rt</a>::<a class='mod' href=''>task</a></h1><div class='docblock'><p>Implementations of language-critical runtime features like @.
+Implementations of language-critical runtime features like @.
+Language-level runtime services that should reasonably expected
+to be available &#39;everywhere&#39;. Local heaps, GC, unwinding,
+local storage, and logging. Even a &#39;freestanding&#39; Rust would likely want
+to implement this.</p>
+</div><h2 id='structs' class='section-link'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr>
+                        <td><a class='struct' href='struct.BlockedTasks.html'
+                               title='std::rt::task::BlockedTasks'>BlockedTasks</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.Death.html'
+                               title='std::rt::task::Death'>Death</a></td>
+                        <td class='docblock short'><p>Per-task state related to task death, killing, failure, etc.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.GarbageCollector.html'
+                               title='std::rt::task::GarbageCollector'>GarbageCollector</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.LocalStorage.html'
+                               title='std::rt::task::LocalStorage'>LocalStorage</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='struct' href='struct.Task.html'
+                               title='std::rt::task::Task'>Task</a></td>
+                        <td class='docblock short'><p>The Task struct represents all state associated with a rust
+task. There are at this point two primary &quot;subtypes&quot; of task,
+however instead of using a subtype we just have a &quot;task_type&quot; field
+in the struct. This contains a pointer to another struct that holds
+the type-specific state.</p>
+</td>
+                    </tr>
+                </table><h2 id='enums' class='section-link'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr>
+                        <td><a class='enum' href='enum.BlockedTask.html'
+                               title='std::rt::task::BlockedTask'>BlockedTask</a></td>
+                        <td class='docblock short'><p>A handle to a blocked task. Usually this means having the ~Task pointer by
+ownership, but if the task is killable, a killer can steal it at any time.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='enum' href='enum.DeathAction.html'
+                               title='std::rt::task::DeathAction'>DeathAction</a></td>
+                        <td class='docblock short'></td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

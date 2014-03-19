@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>std::cell::RefCell - Rust</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico" />
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    <section class="sidebar">
+        
+            <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt=''/></a>
+        
+
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>cell</a></p><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Cell.html' title='A mutable memory location that admits only `Pod` data.'>Cell</a><br/><a class='struct ' href='struct.Ref.html' title='Wraps a borrowed reference to a value in a `RefCell` box.'>Ref</a><br/><a class='struct current' href='struct.RefCell.html' title='A mutable memory location with dynamically checked borrow rules'>RefCell</a><br/><a class='struct ' href='struct.RefMut.html' title='Wraps a mutable borrowed reference to a value in a `RefCell` box.'>RefMut</a><br/></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <button class="do-search">Search</button>
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Search documentation..."
+                       type="search" />
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct"><a class='source'
+                              href='../../src/std/MinGW/msys/1.0/home/LIIGO/rust/rust/src/libstd/cell.rs.html#72-78'>[src]</a><h1 class='fqn'>Struct <a href='../index.html'>std</a>::<a href='index.html'>cell</a>::<a class='struct' href=''>RefCell</a></h1><pre class='rust struct'>pub struct RefCell&lt;T&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>A mutable memory location with dynamically checked borrow rules</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;T&gt; <a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;</code></h3><div class='methods'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(value: T) -&gt; <a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;</code></h4>
+<div class='docblock'><p>Create a new <code>RefCell</code> containing <code>value</code></p>
+</div><h4 id='method.unwrap' class='method'><code>fn <a href='#method.unwrap' class='fnname'>unwrap</a>(self) -&gt; T</code></h4>
+<div class='docblock'><p>Consumes the <code>RefCell</code>, returning the wrapped value.</p>
+</div><h4 id='method.try_borrow' class='method'><code>fn <a href='#method.try_borrow' class='fnname'>try_borrow</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;<a class='struct' href='../../std/cell/struct.Ref.html' title='std::cell::Ref'>Ref</a>&lt;'a, T&gt;&gt;</code></h4>
+<div class='docblock'><p>Attempts to immutably borrow the wrapped value.</p>
+
+<p>The borrow lasts until the returned <code>Ref</code> exits scope. Multiple
+immutable borrows can be taken out at the same time.</p>
+
+<p>Returns <code>None</code> if the value is currently mutably borrowed.</p>
+</div><h4 id='method.borrow' class='method'><code>fn <a href='#method.borrow' class='fnname'>borrow</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class='struct' href='../../std/cell/struct.Ref.html' title='std::cell::Ref'>Ref</a>&lt;'a, T&gt;</code></h4>
+<div class='docblock'><p>Immutably borrows the wrapped value.</p>
+
+<p>The borrow lasts until the returned <code>Ref</code> exits scope. Multiple
+immutable borrows can be taken out at the same time.</p>
+
+<h1 id="failure" class='section-link'><a
+                           href="#failure">Failure</a></h1>
+<p>Fails if the value is currently mutably borrowed.</p>
+</div><h4 id='method.try_borrow_mut' class='method'><code>fn <a href='#method.try_borrow_mut' class='fnname'>try_borrow_mut</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class='enum' href='../../std/option/enum.Option.html' title='std::option::Option'>Option</a>&lt;<a class='struct' href='../../std/cell/struct.RefMut.html' title='std::cell::RefMut'>RefMut</a>&lt;'a, T&gt;&gt;</code></h4>
+<div class='docblock'><p>Mutably borrows the wrapped value.</p>
+
+<p>The borrow lasts until the returned <code>RefMut</code> exits scope. The value
+cannot be borrowed while this borrow is active.</p>
+
+<p>Returns <code>None</code> if the value is currently borrowed.</p>
+</div><h4 id='method.borrow_mut' class='method'><code>fn <a href='#method.borrow_mut' class='fnname'>borrow_mut</a>&lt;'a&gt;(&amp;'a self) -&gt; <a class='struct' href='../../std/cell/struct.RefMut.html' title='std::cell::RefMut'>RefMut</a>&lt;'a, T&gt;</code></h4>
+<div class='docblock'><p>Mutably borrows the wrapped value.</p>
+
+<p>The borrow lasts until the returned <code>RefMut</code> exits scope. The value
+cannot be borrowed while this borrow is active.</p>
+
+<h1 id="failure-1" class='section-link'><a
+                           href="#failure-1">Failure</a></h1>
+<p>Fails if the value is currently borrowed.</p>
+</div><h4 id='method.with' class='method'><code>fn <a href='#method.with' class='fnname'>with</a>&lt;U&gt;(&amp;self, blk: |&amp;T| -&gt; U) -&gt; U</code></h4>
+<div class='docblock'><p>Immutably borrows the wrapped value and applies <code>blk</code> to it.</p>
+
+<h1 id="failure-2" class='section-link'><a
+                           href="#failure-2">Failure</a></h1>
+<p>Fails if the value is currently mutably borrowed.</p>
+</div><h4 id='method.with_mut' class='method'><code>fn <a href='#method.with_mut' class='fnname'>with_mut</a>&lt;U&gt;(&amp;self, blk: |&amp;mut T| -&gt; U) -&gt; U</code></h4>
+<div class='docblock'><p>Mutably borrows the wrapped value and applies <code>blk</code> to it.</p>
+
+<h1 id="failure-3" class='section-link'><a
+                           href="#failure-3">Failure</a></h1>
+<p>Fails if the value is currently borrowed.</p>
+</div><h4 id='method.set' class='method'><code>fn <a href='#method.set' class='fnname'>set</a>(&amp;self, value: T)</code></h4>
+<div class='docblock'><p>Sets the value, replacing what was there.</p>
+
+<h1 id="failure-4" class='section-link'><a
+                           href="#failure-4">Failure</a></h1>
+<p>Fails if the value is currently borrowed.</p>
+</div></div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../std/clone/trait.Clone.html' title='std::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;</code></h3><div class='methods'><h4 id='method.get' class='method'><code>fn <a href='#method.get' class='fnname'>get</a>(&amp;self) -&gt; T</code></h4>
+<div class='docblock'><p>Returns a copy of the contained value.</p>
+
+<h1 id="failure-5" class='section-link'><a
+                           href="#failure-5">Failure</a></h1>
+<p>Fails if the value is currently mutably borrowed.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../std/clone/trait.Clone.html' title='std::clone::Clone'>Clone</a>&gt; <a class='trait' href='../../std/clone/trait.Clone.html' title='std::clone::Clone'>Clone</a> for <a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;</code></h3><div class='methods'><h4 id='method.clone' class='method'><code>fn <a href='#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;</code></h4>
+<div class='docblock'><p>Returns a copy of the value. The contents of owned pointers
+are copied to maintain uniqueness, while the contents of
+managed pointers are not copied.</p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+<div class='docblock'><p>Perform copy-assignment from <code>source</code>.</p>
+
+<p><code>a.clone_from(&amp;b)</code> is equivalent to <code>a = b.clone()</code> in functionality,
+but can be overridden to reuse the resources of <code>a</code> to avoid unnecessary
+allocations.</p>
+</div></div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../std/cmp/trait.Eq.html' title='std::cmp::Eq'>Eq</a>&gt; <a class='trait' href='../../std/cmp/trait.Eq.html' title='std::cmp::Eq'>Eq</a> for <a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;</code></h3><div class='methods'><h4 id='method.eq' class='method'><code>fn <a href='#method.eq' class='fnname'>eq</a>(&amp;self, other: &amp;<a class='struct' href='../../std/cell/struct.RefCell.html' title='std::cell::RefCell'>RefCell</a>&lt;T&gt;) -&gt; bool</code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Self) -&gt; bool</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&uarr;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&darr;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var rootPath = "../../";
+        var currentCrate = "std";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>
