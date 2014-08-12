@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The std library documentation.">
+
+    <title>std::num::FloatMath - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body>
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>std</a>&#8203;::<a href='index.html'>num</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='strconv/index.html' title=''>strconv</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Bounded.html' title='Numbers which have upper and lower bounds'>Bounded</a><a class='trait ' href='trait.CheckedAdd.html' title='Performs addition that returns `None` instead of wrapping around on overflow.'>CheckedAdd</a><a class='trait ' href='trait.CheckedDiv.html' title='Performs division that returns `None` instead of wrapping around on underflow or overflow.'>CheckedDiv</a><a class='trait ' href='trait.CheckedMul.html' title='Performs multiplication that returns `None` instead of wrapping around on underflow or overflow.'>CheckedMul</a><a class='trait ' href='trait.CheckedSub.html' title='Performs subtraction that returns `None` instead of wrapping around on underflow.'>CheckedSub</a><a class='trait ' href='trait.Float.html' title='Operations on primitive floating point numbers.'>Float</a><a class='trait current' href='trait.FloatMath.html' title='Mathematical operations on primitive floating point numbers.'>FloatMath</a><a class='trait ' href='trait.FromPrimitive.html' title='A generic trait for converting a number to a value.'>FromPrimitive</a><a class='trait ' href='trait.FromStrRadix.html' title='A generic trait for converting a string with a radix (base) to a value'>FromStrRadix</a><a class='trait ' href='trait.Int.html' title='A primitive signed or unsigned integer equipped with various bitwise operators, bit counting methods, and endian conversion functions.'>Int</a><a class='trait ' href='trait.Num.html' title='The base trait for numeric types'>Num</a><a class='trait ' href='trait.NumCast.html' title='An interface for casting between machine scalars.'>NumCast</a><a class='trait ' href='trait.One.html' title='Defines a multiplicative identity element for `Self`.'>One</a><a class='trait ' href='trait.Primitive.html' title='Specifies the available operations common to all of Rust's core numeric primitives. These may not always make sense from a purely mathematical point of view, but may be useful for systems programming.'>Primitive</a><a class='trait ' href='trait.Saturating.html' title='Saturating math operations'>Saturating</a><a class='trait ' href='trait.Signed.html' title='Useful functions for signed numbers (i.e. numbers that can be negative).'>Signed</a><a class='trait ' href='trait.ToPrimitive.html' title='A generic trait for converting a value to a number.'>ToPrimitive</a><a class='trait ' href='trait.ToStrRadix.html' title='A generic trait for converting a value to a string with a radix (base)'>ToStrRadix</a><a class='trait ' href='trait.Unsigned.html' title='A trait for values which cannot be negative'>Unsigned</a><a class='trait ' href='trait.Zero.html' title='Defines an additive identity element for `Self`.'>Zero</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.abs.html' title='Computes the absolute value.'>abs</a><a class='fn ' href='fn.abs_sub.html' title='The positive difference of two numbers.'>abs_sub</a><a class='fn ' href='fn.cast.html' title='Cast from one machine scalar to another.'>cast</a><a class='fn ' href='fn.checked_next_power_of_two.html' title='Returns the smallest power of 2 greater than or equal to `n`. If the next power of two is greater than the type's maximum value, `None` is returned, otherwise the power of 2 is wrapped in `Some`.'>checked_next_power_of_two</a><a class='fn ' href='fn.div_rem.html' title='Simultaneous division and remainder'>div_rem</a><a class='fn ' href='fn.from_f32.html' title='A utility function that just calls `FromPrimitive::from_f32`.'>from_f32</a><a class='fn ' href='fn.from_f64.html' title='A utility function that just calls `FromPrimitive::from_f64`.'>from_f64</a><a class='fn ' href='fn.from_i16.html' title='A utility function that just calls `FromPrimitive::from_i16`.'>from_i16</a><a class='fn ' href='fn.from_i32.html' title='A utility function that just calls `FromPrimitive::from_i32`.'>from_i32</a><a class='fn ' href='fn.from_i64.html' title='A utility function that just calls `FromPrimitive::from_i64`.'>from_i64</a><a class='fn ' href='fn.from_i8.html' title='A utility function that just calls `FromPrimitive::from_i8`.'>from_i8</a><a class='fn ' href='fn.from_int.html' title='A utility function that just calls `FromPrimitive::from_int`.'>from_int</a><a class='fn ' href='fn.from_str_radix.html' title='A utility function that just calls FromStrRadix::from_str_radix.'>from_str_radix</a><a class='fn ' href='fn.from_u16.html' title='A utility function that just calls `FromPrimitive::from_u16`.'>from_u16</a><a class='fn ' href='fn.from_u32.html' title='A utility function that just calls `FromPrimitive::from_u32`.'>from_u32</a><a class='fn ' href='fn.from_u64.html' title='A utility function that just calls `FromPrimitive::from_u64`.'>from_u64</a><a class='fn ' href='fn.from_u8.html' title='A utility function that just calls `FromPrimitive::from_u8`.'>from_u8</a><a class='fn ' href='fn.from_uint.html' title='A utility function that just calls `FromPrimitive::from_uint`.'>from_uint</a><a class='fn ' href='fn.is_power_of_two.html' title=''>is_power_of_two</a><a class='fn ' href='fn.next_power_of_two.html' title='Returns the smallest power of 2 greater than or equal to `n`.'>next_power_of_two</a><a class='fn ' href='fn.one.html' title='Returns the multiplicative identity, `1`.'>one</a><a class='fn ' href='fn.pow.html' title='Raises a value to the power of exp, using exponentiation by squaring.'>pow</a><a class='fn ' href='fn.signum.html' title='Returns the sign of the number.'>signum</a><a class='fn ' href='fn.zero.html' title='Returns the additive identity, `0`.'>zero</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'>Trait <a href='../index.html'>std</a>::<a href='index.html'>num</a>::<a class='trait' href=''>FloatMath</a><a class='stability Experimental' title=''>Experimental</a><span class='out-of-band'><a id='src-12355' href='../../src/std/home/liigo/rust/rust/src/libstd/num/mod.rs.html#41-112'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait FloatMath: <a class='trait' href='../../std/num/trait.Float.html' title='std::num::Float'>Float</a> {
+    fn <a href='#tymethod.ldexp' class='fnname'>ldexp</a>(x: Self, exp: <a href='../primitive.int.html'>int</a>) -&gt; Self;
+    fn <a href='#tymethod.frexp' class='fnname'>frexp</a>(self) -&gt; <a href='../primitive.tuple.html'>(Self, <a href='../primitive.int.html'>int</a>)</a>;
+    fn <a href='#tymethod.next_after' class='fnname'>next_after</a>(self, other: Self) -&gt; Self;
+    fn <a href='#tymethod.max' class='fnname'>max</a>(self, other: Self) -&gt; Self;
+    fn <a href='#tymethod.min' class='fnname'>min</a>(self, other: Self) -&gt; Self;
+    fn <a href='#tymethod.cbrt' class='fnname'>cbrt</a>(self) -&gt; Self;
+    fn <a href='#tymethod.hypot' class='fnname'>hypot</a>(self, other: Self) -&gt; Self;
+    fn <a href='#tymethod.sin' class='fnname'>sin</a>(self) -&gt; Self;
+    fn <a href='#tymethod.cos' class='fnname'>cos</a>(self) -&gt; Self;
+    fn <a href='#tymethod.tan' class='fnname'>tan</a>(self) -&gt; Self;
+    fn <a href='#tymethod.asin' class='fnname'>asin</a>(self) -&gt; Self;
+    fn <a href='#tymethod.acos' class='fnname'>acos</a>(self) -&gt; Self;
+    fn <a href='#tymethod.atan' class='fnname'>atan</a>(self) -&gt; Self;
+    fn <a href='#tymethod.atan2' class='fnname'>atan2</a>(self, other: Self) -&gt; Self;
+    fn <a href='#tymethod.sin_cos' class='fnname'>sin_cos</a>(self) -&gt; <a href='../primitive.tuple.html'>(Self, Self)</a>;
+    fn <a href='#tymethod.exp_m1' class='fnname'>exp_m1</a>(self) -&gt; Self;
+    fn <a href='#tymethod.ln_1p' class='fnname'>ln_1p</a>(self) -&gt; Self;
+    fn <a href='#tymethod.sinh' class='fnname'>sinh</a>(self) -&gt; Self;
+    fn <a href='#tymethod.cosh' class='fnname'>cosh</a>(self) -&gt; Self;
+    fn <a href='#tymethod.tanh' class='fnname'>tanh</a>(self) -&gt; Self;
+    fn <a href='#tymethod.asinh' class='fnname'>asinh</a>(self) -&gt; Self;
+    fn <a href='#tymethod.acosh' class='fnname'>acosh</a>(self) -&gt; Self;
+    fn <a href='#tymethod.atanh' class='fnname'>atanh</a>(self) -&gt; Self;
+}</pre><div class='docblock'><p>Mathematical operations on primitive floating point numbers.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.ldexp' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.ldexp' class='fnname'>ldexp</a>(x: Self, exp: <a href='../primitive.int.html'>int</a>) -&gt; Self</code></h3><div class='docblock'><p>Constructs a floating point number created by multiplying <code>x</code> by 2
+raised to the power of <code>exp</code>.</p>
+</div><h3 id='tymethod.frexp' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.frexp' class='fnname'>frexp</a>(self) -&gt; <a href='../primitive.tuple.html'>(Self, <a href='../primitive.int.html'>int</a>)</a></code></h3><div class='docblock'><p>Breaks the number into a normalized fraction and a base-2 exponent,
+satisfying:</p>
+
+<ul>
+<li><p><code>self = x * pow(2, exp)</code></p></li>
+<li><p><code>0.5 &lt;= abs(x) &lt; 1.0</code></p></li>
+</ul>
+</div><h3 id='tymethod.next_after' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.next_after' class='fnname'>next_after</a>(self, other: Self) -&gt; Self</code></h3><div class='docblock'><p>Returns the next representable floating-point value in the direction of
+<code>other</code>.</p>
+</div><h3 id='tymethod.max' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.max' class='fnname'>max</a>(self, other: Self) -&gt; Self</code></h3><div class='docblock'><p>Returns the maximum of the two numbers.</p>
+</div><h3 id='tymethod.min' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.min' class='fnname'>min</a>(self, other: Self) -&gt; Self</code></h3><div class='docblock'><p>Returns the minimum of the two numbers.</p>
+</div><h3 id='tymethod.cbrt' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.cbrt' class='fnname'>cbrt</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Take the cubic root of a number.</p>
+</div><h3 id='tymethod.hypot' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.hypot' class='fnname'>hypot</a>(self, other: Self) -&gt; Self</code></h3><div class='docblock'><p>Calculate the length of the hypotenuse of a right-angle triangle given
+legs of length <code>x</code> and <code>y</code>.</p>
+</div><h3 id='tymethod.sin' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.sin' class='fnname'>sin</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Computes the sine of a number (in radians).</p>
+</div><h3 id='tymethod.cos' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.cos' class='fnname'>cos</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Computes the cosine of a number (in radians).</p>
+</div><h3 id='tymethod.tan' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.tan' class='fnname'>tan</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Computes the tangent of a number (in radians).</p>
+</div><h3 id='tymethod.asin' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.asin' class='fnname'>asin</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Computes the arcsine of a number. Return value is in radians in
+the range [-pi/2, pi/2] or NaN if the number is outside the range
+[-1, 1].</p>
+</div><h3 id='tymethod.acos' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.acos' class='fnname'>acos</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Computes the arccosine of a number. Return value is in radians in
+the range [0, pi] or NaN if the number is outside the range
+[-1, 1].</p>
+</div><h3 id='tymethod.atan' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.atan' class='fnname'>atan</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Computes the arctangent of a number. Return value is in radians in the
+range [-pi/2, pi/2];</p>
+</div><h3 id='tymethod.atan2' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.atan2' class='fnname'>atan2</a>(self, other: Self) -&gt; Self</code></h3><div class='docblock'><p>Computes the four quadrant arctangent of a number, <code>y</code>, and another
+number <code>x</code>. Return value is in radians in the range [-pi, pi].</p>
+</div><h3 id='tymethod.sin_cos' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.sin_cos' class='fnname'>sin_cos</a>(self) -&gt; <a href='../primitive.tuple.html'>(Self, Self)</a></code></h3><div class='docblock'><p>Simultaneously computes the sine and cosine of the number, <code>x</code>. Returns
+<code>(sin(x), cos(x))</code>.</p>
+</div><h3 id='tymethod.exp_m1' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.exp_m1' class='fnname'>exp_m1</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Returns the exponential of the number, minus 1, in a way that is
+accurate even if the number is close to zero.</p>
+</div><h3 id='tymethod.ln_1p' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.ln_1p' class='fnname'>ln_1p</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Returns the natural logarithm of the number plus 1 (<code>ln(1+n)</code>) more
+accurately than if the operations were performed separately.</p>
+</div><h3 id='tymethod.sinh' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.sinh' class='fnname'>sinh</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Hyperbolic sine function.</p>
+</div><h3 id='tymethod.cosh' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.cosh' class='fnname'>cosh</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Hyperbolic cosine function.</p>
+</div><h3 id='tymethod.tanh' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.tanh' class='fnname'>tanh</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Hyperbolic tangent function.</p>
+</div><h3 id='tymethod.asinh' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.asinh' class='fnname'>asinh</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Inverse hyperbolic sine function.</p>
+</div><h3 id='tymethod.acosh' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.acosh' class='fnname'>acosh</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Inverse hyperbolic cosine function.</p>
+</div><h3 id='tymethod.atanh' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.atanh' class='fnname'>atanh</a>(self) -&gt; Self</code></h3><div class='docblock'><p>Inverse hyperbolic tangent function.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><a class='stability Experimental' title='Experimental'></a><code>impl <a class='trait' href='../../std/num/trait.FloatMath.html' title='std::num::FloatMath'>FloatMath</a> for <a href='../primitive.f32.html'>f32</a></code></li>
+<li><a class='stability Experimental' title='Experimental'></a><code>impl <a class='trait' href='../../std/num/trait.FloatMath.html' title='std::num::FloatMath'>FloatMath</a> for <a href='../primitive.f64.html'>f64</a></code></li>
+</ul><script type="text/javascript" async
+                              src="../../implementors/std/num/trait.FloatMath.js">
+                      </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code> (or <code>str</code>), <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script src="../../playpen.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>
