@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `UpperHex` trait in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, UpperHex">
+
+    <title>std::fmt::UpperHex - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>std</a>::<wbr><a href='index.html'>fmt</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='rt/index.html' title='This is an internal module used by the ifmt! runtime. These structures are emitted to static arrays to precompile format strings ahead of time.'>rt</a></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Argument.html' title='This struct represents the generic &quot;argument&quot; which is taken by the Xprintf family of functions. It contains a function to format the given value. At compile time it is ensured that the function and the value have the correct types, and then this struct is used to canonicalize arguments to one type.'>Argument</a><a class='struct ' href='struct.Arguments.html' title='This structure represents a safely precompiled version of a format string and its arguments. This cannot be generated at runtime because it cannot safely be done so, so no constructors are given and the fields are private to prevent modification.'>Arguments</a><a class='struct ' href='struct.Error.html' title='The error type which is returned from formatting a message into a stream.'>Error</a><a class='struct ' href='struct.Formatter.html' title='A struct to represent both where to emit formatting strings to and how they should be formatted. A mutable version of this is passed to all formatting traits.'>Formatter</a><a class='struct ' href='struct.Radix.html' title='A radix with in the range of `2..36`.'>Radix</a><a class='struct ' href='struct.RadixFmt.html' title='A helper type for formatting radixes.'>RadixFmt</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.Binary.html' title='Format trait for the `b` character'>Binary</a><a class='trait ' href='trait.FormatWriter.html' title='A collection of methods that are required to format a message into a stream.'>FormatWriter</a><a class='trait ' href='trait.LowerExp.html' title='Format trait for the `e` character'>LowerExp</a><a class='trait ' href='trait.LowerHex.html' title='Format trait for the `x` character'>LowerHex</a><a class='trait ' href='trait.Octal.html' title='Format trait for the `o` character'>Octal</a><a class='trait ' href='trait.Pointer.html' title='Format trait for the `p` character'>Pointer</a><a class='trait ' href='trait.Show.html' title='When a format is not otherwise specified, types are formatted by ascribing to this trait. There is not an explicit way of selecting this trait to be used for formatting, it is only if no other format is specified.'>Show</a><a class='trait ' href='trait.UpperExp.html' title='Format trait for the `E` character'>UpperExp</a><a class='trait current' href='trait.UpperHex.html' title='Format trait for the `X` character'>UpperHex</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.format.html' title='The format function takes a precompiled format string and a list of arguments, to return the resulting formatted string.'>format</a><a class='fn ' href='fn.radix.html' title='Constructs a radix formatter in the range of `2..36`.'>radix</a><a class='fn ' href='fn.write.html' title='The `write` function takes an output stream, a precompiled format string, and a list of arguments. The arguments will be formatted according to the specified format string into the output stream provided.'>write</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>std</a>::<wbr><a href='index.html'>fmt</a>::<wbr><a class='trait' href=''>UpperHex</a><wbr><a class='stability Unstable' title='I/O and core have yet to be reconciled'>Unstable</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-84174' href='../../core/fmt/trait.UpperHex.html?gotosrc=84174'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait UpperHex for <a class='trait' href='../../std/kinds/trait.Sized.html' title='std::kinds::Sized'>Sized</a>? {
+    fn <a href='#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, &amp;mut <a class='struct' href='../../std/fmt/struct.Formatter.html' title='std::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='../../std/result/enum.Result.html' title='std::result::Result'>Result</a>&lt;<a href='../primitive.tuple.html'>()</a>, <a class='struct' href='../../std/fmt/struct.Error.html' title='std::fmt::Error'>Error</a>&gt;;
+}</pre><div class='docblock'><p>Format trait for the <code>X</code> character</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.fmt' class='method'><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>fn <a href='#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, &amp;mut <a class='struct' href='../../std/fmt/struct.Formatter.html' title='std::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='../../std/result/enum.Result.html' title='std::result::Result'>Result</a>&lt;<a href='../primitive.tuple.html'>()</a>, <a class='struct' href='../../std/fmt/struct.Error.html' title='std::fmt::Error'>Error</a>&gt;</code></h3><div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.int.html'>int</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.uint.html'>uint</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.i8.html'>i8</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.u8.html'>u8</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.i16.html'>i16</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.u16.html'>u16</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.i32.html'>i32</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.u32.html'>u32</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.i64.html'>i64</a></code></li>
+<li><a class='stability Unstable' title='Unstable: I/O and core have yet to be reconciled'></a><code>impl <a class='trait' href='../../std/fmt/trait.UpperHex.html' title='std::fmt::UpperHex'>UpperHex</a> for <a href='../primitive.u64.html'>u64</a></code></li>
+</ul><script type="text/javascript" async
+                              src="../../implementors/core/fmt/trait.UpperHex.js">
+                      </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script src="../../playpen.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

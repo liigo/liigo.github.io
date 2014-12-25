@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VacantEntry` struct in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VacantEntry">
+
+    <title>std::collections::btree_map::VacantEntry - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../../index.html'>std</a>::<wbr><a href='../index.html'>collections</a>::<wbr><a href='index.html'>btree_map</a></p><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.BTreeMap.html' title='A map based on a B-Tree.'>BTreeMap</a><a class='struct ' href='struct.IntoIter.html' title='An owning iterator over a BTreeMap&#39;s entries.'>IntoIter</a><a class='struct ' href='struct.Iter.html' title='An iterator over a BTreeMap&#39;s entries.'>Iter</a><a class='struct ' href='struct.IterMut.html' title='A mutable iterator over a BTreeMap&#39;s entries.'>IterMut</a><a class='struct ' href='struct.Keys.html' title='An iterator over a BTreeMap&#39;s keys.'>Keys</a><a class='struct ' href='struct.OccupiedEntry.html' title='An occupied Entry.'>OccupiedEntry</a><a class='struct current' href='struct.VacantEntry.html' title='A vacant Entry.'>VacantEntry</a><a class='struct ' href='struct.Values.html' title='An iterator over a BTreeMap&#39;s values.'>Values</a></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.Entry.html' title='A view into a single entry in a map, which may either be vacant or occupied.'>Entry</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>std</a>::<wbr><a href='../index.html'>collections</a>::<wbr><a href='index.html'>btree_map</a>::<wbr><a class='struct' href=''>VacantEntry</a><wbr><a class='stability Experimental' title=''>Experimental</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-10712' href='../../../collections/btree/map/struct.VacantEntry.html?gotosrc=10712'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct VacantEntry&lt;'a, K: 'a, V: 'a&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>A vacant Entry.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Experimental' title='Experimental'></a><code>impl&lt;'a, K: <a class='trait' href='../../../std/cmp/trait.Ord.html' title='std::cmp::Ord'>Ord</a>&lt;K&gt;, V&gt; <a class='struct' href='../../../std/collections/btree_map/struct.VacantEntry.html' title='std::collections::btree_map::VacantEntry'>VacantEntry</a>&lt;'a, K, V&gt;</code></h3><div class='impl-items'><h4 id='method.set' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#method.set' class='fnname'>set</a>(self, value: V) -&gt; &amp;'a mut V</code></h4>
+<div class='docblock'><p>Sets the value of the entry with the VacantEntry&#39;s key,
+and returns a mutable reference to it.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script src="../../../playpen.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

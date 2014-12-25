@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `fs` mod in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, fs">
+
+    <title>std::io::fs - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../../index.html'>std</a>::<wbr><a href='../index.html'>io</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='../extensions/index.html' title='Utility mixins that apply to all Readers and Writers'>extensions</a><a class='mod current' href='../fs/index.html' title='Synchronous File I/O'>fs</a><a class='mod ' href='../net/index.html' title='Networking I/O'>net</a><a class='mod ' href='../pipe/index.html' title='Synchronous, in-memory pipes.'>pipe</a><a class='mod ' href='../process/index.html' title='Bindings for executing child processes'>process</a><a class='mod ' href='../stdio/index.html' title='Non-blocking access to stdin, stdout, and stderr.'>stdio</a><a class='mod ' href='../test/index.html' title='Various utility functions useful for writing I/O tests'>test</a><a class='mod ' href='../timer/index.html' title='Synchronous Timers'>timer</a><a class='mod ' href='../util/index.html' title='Utility implementations of Reader and Writer'>util</a></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='../struct.BufReader.html' title='Reads from a fixed-size byte slice'>BufReader</a><a class='struct ' href='../struct.BufWriter.html' title='Writes to a fixed-size byte slice'>BufWriter</a><a class='struct ' href='../struct.BufferedReader.html' title='Wraps a Reader and buffers input from it'>BufferedReader</a><a class='struct ' href='../struct.BufferedStream.html' title='Wraps a Stream and buffers input and output to and from it.'>BufferedStream</a><a class='struct ' href='../struct.BufferedWriter.html' title='Wraps a Writer and buffers output to it'>BufferedWriter</a><a class='struct ' href='../struct.ChanReader.html' title='Allows reading from a rx.'>ChanReader</a><a class='struct ' href='../struct.ChanWriter.html' title='Allows writing to a tx.'>ChanWriter</a><a class='struct ' href='../struct.Chars.html' title='An iterator that reads a utf8-encoded character on each iteration, until `.read_char()` encounters `EndOfFile`.'>Chars</a><a class='struct ' href='../struct.FilePermission.html' title='A set of permissions for a file or directory is represented by a set of flags which are or&#39;d together.'>FilePermission</a><a class='struct ' href='../struct.FileStat.html' title='A structure used to describe metadata information about a file. This structure is created through the `stat` method on a `Path`.'>FileStat</a><a class='struct ' href='../struct.IncomingConnections.html' title='An infinite iterator over incoming connection attempts. Calling `next` will block the task until a connection is attempted.'>IncomingConnections</a><a class='struct ' href='../struct.IoError.html' title='The type passed to I/O condition handlers to indicate error'>IoError</a><a class='struct ' href='../struct.LineBufferedWriter.html' title='Wraps a Writer and buffers output to it, flushing whenever a newline (`0x0a`, `&#39;\n&#39;`) is detected.'>LineBufferedWriter</a><a class='struct ' href='../struct.Lines.html' title='An iterator that reads a line on each iteration, until `.read_line()` encounters `EndOfFile`.'>Lines</a><a class='struct ' href='../struct.MemReader.html' title='Reads from an owned byte vector'>MemReader</a><a class='struct ' href='../struct.MemWriter.html' title='Writes to an owned, growable byte vector'>MemWriter</a><a class='struct ' href='../struct.RefReader.html' title='A `RefReader` is a struct implementing `Reader` which contains a reference to another reader. This is often useful when composing streams.'>RefReader</a><a class='struct ' href='../struct.RefWriter.html' title='A `RefWriter` is a struct implementing `Writer` which contains a reference to another writer. This is often useful when composing streams.'>RefWriter</a><a class='struct ' href='../struct.TempDir.html' title='A wrapper for a path to temporary directory implementing automatic scope-based deletion.'>TempDir</a><a class='struct ' href='../struct.UnstableFileStat.html' title='This structure represents all of the possible information which can be returned from a `stat` syscall which is not contained in the `FileStat` structure. This information is not necessarily platform independent, and may have different meanings or no meaning at all on some platforms.'>UnstableFileStat</a></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='../enum.FileAccess.html' title='Access permissions with which the file should be opened. `File`s opened with `Read` will return an error if written to.'>FileAccess</a><a class='enum ' href='../enum.FileMode.html' title='A mode specifies how a file should be opened or created. These modes are passed to `File::open_mode` and are used to control where the file is positioned when it is initially opened.'>FileMode</a><a class='enum ' href='../enum.FileType.html' title='Different kinds of files which can be identified by a call to stat'>FileType</a><a class='enum ' href='../enum.IoErrorKind.html' title='A list specifying general categories of I/O error.'>IoErrorKind</a><a class='enum ' href='../enum.SeekStyle.html' title='When seeking, the resulting cursor is offset from a base by the offset given to the `seek` function. The base used is specified by this enumeration.'>SeekStyle</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='../trait.Acceptor.html' title='An acceptor is a value that presents incoming connections'>Acceptor</a><a class='trait ' href='../trait.AsRefReader.html' title='A reader which can be converted to a RefReader.'>AsRefReader</a><a class='trait ' href='../trait.AsRefWriter.html' title='A writer which can be converted to a RefWriter.'>AsRefWriter</a><a class='trait ' href='../trait.Buffer.html' title='A Buffer is a type of reader which has some form of internal buffering to allow certain kinds of reading operations to be more optimized than others. This type extends the `Reader` trait with a few methods that are not possible to reasonably implement with purely a read interface.'>Buffer</a><a class='trait ' href='../trait.BufferPrelude.html' title='Extension methods for the Buffer trait which are included in the prelude.'>BufferPrelude</a><a class='trait ' href='../trait.ByRefReader.html' title='A reader which can be converted to a RefReader.'>ByRefReader</a><a class='trait ' href='../trait.ByRefWriter.html' title='A writer which can be converted to a RefWriter.'>ByRefWriter</a><a class='trait ' href='../trait.BytesReader.html' title='A reader which can be converted to bytes.'>BytesReader</a><a class='trait ' href='../trait.Listener.html' title='A listener is a value that can consume itself to start listening for connections.'>Listener</a><a class='trait ' href='../trait.Reader.html' title='A trait for objects which are byte-oriented streams. Readers are defined by one method, `read`. This function will block until data is available, filling in the provided buffer with any data read.'>Reader</a><a class='trait ' href='../trait.Seek.html' title='An object implementing `Seek` internally has some form of cursor which can be moved within a stream of bytes. The stream typically has a fixed size, allowing seeking relative to either end.'>Seek</a><a class='trait ' href='../trait.Stream.html' title='A Stream is a readable and a writable object. Data written is typically received by the object which reads receive data from.'>Stream</a><a class='trait ' href='../trait.Writer.html' title='A trait for objects which are byte-oriented streams. Writers are defined by one method, `write`. This function will block until the provided buffer of bytes has been entirely written, and it will return any failures which occur.'>Writer</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='../fn.standard_error.html' title='Creates a standard error for a commonly used flavor of error. The `detail` field of the returned error will always be `None`.'>standard_error</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>std</a>::<wbr><a href='../index.html'>io</a>::<wbr><a class='mod' href=''>fs</a><wbr><a class='stability Experimental' title=''>Experimental</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-14501' href='../../../src/std/io/fs.rs.html#13-1553'>[src]</a></span></h1>
+<div class='docblock'><p>Synchronous File I/O</p>
+
+<p>This module provides a set of functions and traits for working
+with regular files &amp; directories on a filesystem.</p>
+
+<p>At the top-level of the module are a set of freestanding functions, associated
+with various filesystem operations. They all operate on <code>Path</code> objects.</p>
+
+<p>All operations in this module, including those as part of <code>File</code> et al
+block the task during execution. In the event of failure, all functions/methods
+will return an <code>IoResult</code> type with an <code>Err</code> value.</p>
+
+<p>Also included in this module is an implementation block on the <code>Path</code> object
+defined in <code>std::path::Path</code>. The impl adds useful methods about inspecting the
+metadata of a file. This includes getting the <code>stat</code> information, reading off
+particular bits of it, etc.</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><span id='rust-example-raw-0' class='rusttest'>fn main() {
+    #![allow(unused_must_use)]
+    use std::io::fs::PathExtensions;
+    use std::io::{File, fs};
+    
+    let path = Path::new(&quot;foo.txt&quot;);
+    
+    // create the file, whether it exists or not
+    let mut file = File::create(&amp;path);
+    file.write(b&quot;foobar&quot;);
+    drop(file);
+    
+    // open the file in read-only mode
+    let mut file = File::open(&amp;path);
+    file.read_to_end();
+    
+    println!(&quot;{}&quot;, path.stat().unwrap().size);
+    drop(file);
+    fs::unlink(&amp;path);
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::<span class='ident'>fs</span>::<span class='ident'>PathExtensions</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='ident'>File</span>, <span class='ident'>fs</span>};
+
+<span class='kw'>let</span> <span class='ident'>path</span> <span class='op'>=</span> <span class='ident'>Path</span>::<span class='ident'>new</span>(<span class='string'>&quot;foo.txt&quot;</span>);
+
+<span class='comment'>// create the file, whether it exists or not</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>file</span> <span class='op'>=</span> <span class='ident'>File</span>::<span class='ident'>create</span>(<span class='kw-2'>&amp;</span><span class='ident'>path</span>);
+<span class='ident'>file</span>.<span class='ident'>write</span>(<span class='string'>b&quot;foobar&quot;</span>);
+
+<span class='comment'>// open the file in read-only mode</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>file</span> <span class='op'>=</span> <span class='ident'>File</span>::<span class='ident'>open</span>(<span class='kw-2'>&amp;</span><span class='ident'>path</span>);
+<span class='ident'>file</span>.<span class='ident'>read_to_end</span>();
+
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{}&quot;</span>, <span class='ident'>path</span>.<span class='ident'>stat</span>().<span class='ident'>unwrap</span>().<span class='ident'>size</span>);
+<span class='ident'>fs</span>::<span class='ident'>unlink</span>(<span class='kw-2'>&amp;</span><span class='ident'>path</span>);
+</pre>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='struct' href='struct.Directories.html'
+                               title='std::io::fs::Directories'>Directories</a></td>
+                        <td class='docblock short'><p>An iterator that walks over a directory</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='struct' href='struct.File.html'
+                               title='std::io::fs::File'>File</a></td>
+                        <td class='docblock short'><p>Unconstrained file access type that exposes read and write operations</p>
+</td>
+                    </tr>
+                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='trait' href='trait.PathExtensions.html'
+                               title='std::io::fs::PathExtensions'>PathExtensions</a></td>
+                        <td class='docblock short'><p>Utility methods for paths.</p>
+</td>
+                    </tr>
+                </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.change_file_times.html'
+                               title='std::io::fs::change_file_times'>change_file_times</a></td>
+                        <td class='docblock short'><p>Changes the timestamps for a file&#39;s last modification and access time.
+The file at the path specified will have its last access time set to
+<code>atime</code> and its modification time set to <code>mtime</code>. The times specified should
+be in milliseconds.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.chmod.html'
+                               title='std::io::fs::chmod'>chmod</a></td>
+                        <td class='docblock short'><p>Changes the permission mode bits found on a file or a directory. This
+function takes a mask from the <code>io</code> module</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.chown.html'
+                               title='std::io::fs::chown'>chown</a></td>
+                        <td class='docblock short'><p>Change the user and group owners of a file at the specified path.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.copy.html'
+                               title='std::io::fs::copy'>copy</a></td>
+                        <td class='docblock short'><p>Copies the contents of one file to another. This function will also
+copy the permission bits of the original file to the destination file.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.link.html'
+                               title='std::io::fs::link'>link</a></td>
+                        <td class='docblock short'><p>Creates a new hard link on the filesystem. The <code>dst</code> path will be a
+link pointing to the <code>src</code> path. Note that systems often require these
+two paths to both be located on the same filesystem.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.lstat.html'
+                               title='std::io::fs::lstat'>lstat</a></td>
+                        <td class='docblock short'><p>Perform the same operation as the <code>stat</code> function, except that this
+function does not traverse through symlinks. This will return
+information about the symlink file instead of the file that it points
+to.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.mkdir.html'
+                               title='std::io::fs::mkdir'>mkdir</a></td>
+                        <td class='docblock short'><p>Create a new, empty directory at the provided path</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.mkdir_recursive.html'
+                               title='std::io::fs::mkdir_recursive'>mkdir_recursive</a></td>
+                        <td class='docblock short'><p>Recursively create a directory and all of its parent components if they
+are missing.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.readdir.html'
+                               title='std::io::fs::readdir'>readdir</a></td>
+                        <td class='docblock short'><p>Retrieve a vector containing all entries within a provided directory</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.readlink.html'
+                               title='std::io::fs::readlink'>readlink</a></td>
+                        <td class='docblock short'><p>Reads a symlink, returning the file that the symlink points to.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.rename.html'
+                               title='std::io::fs::rename'>rename</a></td>
+                        <td class='docblock short'><p>Rename a file or directory to a new name.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.rmdir.html'
+                               title='std::io::fs::rmdir'>rmdir</a></td>
+                        <td class='docblock short'><p>Remove an existing, empty directory</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.rmdir_recursive.html'
+                               title='std::io::fs::rmdir_recursive'>rmdir_recursive</a></td>
+                        <td class='docblock short'><p>Removes a directory at this path, after removing all its contents. Use
+carefully!</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.stat.html'
+                               title='std::io::fs::stat'>stat</a></td>
+                        <td class='docblock short'><p>Given a path, query the file system to get information about a file,
+directory, etc. This function will traverse symlinks to query
+information about the destination file.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.symlink.html'
+                               title='std::io::fs::symlink'>symlink</a></td>
+                        <td class='docblock short'><p>Creates a new symbolic link on the filesystem. The <code>dst</code> path will be a
+symlink pointing to the <code>src</code> path.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.unlink.html'
+                               title='std::io::fs::unlink'>unlink</a></td>
+                        <td class='docblock short'><p>Unlink a file from the underlying filesystem.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental'></a><a class='fn' href='fn.walk_dir.html'
+                               title='std::io::fs::walk_dir'>walk_dir</a></td>
+                        <td class='docblock short'><p>Returns an iterator that will recursively walk the directory structure
+rooted at <code>path</code>. The path given will not be iterated over, and this will
+perform iteration in some top-down order.  The contents of unreadable
+subdirectories are ignored.</p>
+</td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script src="../../../playpen.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

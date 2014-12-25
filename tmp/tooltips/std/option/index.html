@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `option` mod in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, option">
+
+    <title>std::option - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>std</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='../any/index.html' title='Traits for dynamic typing of any `&#39;static` type (through runtime reflection)'>any</a><a class='mod ' href='../ascii/index.html' title='Operations on ASCII strings and characters'>ascii</a><a class='mod ' href='../bitflags/index.html' title='A typesafe bitmask flag generator.'>bitflags</a><a class='mod ' href='../borrow/index.html' title='A module for working with borrowed data.'>borrow</a><a class='mod ' href='../boxed/index.html' title='A unique pointer type.'>boxed</a><a class='mod ' href='../c_str/index.html' title='C-string manipulation and management'>c_str</a><a class='mod ' href='../c_vec/index.html' title='Library to interface with chunks of memory allocated in C.'>c_vec</a><a class='mod ' href='../cell/index.html' title='Shareable mutable containers.'>cell</a><a class='mod ' href='../char/index.html' title='Character manipulation (`char` type, Unicode Scalar Value)'>char</a><a class='mod ' href='../clone/index.html' title='The `Clone` trait for types that cannot be &#39;implicitly copied&#39;'>clone</a><a class='mod ' href='../cmp/index.html' title='Defines the `PartialOrd` and `PartialEq` comparison traits.'>cmp</a><a class='mod ' href='../collections/index.html' title='Collection types.'>collections</a><a class='mod ' href='../comm/index.html' title='Communication primitives for concurrent tasks'>comm</a><a class='mod ' href='../default/index.html' title='The `Default` trait for types which may have meaningful default values.'>default</a><a class='mod ' href='../dynamic_lib/index.html' title='Dynamic library facilities.'>dynamic_lib</a><a class='mod ' href='../error/index.html' title='Traits for working with Errors.'>error</a><a class='mod ' href='../f32/index.html' title='Operations and constants for 32-bits floats (`f32` type)'>f32</a><a class='mod ' href='../f64/index.html' title='Operations and constants for 64-bits floats (`f64` type)'>f64</a><a class='mod ' href='../finally/index.html' title='The Finally trait provides a method, `finally` on stack closures that emulates Java-style try/finally blocks.'>finally</a><a class='mod ' href='../fmt/index.html' title='Utilities for formatting and printing strings'>fmt</a><a class='mod ' href='../hash/index.html' title='Generic hashing support.'>hash</a><a class='mod ' href='../i16/index.html' title='Operations and constants for signed 16-bits integers (`i16` type)'>i16</a><a class='mod ' href='../i32/index.html' title='Operations and constants for signed 32-bits integers (`i32` type)'>i32</a><a class='mod ' href='../i64/index.html' title='Operations and constants for signed 64-bits integers (`i64` type)'>i64</a><a class='mod ' href='../i8/index.html' title='Operations and constants for signed 8-bits integers (`i8` type)'>i8</a><a class='mod ' href='../int/index.html' title='Operations and constants for architecture-sized signed integers (`int` type)'>int</a><a class='mod ' href='../intrinsics/index.html' title='rustc compiler intrinsics.'>intrinsics</a><a class='mod ' href='../io/index.html' title='I/O, including files, networking, timers, and processes'>io</a><a class='mod ' href='../iter/index.html' title='Composable external iterators'>iter</a><a class='mod ' href='../kinds/index.html' title='Primitive traits representing basic &#39;kinds&#39; of types'>kinds</a><a class='mod ' href='../macros/index.html' title='Standard library macros'>macros</a><a class='mod ' href='../mem/index.html' title='Basic functions for dealing with memory'>mem</a><a class='mod ' href='../num/index.html' title='Numeric traits and functions for generic mathematics'>num</a><a class='mod ' href='../ops/index.html' title='Overloadable operators'>ops</a><a class='mod current' href='../option/index.html' title='Optional values'>option</a><a class='mod ' href='../os/index.html' title='Higher-level interfaces to libc::* functions and operating system services.'>os</a><a class='mod ' href='../path/index.html' title='Cross-platform path support'>path</a><a class='mod ' href='../prelude/index.html' title='The Rust prelude'>prelude</a><a class='mod ' href='../ptr/index.html' title='Operations on unsafe pointers, `*const T`, and `*mut T`.'>ptr</a><a class='mod ' href='../rand/index.html' title='Utilities for random number generation'>rand</a><a class='mod ' href='../raw/index.html' title='Contains struct definitions for the layout of compiler built-in types.'>raw</a><a class='mod ' href='../rc/index.html' title='Task-local reference-counted boxes (the `Rc&lt;T&gt;` type).'>rc</a><a class='mod ' href='../result/index.html' title='Error handling with the `Result` type'>result</a><a class='mod ' href='../rt/index.html' title='Runtime services'>rt</a><a class='mod ' href='../simd/index.html' title='SIMD vectors.'>simd</a><a class='mod ' href='../slice/index.html' title='Utilities for slice manipulation'>slice</a><a class='mod ' href='../str/index.html' title='Unicode string manipulation (`str` type)'>str</a><a class='mod ' href='../string/index.html' title='An owned, growable string that enforces that its contents are valid UTF-8.'>string</a><a class='mod ' href='../sync/index.html' title='Useful synchronization primitives'>sync</a><a class='mod ' href='../task/index.html' title='Deprecated in favor of `thread`.'>task</a><a class='mod ' href='../thread/index.html' title='Native threads'>thread</a><a class='mod ' href='../thread_local/index.html' title='Thread local storage'>thread_local</a><a class='mod ' href='../thunk/index.html' title=''>thunk</a><a class='mod ' href='../time/index.html' title='Temporal quantification.'>time</a><a class='mod ' href='../u16/index.html' title='Operations and constants for unsigned 16-bits integers (`u16` type)'>u16</a><a class='mod ' href='../u32/index.html' title='Operations and constants for unsigned 32-bits integers (`u32` type)'>u32</a><a class='mod ' href='../u64/index.html' title='Operations and constants for unsigned 64-bits integer (`u64` type)'>u64</a><a class='mod ' href='../u8/index.html' title='Operations and constants for unsigned 8-bits integers (`u8` type)'>u8</a><a class='mod ' href='../uint/index.html' title='Operations and constants for architecture-sized unsigned integers (`uint` type)'>uint</a><a class='mod ' href='../vec/index.html' title='A growable list type, written `Vec&lt;T&gt;` but pronounced &#39;vector.&#39;'>vec</a></div><div class='block macro'><h2>Macros</h2><a class='macro ' href='../macro.__thread_local_inner!.html' title=''>__thread_local_inner!</a><a class='macro ' href='../macro.assert!.html' title='Ensure that a boolean expression is `true` at runtime.'>assert!</a><a class='macro ' href='../macro.assert_eq!.html' title='Asserts that two expressions are equal to each other, testing equality in both directions.'>assert_eq!</a><a class='macro ' href='../macro.bitflags!.html' title='The `bitflags!` macro generates a `struct` that holds a set of C-style bitmask flags. It is useful for creating typesafe wrappers for C APIs.'>bitflags!</a><a class='macro ' href='../macro.bytes!.html' title='Concatenate literals into a static byte slice.'>bytes!</a><a class='macro ' href='../macro.cfg!.html' title='Boolean evaluation of configuration flags.'>cfg!</a><a class='macro ' href='../macro.column!.html' title='A macro which expands to the column number on which it was invoked.'>column!</a><a class='macro ' href='../macro.concat!.html' title='Concatenates literals into a static string slice.'>concat!</a><a class='macro ' href='../macro.concat_idents!.html' title='Concatenate identifiers into one identifier.'>concat_idents!</a><a class='macro ' href='../macro.debug_assert!.html' title='Ensure that a boolean expression is `true` at runtime.'>debug_assert!</a><a class='macro ' href='../macro.debug_assert_eq!.html' title='Asserts that two expressions are equal to each other, testing equality in both directions.'>debug_assert_eq!</a><a class='macro ' href='../macro.env!.html' title='Inspect an environment variable at compile time.'>env!</a><a class='macro ' href='../macro.file!.html' title='A macro which expands to the file name from which it was invoked.'>file!</a><a class='macro ' href='../macro.format!.html' title='Use the syntax described in `std::fmt` to create a value of type `String`. See `std::fmt` for more information.'>format!</a><a class='macro ' href='../macro.format_args!.html' title='The core macro for formatted string creation & output.'>format_args!</a><a class='macro ' href='../macro.include_bin!.html' title='Deprecated alias for `include_bytes!()`.'>include_bin!</a><a class='macro ' href='../macro.include_bytes!.html' title='Includes a file as a byte slice.'>include_bytes!</a><a class='macro ' href='../macro.include_str!.html' title='Includes a utf8-encoded file as a string.'>include_str!</a><a class='macro ' href='../macro.line!.html' title='A macro which expands to the line number on which it was invoked.'>line!</a><a class='macro ' href='../macro.module_path!.html' title='Expands to a string that represents the current module path.'>module_path!</a><a class='macro ' href='../macro.option_env!.html' title='Optionally inspect an environment variable at compile time.'>option_env!</a><a class='macro ' href='../macro.panic!.html' title='The entry point for panic of Rust tasks.'>panic!</a><a class='macro ' href='../macro.print!.html' title='Equivalent to the `println!` macro except that a newline is not printed at the end of the message.'>print!</a><a class='macro ' href='../macro.println!.html' title='Macro for printing to a task&#39;s stdout handle.'>println!</a><a class='macro ' href='../macro.scoped_thread_local!.html' title='Declare a new scoped thread local storage key.'>scoped_thread_local!</a><a class='macro ' href='../macro.select!.html' title='A macro to select an event from a number of receivers.'>select!</a><a class='macro ' href='../macro.stringify!.html' title='A macro which stringifies its argument.'>stringify!</a><a class='macro ' href='../macro.try!.html' title='Helper macro for unwrapping `Result` values while returning early with an error if the value of the expression is `Err`. For more information, see `std::io`.'>try!</a><a class='macro ' href='../macro.unimplemented!.html' title='A standardised placeholder for marking unfinished code. It panics with the message `&quot;not yet implemented&quot;` when executed.'>unimplemented!</a><a class='macro ' href='../macro.unreachable!.html' title='A utility macro for indicating unreachable code.'>unreachable!</a><a class='macro ' href='../macro.vec!.html' title='Create a `std::vec::Vec` containing the arguments.'>vec!</a><a class='macro ' href='../macro.write!.html' title='Use the `format!` syntax to write data into a buffer of type `&mut Writer`. See `std::fmt` for more information.'>write!</a><a class='macro ' href='../macro.writeln!.html' title='Equivalent to the `write!` macro, except that a newline is appended after the message is written.'>writeln!</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>std</a>::<wbr><a class='mod' href=''>option</a><wbr><a class='stability Stable' title=''>Stable</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-53966' href='../../core/option/index.html?gotosrc=53966'>[src]</a></span></h1>
+<div class='docblock'><p>Optional values</p>
+
+<p>Type <code>Option</code> represents an optional value: every <code>Option</code>
+is either <code>Some</code> and contains a value, or <code>None</code>, and
+does not. <code>Option</code> types are very common in Rust code, as
+they have a number of uses:</p>
+
+<ul>
+<li>Initial values</li>
+<li>Return values for functions that are not defined
+over their entire input range (partial functions)</li>
+<li>Return value for otherwise reporting simple errors, where <code>None</code> is
+returned on error</li>
+<li>Optional struct fields</li>
+<li>Struct fields that can be loaned or &quot;taken&quot;</li>
+<li>Optional function arguments</li>
+<li>Nullable pointers</li>
+<li>Swapping things out of difficult situations</li>
+</ul>
+
+<p>Options are commonly paired with pattern matching to query the presence
+of a value and take action, always accounting for the <code>None</code> case.</p>
+<span id='rust-example-raw-0' class='rusttest'>fn main() {
+    fn divide(numerator: f64, denominator: f64) -&gt; Option&lt;f64&gt; {
+        if denominator == 0.0 {
+            None
+        } else {
+            Some(numerator / denominator)
+        }
+    }
+    
+    // The return value of the function is an option
+    let result = divide(2.0, 3.0);
+    
+    // Pattern match to retrieve the value
+    match result {
+        // The division was valid
+        Some(x) =&gt; println!(&quot;Result: {}&quot;, x),
+        // The division was invalid
+        None    =&gt; println!(&quot;Cannot divide by 0&quot;)
+    }
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>fn</span> <span class='ident'>divide</span>(<span class='ident'>numerator</span>: <span class='ident'>f64</span>, <span class='ident'>denominator</span>: <span class='ident'>f64</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>f64</span><span class='op'>&gt;</span> {
+    <span class='kw'>if</span> <span class='ident'>denominator</span> <span class='op'>==</span> <span class='number'>0.0</span> {
+        <span class='prelude-val'>None</span>
+    } <span class='kw'>else</span> {
+        <span class='prelude-val'>Some</span>(<span class='ident'>numerator</span> <span class='op'>/</span> <span class='ident'>denominator</span>)
+    }
+}
+
+<span class='comment'>// The return value of the function is an option</span>
+<span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>divide</span>(<span class='number'>2.0</span>, <span class='number'>3.0</span>);
+
+<span class='comment'>// Pattern match to retrieve the value</span>
+<span class='kw'>match</span> <span class='ident'>result</span> {
+    <span class='comment'>// The division was valid</span>
+    <span class='prelude-val'>Some</span>(<span class='ident'>x</span>) <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Result: {}&quot;</span>, <span class='ident'>x</span>),
+    <span class='comment'>// The division was invalid</span>
+    <span class='prelude-val'>None</span>    <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Cannot divide by 0&quot;</span>)
+}
+</pre>
+
+<h1 id="options-and-pointers-(&quot;nullable&quot;-pointers)" class='section-header'><a
+                           href="#options-and-pointers-(&quot;nullable&quot;-pointers)">Options and pointers (&quot;nullable&quot; pointers)</a></h1>
+<p>Rust&#39;s pointer types must always point to a valid location; there are
+no &quot;null&quot; pointers. Instead, Rust has <em>optional</em> pointers, like
+the optional owned box, <code>Option&lt;Box&lt;T&gt;&gt;</code>.</p>
+
+<p>The following example uses <code>Option</code> to create an optional box of
+<code>int</code>. Notice that in order to use the inner <code>int</code> value first the
+<code>check_optional</code> function needs to use pattern matching to
+determine whether the box has a value (i.e. it is <code>Some(...)</code>) or
+not (<code>None</code>).</p>
+<span id='rust-example-raw-1' class='rusttest'>fn main() {
+    let optional: Option&lt;Box&lt;int&gt;&gt; = None;
+    check_optional(&amp;optional);
+    
+    let optional: Option&lt;Box&lt;int&gt;&gt; = Some(box 9000);
+    check_optional(&amp;optional);
+    
+    fn check_optional(optional: &amp;Option&lt;Box&lt;int&gt;&gt;) {
+        match *optional {
+            Some(ref p) =&gt; println!(&quot;have value {}&quot;, p),
+            None =&gt; println!(&quot;have no value&quot;)
+        }
+    }
+}</span><pre id='rust-example-rendered-1' class='rust '>
+<span class='kw'>let</span> <span class='ident'>optional</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>int</span><span class='op'>&gt;&gt;</span> <span class='op'>=</span> <span class='prelude-val'>None</span>;
+<span class='ident'>check_optional</span>(<span class='kw-2'>&amp;</span><span class='ident'>optional</span>);
+
+<span class='kw'>let</span> <span class='ident'>optional</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>int</span><span class='op'>&gt;&gt;</span> <span class='op'>=</span> <span class='prelude-val'>Some</span>(<span class='kw'>box</span> <span class='number'>9000</span>);
+<span class='ident'>check_optional</span>(<span class='kw-2'>&amp;</span><span class='ident'>optional</span>);
+
+<span class='kw'>fn</span> <span class='ident'>check_optional</span>(<span class='ident'>optional</span>: <span class='kw-2'>&amp;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>int</span><span class='op'>&gt;&gt;</span>) {
+    <span class='kw'>match</span> <span class='op'>*</span><span class='ident'>optional</span> {
+        <span class='prelude-val'>Some</span>(<span class='kw-2'>ref</span> <span class='ident'>p</span>) <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;have value {}&quot;</span>, <span class='ident'>p</span>),
+        <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;have no value&quot;</span>)
+    }
+}
+</pre>
+
+<p>This usage of <code>Option</code> to create safe nullable pointers is so
+common that Rust does special optimizations to make the
+representation of <code>Option&lt;Box&lt;T&gt;&gt;</code> a single pointer. Optional pointers
+in Rust are stored as efficiently as any other pointer type.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>Basic pattern matching on <code>Option</code>:</p>
+<span id='rust-example-raw-2' class='rusttest'>fn main() {
+    let msg = Some(&quot;howdy&quot;);
+    
+    // Take a reference to the contained string
+    match msg {
+        Some(ref m) =&gt; println!(&quot;{}&quot;, *m),
+        None =&gt; ()
+    }
+    
+    // Remove the contained string, destroying the Option
+    let unwrapped_msg = match msg {
+        Some(m) =&gt; m,
+        None =&gt; &quot;default message&quot;
+    };
+}</span><pre id='rust-example-rendered-2' class='rust '>
+<span class='kw'>let</span> <span class='ident'>msg</span> <span class='op'>=</span> <span class='prelude-val'>Some</span>(<span class='string'>&quot;howdy&quot;</span>);
+
+<span class='comment'>// Take a reference to the contained string</span>
+<span class='kw'>match</span> <span class='ident'>msg</span> {
+    <span class='prelude-val'>Some</span>(<span class='kw-2'>ref</span> <span class='ident'>m</span>) <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{}&quot;</span>, <span class='op'>*</span><span class='ident'>m</span>),
+    <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> ()
+}
+
+<span class='comment'>// Remove the contained string, destroying the Option</span>
+<span class='kw'>let</span> <span class='ident'>unwrapped_msg</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>msg</span> {
+    <span class='prelude-val'>Some</span>(<span class='ident'>m</span>) <span class='op'>=&gt;</span> <span class='ident'>m</span>,
+    <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> <span class='string'>&quot;default message&quot;</span>
+};
+</pre>
+
+<p>Initialize a result to <code>None</code> before a loop:</p>
+<span id='rust-example-raw-3' class='rusttest'>fn main() {
+    enum Kingdom { Plant(uint, &amp;&#39;static str), Animal(uint, &amp;&#39;static str) }
+    
+    // A list of data to search through.
+    let all_the_big_things = [
+        Kingdom::Plant(250, &quot;redwood&quot;),
+        Kingdom::Plant(230, &quot;noble fir&quot;),
+        Kingdom::Plant(229, &quot;sugar pine&quot;),
+        Kingdom::Animal(25, &quot;blue whale&quot;),
+        Kingdom::Animal(19, &quot;fin whale&quot;),
+        Kingdom::Animal(15, &quot;north pacific right whale&quot;),
+    ];
+    
+    // We&#39;re going to search for the name of the biggest animal,
+    // but to start with we&#39;ve just got `None`.
+    let mut name_of_biggest_animal = None;
+    let mut size_of_biggest_animal = 0;
+    for big_thing in all_the_big_things.iter() {
+        match *big_thing {
+            Kingdom::Animal(size, name) if size &gt; size_of_biggest_animal =&gt; {
+                // Now we&#39;ve found the name of some big animal
+                size_of_biggest_animal = size;
+                name_of_biggest_animal = Some(name);
+            }
+            Kingdom::Animal(..) | Kingdom::Plant(..) =&gt; ()
+        }
+    }
+    
+    match name_of_biggest_animal {
+        Some(name) =&gt; println!(&quot;the biggest animal is {}&quot;, name),
+        None =&gt; println!(&quot;there are no animals :(&quot;)
+    }
+}</span><pre id='rust-example-rendered-3' class='rust '>
+<span class='kw'>enum</span> <span class='ident'>Kingdom</span> { <span class='ident'>Plant</span>(<span class='ident'>uint</span>, <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>), <span class='ident'>Animal</span>(<span class='ident'>uint</span>, <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span>) }
+
+<span class='comment'>// A list of data to search through.</span>
+<span class='kw'>let</span> <span class='ident'>all_the_big_things</span> <span class='op'>=</span> [
+    <span class='ident'>Kingdom</span>::<span class='ident'>Plant</span>(<span class='number'>250</span>, <span class='string'>&quot;redwood&quot;</span>),
+    <span class='ident'>Kingdom</span>::<span class='ident'>Plant</span>(<span class='number'>230</span>, <span class='string'>&quot;noble fir&quot;</span>),
+    <span class='ident'>Kingdom</span>::<span class='ident'>Plant</span>(<span class='number'>229</span>, <span class='string'>&quot;sugar pine&quot;</span>),
+    <span class='ident'>Kingdom</span>::<span class='ident'>Animal</span>(<span class='number'>25</span>, <span class='string'>&quot;blue whale&quot;</span>),
+    <span class='ident'>Kingdom</span>::<span class='ident'>Animal</span>(<span class='number'>19</span>, <span class='string'>&quot;fin whale&quot;</span>),
+    <span class='ident'>Kingdom</span>::<span class='ident'>Animal</span>(<span class='number'>15</span>, <span class='string'>&quot;north pacific right whale&quot;</span>),
+];
+
+<span class='comment'>// We&#39;re going to search for the name of the biggest animal,</span>
+<span class='comment'>// but to start with we&#39;ve just got `None`.</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>name_of_biggest_animal</span> <span class='op'>=</span> <span class='prelude-val'>None</span>;
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>size_of_biggest_animal</span> <span class='op'>=</span> <span class='number'>0</span>;
+<span class='kw'>for</span> <span class='ident'>big_thing</span> <span class='kw'>in</span> <span class='ident'>all_the_big_things</span>.<span class='ident'>iter</span>() {
+    <span class='kw'>match</span> <span class='op'>*</span><span class='ident'>big_thing</span> {
+        <span class='ident'>Kingdom</span>::<span class='ident'>Animal</span>(<span class='ident'>size</span>, <span class='ident'>name</span>) <span class='kw'>if</span> <span class='ident'>size</span> <span class='op'>&gt;</span> <span class='ident'>size_of_biggest_animal</span> <span class='op'>=&gt;</span> {
+            <span class='comment'>// Now we&#39;ve found the name of some big animal</span>
+            <span class='ident'>size_of_biggest_animal</span> <span class='op'>=</span> <span class='ident'>size</span>;
+            <span class='ident'>name_of_biggest_animal</span> <span class='op'>=</span> <span class='prelude-val'>Some</span>(<span class='ident'>name</span>);
+        }
+        <span class='ident'>Kingdom</span>::<span class='ident'>Animal</span>(..) <span class='op'>|</span> <span class='ident'>Kingdom</span>::<span class='ident'>Plant</span>(..) <span class='op'>=&gt;</span> ()
+    }
+}
+
+<span class='kw'>match</span> <span class='ident'>name_of_biggest_animal</span> {
+    <span class='prelude-val'>Some</span>(<span class='ident'>name</span>) <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;the biggest animal is {}&quot;</span>, <span class='ident'>name</span>),
+    <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;there are no animals :(&quot;</span>)
+}
+</pre>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Stable' title='Stable'></a><a class='struct' href='struct.IntoIter.html'
+                               title='std::option::IntoIter'>IntoIter</a></td>
+                        <td class='docblock short'><p>An iterator over the item contained inside an Option.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Stable' title='Stable'></a><a class='struct' href='struct.Iter.html'
+                               title='std::option::Iter'>Iter</a></td>
+                        <td class='docblock short'><p>An iterator over a reference of the contained item in an Option.</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Stable' title='Stable'></a><a class='struct' href='struct.IterMut.html'
+                               title='std::option::IterMut'>IterMut</a></td>
+                        <td class='docblock short'><p>An iterator over a mutable reference of the contained item in an Option.</p>
+</td>
+                    </tr>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Stable' title='Stable'></a><a class='enum' href='enum.Option.html'
+                               title='std::option::Option'>Option</a></td>
+                        <td class='docblock short'><p>The <code>Option</code> type.</p>
+</td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script src="../../playpen.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

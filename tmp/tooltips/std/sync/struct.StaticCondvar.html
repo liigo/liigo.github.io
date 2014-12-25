@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `StaticCondvar` struct in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, StaticCondvar">
+
+    <title>std::sync::StaticCondvar - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>std</a>::<wbr><a href='index.html'>sync</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='atomic/index.html' title='Atomic types'>atomic</a></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Arc.html' title='An atomically reference counted wrapper for shared state.'>Arc</a><a class='struct ' href='struct.Barrier.html' title='A barrier enables multiple tasks to synchronize the beginning of some computation.'>Barrier</a><a class='struct ' href='struct.Condvar.html' title='A Condition Variable'>Condvar</a><a class='struct ' href='struct.Future.html' title='A type encapsulating the result of a computation which may not be complete'>Future</a><a class='struct ' href='struct.Mutex.html' title='A mutual exclusion primitive useful for protecting shared data'>Mutex</a><a class='struct ' href='struct.MutexGuard.html' title='An RAII implementation of a &quot;scoped lock&quot; of a mutex. When this structure is dropped (falls out of scope), the lock will be unlocked.'>MutexGuard</a><a class='struct ' href='struct.Once.html' title='A synchronization primitive which can be used to run a one-time global initialization. Useful for one-time initialization for FFI or related functionality. This type can only be constructed with the `ONCE_INIT` value.'>Once</a><a class='struct ' href='struct.RWLock.html' title='A reader-writer lock'>RWLock</a><a class='struct ' href='struct.RWLockReadGuard.html' title='RAII structure used to release the shared read access of a lock when dropped.'>RWLockReadGuard</a><a class='struct ' href='struct.RWLockWriteGuard.html' title='RAII structure used to release the exclusive write access of a lock when dropped.'>RWLockWriteGuard</a><a class='struct ' href='struct.Semaphore.html' title='A counting, blocking, semaphore.'>Semaphore</a><a class='struct ' href='struct.SemaphoreGuard.html' title='An RAII guard which will release a resource acquired from a semaphore when dropped.'>SemaphoreGuard</a><a class='struct current' href='struct.StaticCondvar.html' title='Statically allocated condition variables.'>StaticCondvar</a><a class='struct ' href='struct.StaticMutex.html' title='The static mutex type is provided to allow for static allocation of mutexes.'>StaticMutex</a><a class='struct ' href='struct.StaticMutexGuard.html' title='An RAII implementation of a &quot;scoped lock&quot; of a static mutex. When this structure is dropped (falls out of scope), the lock will be unlocked.'>StaticMutexGuard</a><a class='struct ' href='struct.StaticRWLock.html' title='Structure representing a statically allocated RWLock.'>StaticRWLock</a><a class='struct ' href='struct.StaticRWLockReadGuard.html' title='RAII structure used to release the shared read access of a lock when dropped.'>StaticRWLockReadGuard</a><a class='struct ' href='struct.StaticRWLockWriteGuard.html' title='RAII structure used to release the exclusive write access of a lock when dropped.'>StaticRWLockWriteGuard</a><a class='struct ' href='struct.TaskPool.html' title='A task pool used to execute functions in parallel.'>TaskPool</a><a class='struct ' href='struct.Weak.html' title='A weak pointer to an `Arc`.'>Weak</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.AsMutexGuard.html' title='A trait for vaules which can be passed to the waiting methods of condition variables. This is implemented by the mutex guards in this module.'>AsMutexGuard</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>std</a>::<wbr><a href='index.html'>sync</a>::<wbr><a class='struct' href=''>StaticCondvar</a><wbr><a class='stability Experimental' title=''>Experimental</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-60931' href='../../src/std/sync/condvar.rs.html#73-76'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct StaticCondvar {
+    // some fields omitted
+}</pre><div class='docblock'><p>Statically allocated condition variables.</p>
+
+<p>This structure is identical to <code>Condvar</code> except that it is suitable for use
+in static initializers for other structures.</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><span id='rust-example-raw-0' class='rusttest'>fn main() {
+    use std::sync::{StaticCondvar, CONDVAR_INIT};
+    
+    static CVAR: StaticCondvar = CONDVAR_INIT;
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::{<span class='ident'>StaticCondvar</span>, <span class='ident'>CONDVAR_INIT</span>};
+
+<span class='kw'>static</span> <span class='ident'>CVAR</span>: <span class='ident'>StaticCondvar</span> <span class='op'>=</span> <span class='ident'>CONDVAR_INIT</span>;
+</pre>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><a class='stability Experimental' title='Experimental'></a><code>impl <a class='struct' href='../../std/sync/struct.StaticCondvar.html' title='std::sync::StaticCondvar'>StaticCondvar</a></code></h3><div class='impl-items'><h4 id='method.wait' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#method.wait' class='fnname'>wait</a>&lt;T: <a class='trait' href='../../std/sync/trait.AsMutexGuard.html' title='std::sync::AsMutexGuard'>AsMutexGuard</a>&gt;(&amp;'static self, mutex_guard: &amp;T)</code></h4>
+<div class='docblock'><p>Block the current thread until this condition variable receives a
+notification.</p>
+
+<p>See <code>Condvar::wait</code>.</p>
+</div><h4 id='method.notify_one' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#method.notify_one' class='fnname'>notify_one</a>(&amp;'static self)</code></h4>
+<div class='docblock'><p>Wake up one blocked thread on this condvar.</p>
+
+<p>See <code>Condvar::notify_one</code>.</p>
+</div><h4 id='method.notify_all' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#method.notify_all' class='fnname'>notify_all</a>(&amp;'static self)</code></h4>
+<div class='docblock'><p>Wake up all blocked threads on this condvar.</p>
+
+<p>See <code>Condvar::notify_all</code>.</p>
+</div><h4 id='method.destroy' class='method'><a class='stability Experimental' title='Experimental'></a><code>unsafe fn <a href='#method.destroy' class='fnname'>destroy</a>(&amp;'static self)</code></h4>
+<div class='docblock'><p>Deallocate all resources associated with this static condvar.</p>
+
+<p>This method is unsafe to call as there is no guarantee that there are no
+active users of the condvar, and this also doesn&#39;t prevent any future
+users of the condvar. This method is required to be called to not leak
+memory on all platforms.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script src="../../playpen.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

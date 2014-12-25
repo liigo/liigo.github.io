@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `OrdSliceExt` trait in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, OrdSliceExt">
+
+    <title>std::slice::OrdSliceExt - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../index.html'>std</a>::<wbr><a href='index.html'>slice</a></p><div class='block mod'><h2>Modules</h2><a class='mod ' href='bytes/index.html' title='Operations on `[u8]`.'>bytes</a><a class='mod ' href='raw/index.html' title='Unsafe operations'>raw</a></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Chunks.html' title='An iterator over a slice in (non-overlapping) chunks (`size` elements at a time).'>Chunks</a><a class='struct ' href='struct.ElementSwaps.html' title='An iterator that yields the element swaps needed to produce a sequence of all possible permutations for an indexed sequence of elements. Each permutation is only a single swap apart.'>ElementSwaps</a><a class='struct ' href='struct.Iter.html' title='Immutable slice iterator'>Iter</a><a class='struct ' href='struct.IterMut.html' title='Mutable slice iterator.'>IterMut</a><a class='struct ' href='struct.MutChunks.html' title='An iterator over a slice in (non-overlapping) mutable chunks (`size` elements at a time). When the slice len is not evenly divided by the chunk size, the last slice of the iteration will be the remainder.'>MutChunks</a><a class='struct ' href='struct.MutSplits.html' title='An iterator over the subslices of the vector which are separated by elements that match `pred`.'>MutSplits</a><a class='struct ' href='struct.Permutations.html' title='An iterator that uses `ElementSwaps` to iterate through all possible permutations of a vector.'>Permutations</a><a class='struct ' href='struct.Splits.html' title='An iterator over subslices separated by elements that match a predicate function.'>Splits</a><a class='struct ' href='struct.SplitsN.html' title='An iterator over subslices separated by elements that match a predicate function, splitting at most a fixed number of times.'>SplitsN</a><a class='struct ' href='struct.Windows.html' title='An iterator over overlapping subslices of length `size`.'>Windows</a></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='enum.BinarySearchResult.html' title='The result of calling `binary_search`.'>BinarySearchResult</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.AsSlice.html' title='Data that is viewable as a slice.'>AsSlice</a><a class='trait ' href='trait.BoxedSliceExt.html' title='Extension methods for boxed slices.'>BoxedSliceExt</a><a class='trait ' href='trait.CloneSliceExt.html' title='Allocating extension methods for slices containing `Clone` elements.'>CloneSliceExt</a><a class='trait ' href='trait.ImmutableIntSlice.html' title='Extension methods for immutable slices containing integers.'>ImmutableIntSlice</a><a class='trait ' href='trait.MutableIntSlice.html' title='Extension methods for mutable slices containing integers.'>MutableIntSlice</a><a class='trait current' href='trait.OrdSliceExt.html' title='Allocating extension methods for slices on Ord values.'>OrdSliceExt</a><a class='trait ' href='trait.PartialEqSliceExt.html' title='Extension methods for slices containing `PartialEq` elements.'>PartialEqSliceExt</a><a class='trait ' href='trait.SliceExt.html' title='Allocating extension methods for slices.'>SliceExt</a><a class='trait ' href='trait.VectorVector.html' title=''>VectorVector</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.from_raw_buf.html' title='Forms a slice from a pointer and a length.'>from_raw_buf</a><a class='fn ' href='fn.from_raw_mut_buf.html' title='Performs the same functionality as `from_raw_buf`, except that a mutable slice is returned.'>from_raw_mut_buf</a><a class='fn ' href='fn.mut_ref_slice.html' title='Converts a pointer to A into a slice of length 1 (without copying).'>mut_ref_slice</a><a class='fn ' href='fn.ref_slice.html' title='Converts a pointer to A into a slice of length 1 (without copying).'>ref_slice</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>std</a>::<wbr><a href='index.html'>slice</a>::<wbr><a class='trait' href=''>OrdSliceExt</a><wbr><a class='stability Experimental' title='likely to merge with other traits'>Experimental</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-25859' href='../../collections/slice/trait.OrdSliceExt.html?gotosrc=25859'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait OrdSliceExt&lt;T&gt; for <a class='trait' href='../../std/kinds/trait.Sized.html' title='std::kinds::Sized'>Sized</a>? {
+    fn <a href='#tymethod.sort' class='fnname'>sort</a>(&amp;mut self);
+    fn <a href='#tymethod.binary_search_elem' class='fnname'>binary_search_elem</a>(&amp;self, x: &amp;T) -&gt; <a class='enum' href='../../std/slice/enum.BinarySearchResult.html' title='std::slice::BinarySearchResult'>BinarySearchResult</a>;
+    fn <a href='#tymethod.next_permutation' class='fnname'>next_permutation</a>(&amp;mut self) -&gt; <a href='../primitive.bool.html'>bool</a>;
+    fn <a href='#tymethod.prev_permutation' class='fnname'>prev_permutation</a>(&amp;mut self) -&gt; <a href='../primitive.bool.html'>bool</a>;
+}</pre><div class='docblock'><p>Allocating extension methods for slices on Ord values.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.sort' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.sort' class='fnname'>sort</a>(&amp;mut self)</code></h3><div class='docblock'><p>Sorts the slice, in place.</p>
+
+<p>This is equivalent to <code>self.sort_by(|a, b| a.cmp(b))</code>.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1><span id='rust-example-raw-0' class='rusttest'>fn main() {
+    let mut v = [-5i, 4, 1, -3, 2];
+    
+    v.sort();
+    assert!(v == [-5i, -3, 1, 2, 4]);
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>v</span> <span class='op'>=</span> [<span class='op'>-</span><span class='number'>5i</span>, <span class='number'>4</span>, <span class='number'>1</span>, <span class='op'>-</span><span class='number'>3</span>, <span class='number'>2</span>];
+
+<span class='ident'>v</span>.<span class='ident'>sort</span>();
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>v</span> <span class='op'>==</span> [<span class='op'>-</span><span class='number'>5i</span>, <span class='op'>-</span><span class='number'>3</span>, <span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>4</span>]);
+</pre>
+</div><h3 id='tymethod.binary_search_elem' class='method'><a class='stability Unstable' title='Unstable: name likely to change'></a><code>fn <a href='#tymethod.binary_search_elem' class='fnname'>binary_search_elem</a>(&amp;self, x: &amp;T) -&gt; <a class='enum' href='../../std/slice/enum.BinarySearchResult.html' title='std::slice::BinarySearchResult'>BinarySearchResult</a></code></h3><div class='docblock'><p>Binary search a sorted slice for a given element.</p>
+
+<p>If the value is found then <code>Found</code> is returned, containing the
+index of the matching element; if the value is not found then
+<code>NotFound</code> is returned, containing the index where a matching
+element could be inserted while maintaining sorted order.</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1>
+<p>Looks up a series of four elements. The first is found, with a
+uniquely determined position; the second and third are not
+found; the fourth could match any position in <code>[1,4]</code>.</p>
+<span id='rust-example-raw-0' class='rusttest'>fn main() {
+    use std::slice::BinarySearchResult::{Found, NotFound};
+    let s = [0i, 1, 1, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+    let s = s.as_slice();
+    
+    assert_eq!(s.binary_search_elem(&amp;13),  Found(9));
+    assert_eq!(s.binary_search_elem(&amp;4),   NotFound(7));
+    assert_eq!(s.binary_search_elem(&amp;100), NotFound(13));
+    let r = s.binary_search_elem(&amp;1);
+    assert!(match r { Found(1...4) =&gt; true, _ =&gt; false, });
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>slice</span>::<span class='ident'>BinarySearchResult</span>::{<span class='ident'>Found</span>, <span class='ident'>NotFound</span>};
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> [<span class='number'>0i</span>, <span class='number'>1</span>, <span class='number'>1</span>, <span class='number'>1</span>, <span class='number'>1</span>, <span class='number'>2</span>, <span class='number'>3</span>, <span class='number'>5</span>, <span class='number'>8</span>, <span class='number'>13</span>, <span class='number'>21</span>, <span class='number'>34</span>, <span class='number'>55</span>];
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>s</span>.<span class='ident'>as_slice</span>();
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>binary_search_elem</span>(<span class='kw-2'>&amp;</span><span class='number'>13</span>),  <span class='ident'>Found</span>(<span class='number'>9</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>binary_search_elem</span>(<span class='kw-2'>&amp;</span><span class='number'>4</span>),   <span class='ident'>NotFound</span>(<span class='number'>7</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>binary_search_elem</span>(<span class='kw-2'>&amp;</span><span class='number'>100</span>), <span class='ident'>NotFound</span>(<span class='number'>13</span>));
+<span class='kw'>let</span> <span class='ident'>r</span> <span class='op'>=</span> <span class='ident'>s</span>.<span class='ident'>binary_search_elem</span>(<span class='kw-2'>&amp;</span><span class='number'>1</span>);
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='kw'>match</span> <span class='ident'>r</span> { <span class='ident'>Found</span>(<span class='number'>1</span>...<span class='number'>4</span>) <span class='op'>=&gt;</span> <span class='boolval'>true</span>, _ <span class='op'>=&gt;</span> <span class='boolval'>false</span>, });
+</pre>
+</div><h3 id='tymethod.next_permutation' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.next_permutation' class='fnname'>next_permutation</a>(&amp;mut self) -&gt; <a href='../primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Mutates the slice to the next lexicographic permutation.</p>
+
+<p>Returns <code>true</code> if successful and <code>false</code> if the slice is at the
+last-ordered permutation.</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><span id='rust-example-raw-0' class='rusttest'>fn main() {
+    let v: &amp;mut [_] = &amp;mut [0i, 1, 2];
+    v.next_permutation();
+    let b: &amp;mut [_] = &amp;mut [0i, 2, 1];
+    assert!(v == b);
+    v.next_permutation();
+    let b: &amp;mut [_] = &amp;mut [1i, 0, 2];
+    assert!(v == b);
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>let</span> <span class='ident'>v</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [_] <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>0i</span>, <span class='number'>1</span>, <span class='number'>2</span>];
+<span class='ident'>v</span>.<span class='ident'>next_permutation</span>();
+<span class='kw'>let</span> <span class='ident'>b</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [_] <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>0i</span>, <span class='number'>2</span>, <span class='number'>1</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>v</span> <span class='op'>==</span> <span class='ident'>b</span>);
+<span class='ident'>v</span>.<span class='ident'>next_permutation</span>();
+<span class='kw'>let</span> <span class='ident'>b</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [_] <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>1i</span>, <span class='number'>0</span>, <span class='number'>2</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>v</span> <span class='op'>==</span> <span class='ident'>b</span>);
+</pre>
+</div><h3 id='tymethod.prev_permutation' class='method'><a class='stability Experimental' title='Experimental'></a><code>fn <a href='#tymethod.prev_permutation' class='fnname'>prev_permutation</a>(&amp;mut self) -&gt; <a href='../primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>Mutates the slice to the previous lexicographic permutation.</p>
+
+<p>Returns <code>true</code> if successful and <code>false</code> if the slice is at the
+first-ordered permutation.</p>
+
+<h1 id="example" class='section-header'><a
+                           href="#example">Example</a></h1><span id='rust-example-raw-0' class='rusttest'>fn main() {
+    let v: &amp;mut [_] = &amp;mut [1i, 0, 2];
+    v.prev_permutation();
+    let b: &amp;mut [_] = &amp;mut [0i, 2, 1];
+    assert!(v == b);
+    v.prev_permutation();
+    let b: &amp;mut [_] = &amp;mut [0i, 1, 2];
+    assert!(v == b);
+}</span><pre id='rust-example-rendered-0' class='rust '>
+<span class='kw'>let</span> <span class='ident'>v</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [_] <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>1i</span>, <span class='number'>0</span>, <span class='number'>2</span>];
+<span class='ident'>v</span>.<span class='ident'>prev_permutation</span>();
+<span class='kw'>let</span> <span class='ident'>b</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [_] <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>0i</span>, <span class='number'>2</span>, <span class='number'>1</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>v</span> <span class='op'>==</span> <span class='ident'>b</span>);
+<span class='ident'>v</span>.<span class='ident'>prev_permutation</span>();
+<span class='kw'>let</span> <span class='ident'>b</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [_] <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='number'>0i</span>, <span class='number'>1</span>, <span class='number'>2</span>];
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>v</span> <span class='op'>==</span> <span class='ident'>b</span>);
+</pre>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><a class='stability Experimental' title='Experimental: likely to merge with other traits'></a><code>impl&lt;T: <a class='trait' href='../../std/cmp/trait.Ord.html' title='std::cmp::Ord'>Ord</a>&lt;T&gt;&gt; <a class='trait' href='../../std/slice/trait.OrdSliceExt.html' title='std::slice::OrdSliceExt'>OrdSliceExt</a>&lt;T&gt; for <a href='../primitive.slice.html'>[T]</a></code></li>
+</ul><script type="text/javascript" async
+                              src="../../implementors/collections/slice/trait.OrdSliceExt.js">
+                      </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script src="../../playpen.js"></script>
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

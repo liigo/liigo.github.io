@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `walk_dir` fn in crate `std`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, walk_dir">
+
+    <title>std::io::fs::walk_dir - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../../std/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../../index.html'>std</a>::<wbr><a href='../index.html'>io</a>::<wbr><a href='index.html'>fs</a></p><div class='block struct'><h2>Structs</h2><a class='struct ' href='struct.Directories.html' title='An iterator that walks over a directory'>Directories</a><a class='struct ' href='struct.File.html' title='Unconstrained file access type that exposes read and write operations'>File</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='trait.PathExtensions.html' title='Utility methods for paths.'>PathExtensions</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='fn.change_file_times.html' title='Changes the timestamps for a file&#39;s last modification and access time. The file at the path specified will have its last access time set to `atime` and its modification time set to `mtime`. The times specified should be in milliseconds.'>change_file_times</a><a class='fn ' href='fn.chmod.html' title='Changes the permission mode bits found on a file or a directory. This function takes a mask from the `io` module'>chmod</a><a class='fn ' href='fn.chown.html' title='Change the user and group owners of a file at the specified path.'>chown</a><a class='fn ' href='fn.copy.html' title='Copies the contents of one file to another. This function will also copy the permission bits of the original file to the destination file.'>copy</a><a class='fn ' href='fn.link.html' title='Creates a new hard link on the filesystem. The `dst` path will be a link pointing to the `src` path. Note that systems often require these two paths to both be located on the same filesystem.'>link</a><a class='fn ' href='fn.lstat.html' title='Perform the same operation as the `stat` function, except that this function does not traverse through symlinks. This will return information about the symlink file instead of the file that it points to.'>lstat</a><a class='fn ' href='fn.mkdir.html' title='Create a new, empty directory at the provided path'>mkdir</a><a class='fn ' href='fn.mkdir_recursive.html' title='Recursively create a directory and all of its parent components if they are missing.'>mkdir_recursive</a><a class='fn ' href='fn.readdir.html' title='Retrieve a vector containing all entries within a provided directory'>readdir</a><a class='fn ' href='fn.readlink.html' title='Reads a symlink, returning the file that the symlink points to.'>readlink</a><a class='fn ' href='fn.rename.html' title='Rename a file or directory to a new name.'>rename</a><a class='fn ' href='fn.rmdir.html' title='Remove an existing, empty directory'>rmdir</a><a class='fn ' href='fn.rmdir_recursive.html' title='Removes a directory at this path, after removing all its contents. Use carefully!'>rmdir_recursive</a><a class='fn ' href='fn.stat.html' title='Given a path, query the file system to get information about a file, directory, etc. This function will traverse symlinks to query information about the destination file.'>stat</a><a class='fn ' href='fn.symlink.html' title='Creates a new symbolic link on the filesystem. The `dst` path will be a symlink pointing to the `src` path.'>symlink</a><a class='fn ' href='fn.unlink.html' title='Unlink a file from the underlying filesystem.'>unlink</a><a class='fn current' href='fn.walk_dir.html' title='Returns an iterator that will recursively walk the directory structure rooted at `path`. The path given will not be iterated over, and this will perform iteration in some top-down order.  The contents of unreadable subdirectories are ignored.'>walk_dir</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>std</a>::<wbr><a href='../index.html'>io</a>::<wbr><a href='index.html'>fs</a>::<wbr><a class='fn' href=''>walk_dir</a><wbr><a class='stability Experimental' title=''>Experimental</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-16127' href='../../../src/std/io/fs.rs.html#553-558'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn walk_dir(path: &amp;<a class='struct' href='../../../std/path/posix/struct.Path.html' title='std::path::posix::Path'>Path</a>) -&gt; <a class='type' href='../../../std/io/type.IoResult.html' title='std::io::IoResult'>IoResult</a>&lt;<a class='struct' href='../../../std/io/fs/struct.Directories.html' title='std::io::fs::Directories'>Directories</a>&gt;</pre><div class='docblock'><p>Returns an iterator that will recursively walk the directory structure
+rooted at <code>path</code>. The path given will not be iterated over, and this will
+perform iteration in some top-down order.  The contents of unreadable
+subdirectories are ignored.</p>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "std";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script src="../../../playpen.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

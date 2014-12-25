@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `order` mod in crate `core`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, order">
+
+    <title>core::iter::order - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    <link rel="shortcut icon" href="http://www.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        <a href='../../../core/index.html'><img src='http://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='' width='100'></a>
+        <p class='location'><a href='../../index.html'>core</a>::<wbr><a href='../index.html'>iter</a></p><div class='block mod'><h2>Modules</h2><a class='mod current' href='../order/index.html' title='Functions for lexicographical ordering of sequences.'>order</a></div><div class='block struct'><h2>Structs</h2><a class='struct ' href='../struct.ByRef.html' title='A mutable reference to an iterator'>ByRef</a><a class='struct ' href='../struct.Chain.html' title='An iterator that strings two iterators together'>Chain</a><a class='struct ' href='../struct.Cloned.html' title='An iterator that clones the elements of an underlying iterator'>Cloned</a><a class='struct ' href='../struct.Counter.html' title='An infinite iterator starting at `start` and advancing by `step` with each iteration'>Counter</a><a class='struct ' href='../struct.Cycle.html' title='An iterator that repeats endlessly'>Cycle</a><a class='struct ' href='../struct.Enumerate.html' title='An iterator that yields the current count and the element during iteration'>Enumerate</a><a class='struct ' href='../struct.Filter.html' title='An iterator that filters the elements of `iter` with `predicate`'>Filter</a><a class='struct ' href='../struct.FilterMap.html' title='An iterator that uses `f` to both filter and map elements from `iter`'>FilterMap</a><a class='struct ' href='../struct.FlatMap.html' title='An iterator that maps each element to an iterator, and yields the elements of the produced iterators '>FlatMap</a><a class='struct ' href='../struct.Fuse.html' title='An iterator that yields `None` forever after the underlying iterator yields `None` once.'>Fuse</a><a class='struct ' href='../struct.Inspect.html' title='An iterator that calls a function with a reference to each element before yielding it.'>Inspect</a><a class='struct ' href='../struct.Map.html' title='An iterator that maps the values of `iter` with `f`'>Map</a><a class='struct ' href='../struct.Peekable.html' title='An iterator with a `peek()` that returns an optional reference to the next element.'>Peekable</a><a class='struct ' href='../struct.Range.html' title='An iterator over the range [start, stop)'>Range</a><a class='struct ' href='../struct.RangeInclusive.html' title='An iterator over the range [start, stop]'>RangeInclusive</a><a class='struct ' href='../struct.RangeStep.html' title='An iterator over the range [start, stop) by `step`. It handles overflow by stopping.'>RangeStep</a><a class='struct ' href='../struct.RangeStepInclusive.html' title='An iterator over the range [start, stop] by `step`. It handles overflow by stopping.'>RangeStepInclusive</a><a class='struct ' href='../struct.Repeat.html' title='An iterator that repeats an element endlessly'>Repeat</a><a class='struct ' href='../struct.Rev.html' title='An double-ended iterator with the direction inverted'>Rev</a><a class='struct ' href='../struct.Scan.html' title='An iterator to maintain state while iterating another iterator'>Scan</a><a class='struct ' href='../struct.Skip.html' title='An iterator that skips over `n` elements of `iter`.'>Skip</a><a class='struct ' href='../struct.SkipWhile.html' title='An iterator that rejects elements while `predicate` is true'>SkipWhile</a><a class='struct ' href='../struct.Take.html' title='An iterator that only iterates over the first `n` iterations of `iter`.'>Take</a><a class='struct ' href='../struct.TakeWhile.html' title='An iterator that only accepts elements while `predicate` is true'>TakeWhile</a><a class='struct ' href='../struct.Unfold.html' title='An iterator that passes mutable state to a closure and yields the result.'>Unfold</a><a class='struct ' href='../struct.Zip.html' title='An iterator that iterates two other iterators simultaneously'>Zip</a></div><div class='block enum'><h2>Enums</h2><a class='enum ' href='../enum.MinMaxResult.html' title='`MinMaxResult` is an enum returned by `min_max`. See `IteratorOrdExt::min_max` for more detail.'>MinMaxResult</a></div><div class='block trait'><h2>Traits</h2><a class='trait ' href='../trait.AdditiveIterator.html' title='A trait for iterators over elements which can be added together'>AdditiveIterator</a><a class='trait ' href='../trait.CloneIteratorExt.html' title='An extension trait for cloneable iterators.'>CloneIteratorExt</a><a class='trait ' href='../trait.DoubleEndedIterator.html' title='A range iterator able to yield elements from both ends'>DoubleEndedIterator</a><a class='trait ' href='../trait.DoubleEndedIteratorExt.html' title='Extension methods for double-ended iterators.'>DoubleEndedIteratorExt</a><a class='trait ' href='../trait.ExactSizeIterator.html' title='An iterator that knows its exact length'>ExactSizeIterator</a><a class='trait ' href='../trait.Extend.html' title='A type growable from an `Iterator` implementation'>Extend</a><a class='trait ' href='../trait.FromIterator.html' title='Conversion from an `Iterator`'>FromIterator</a><a class='trait ' href='../trait.Iterator.html' title='An interface for dealing with &quot;external iterators&quot;. These types of iterators can be resumed at any time as all state is stored internally as opposed to being located on the call stack.'>Iterator</a><a class='trait ' href='../trait.IteratorCloneExt.html' title='A trait for iterators that contain cloneable elements'>IteratorCloneExt</a><a class='trait ' href='../trait.IteratorExt.html' title='An extension trait providing numerous methods applicable to all iterators.'>IteratorExt</a><a class='trait ' href='../trait.IteratorOrdExt.html' title='A trait for iterators over elements which can be compared to one another.'>IteratorOrdExt</a><a class='trait ' href='../trait.MultiplicativeIterator.html' title='A trait for iterators over elements which can be multiplied together.'>MultiplicativeIterator</a><a class='trait ' href='../trait.MutableDoubleEndedIterator.html' title='A double-ended iterator yielding mutable references'>MutableDoubleEndedIterator</a><a class='trait ' href='../trait.RandomAccessIterator.html' title='An object implementing random access indexing by `uint`'>RandomAccessIterator</a><a class='trait ' href='../trait.Step.html' title='The `Step` trait identifies objects which can be stepped over in both directions. The `steps_between` function provides a way to compare two Step objects (it could be provided using `step()` and `Ord`, but the implementation would be so inefficient as to be useless).'>Step</a></div><div class='block fn'><h2>Functions</h2><a class='fn ' href='../fn.count.html' title='Creates a new counter with the specified start/step'>count</a><a class='fn ' href='../fn.iterate.html' title='Create a new iterator that produces an infinite sequence of repeated applications of the given function `f`.'>iterate</a><a class='fn ' href='../fn.range.html' title='Returns an iterator over the given range [start, stop) (that is, starting at start (inclusive), and ending at stop (exclusive)).'>range</a><a class='fn ' href='../fn.range_inclusive.html' title='Return an iterator over the range [start, stop]'>range_inclusive</a><a class='fn ' href='../fn.range_step.html' title='Return an iterator over the range [start, stop) by `step`. It handles overflow by stopping.'>range_step</a><a class='fn ' href='../fn.range_step_inclusive.html' title='Return an iterator over the range [start, stop] by `step`. It handles overflow by stopping.'>range_step_inclusive</a><a class='fn ' href='../fn.repeat.html' title='Create a new iterator that endlessly repeats the element `elt`.'>repeat</a></div>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>core</a>::<wbr><a href='../index.html'>iter</a>::<wbr><a class='mod' href=''>order</a><wbr><a class='stability Experimental' title='likely to be removed after cmp reform'>Experimental</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="collapse-all" href="#">[-]
+            </a>&nbsp;<a id="expand-all" href="#">[+]</a>
+        </span><a id='src-53382' href='../../../src/core/iter.rs.html#2694-2821'>[src]</a></span></h1>
+<div class='docblock'><p>Functions for lexicographical ordering of sequences.</p>
+
+<p>Lexicographical ordering through <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code> requires
+that the elements implement both <code>PartialEq</code> and <code>PartialOrd</code>.</p>
+
+<p>If two sequences are equal up until the point where one ends,
+the shorter sequence compares less.</p>
+</div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.cmp.html'
+                               title='core::iter::order::cmp'>cmp</a></td>
+                        <td class='docblock short'><p>Order <code>a</code> and <code>b</code> lexicographically using <code>Ord</code></p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.eq.html'
+                               title='core::iter::order::eq'>eq</a></td>
+                        <td class='docblock short'><p>Compare <code>a</code> and <code>b</code> for equality (Using partial equality, <code>PartialEq</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.equals.html'
+                               title='core::iter::order::equals'>equals</a></td>
+                        <td class='docblock short'><p>Compare <code>a</code> and <code>b</code> for equality using <code>Eq</code></p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.ge.html'
+                               title='core::iter::order::ge'>ge</a></td>
+                        <td class='docblock short'><p>Return <code>a</code> &gt;= <code>b</code> lexicographically (Using partial order, <code>PartialOrd</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.gt.html'
+                               title='core::iter::order::gt'>gt</a></td>
+                        <td class='docblock short'><p>Return <code>a</code> &gt; <code>b</code> lexicographically (Using partial order, <code>PartialOrd</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.le.html'
+                               title='core::iter::order::le'>le</a></td>
+                        <td class='docblock short'><p>Return <code>a</code> &lt;= <code>b</code> lexicographically (Using partial order, <code>PartialOrd</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.lt.html'
+                               title='core::iter::order::lt'>lt</a></td>
+                        <td class='docblock short'><p>Return <code>a</code> &lt; <code>b</code> lexicographically (Using partial order, <code>PartialOrd</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.ne.html'
+                               title='core::iter::order::ne'>ne</a></td>
+                        <td class='docblock short'><p>Compare <code>a</code> and <code>b</code> for nonequality (Using partial equality, <code>PartialEq</code>)</p>
+</td>
+                    </tr>
+                
+                    <tr>
+                        <td><a class='stability Experimental' title='Experimental: likely to be removed after cmp reform'></a><a class='fn' href='fn.partial_cmp.html'
+                               title='core::iter::order::partial_cmp'>partial_cmp</a></td>
+                        <td class='docblock short'><p>Order <code>a</code> and <code>b</code> lexicographically using <code>PartialOrd</code></p>
+</td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "core";
+        window.playgroundUrl = "http://play.rust-lang.org/";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script src="../../../playpen.js"></script>
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>
