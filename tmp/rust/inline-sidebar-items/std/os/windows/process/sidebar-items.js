@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["ExitStatusExt","Windows-specific extensions to `std::process::ExitStatus`"]]});
